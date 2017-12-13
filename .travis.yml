@@ -8,7 +8,8 @@ addons:
     token: $SONAR_TOKEN
     github_token: $GITHUB_TOKEN
 script:
-  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
+  -./indentation.sh 
+  -build-wrapper-linux-x86-64 --out-dir bw-output make
   - sonar-scanner
 cache:
   directories:
