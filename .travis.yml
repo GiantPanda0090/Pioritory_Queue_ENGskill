@@ -1,7 +1,8 @@
 dist: trusty
 sudo: required
 language: c
-
+compiler:
+  - gcc
 addons:
   sonarcloud:
     organization: "giantpanda0090-github"

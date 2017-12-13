@@ -1,205 +1,199 @@
-Wed Dec 13 18:45:22 2017: build-wrapper, version 5.0 (linux-x86)
-Wed Dec 13 18:45:22 2017: System name: Linux Nodename: lqschool-Latitude-E7470 Release: 4.10.0-40-generic Version: #44~16.04.1-Ubuntu SMP Thu Nov 9 15:37:44 UTC 2017 Machine: x86_64
-Wed Dec 13 18:45:22 2017: socket path: /tmp/build-wrapper-socket.Bm9JlJ
-Wed Dec 13 18:45:22 2017: dynamic library found: /home/lqschool/git/pior_Q/libinterceptor-i686.so
-Wed Dec 13 18:45:22 2017: dynamic library found: /home/lqschool/git/pior_Q/libinterceptor-x86_64.so
-Wed Dec 13 18:45:22 2017: command executed as: <./build-wrapper-linux-x86-64>
-Wed Dec 13 18:45:22 2017: command line received: <make>
-Wed Dec 13 18:45:22 2017: env 0: <XDG_VTNR=7>
-Wed Dec 13 18:45:22 2017: env 1: <LC_PAPER=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 2: <LC_ADDRESS=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 3: <XDG_SESSION_ID=c2>
-Wed Dec 13 18:45:22 2017: env 4: <XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/lqschool>
-Wed Dec 13 18:45:22 2017: env 5: <LC_MONETARY=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 6: <CLUTTER_IM_MODULE=xim>
-Wed Dec 13 18:45:22 2017: env 7: <SESSION=ubuntu>
-Wed Dec 13 18:45:22 2017: env 8: <GPG_AGENT_INFO=/home/lqschool/.gnupg/S.gpg-agent:0:1>
-Wed Dec 13 18:45:22 2017: env 9: <TERM=xterm-256color>
-Wed Dec 13 18:45:22 2017: env 10: <VTE_VERSION=4205>
-Wed Dec 13 18:45:22 2017: env 11: <SHELL=/bin/bash>
-Wed Dec 13 18:45:22 2017: env 12: <QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1>
-Wed Dec 13 18:45:22 2017: env 13: <WINDOWID=60817418>
-Wed Dec 13 18:45:22 2017: env 14: <LC_NUMERIC=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 15: <UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/2460>
-Wed Dec 13 18:45:22 2017: env 16: <GNOME_KEYRING_CONTROL=>
-Wed Dec 13 18:45:22 2017: env 17: <GTK_MODULES=gail:atk-bridge:unity-gtk-module>
-Wed Dec 13 18:45:22 2017: env 18: <USER=lqschool>
-Wed Dec 13 18:45:22 2017: env 19: <LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:>
-Wed Dec 13 18:45:22 2017: env 20: <LC_TELEPHONE=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 21: <QT_ACCESSIBILITY=1>
-Wed Dec 13 18:45:22 2017: env 22: <XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0>
-Wed Dec 13 18:45:22 2017: env 23: <XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0>
-Wed Dec 13 18:45:22 2017: env 24: <SSH_AUTH_SOCK=/run/user/1000/keyring/ssh>
-Wed Dec 13 18:45:22 2017: env 25: <DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path>
-Wed Dec 13 18:45:22 2017: env 26: <XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg>
-Wed Dec 13 18:45:22 2017: env 27: <DESKTOP_SESSION=ubuntu>
-Wed Dec 13 18:45:22 2017: env 28: <PATH=/home/lqschool/.cargo/bin:/home/lqschool/bin:/home/lqschool/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin>
-Wed Dec 13 18:45:22 2017: env 29: <QT_IM_MODULE=ibus>
-Wed Dec 13 18:45:22 2017: env 30: <QT_QPA_PLATFORMTHEME=appmenu-qt5>
-Wed Dec 13 18:45:22 2017: env 31: <LC_IDENTIFICATION=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 32: <XDG_SESSION_TYPE=x11>
-Wed Dec 13 18:45:22 2017: env 33: <PWD=/home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: env 34: <JOB=unity-settings-daemon>
-Wed Dec 13 18:45:22 2017: env 35: <XMODIFIERS=@im=ibus>
-Wed Dec 13 18:45:22 2017: env 36: <GNOME_KEYRING_PID=>
-Wed Dec 13 18:45:22 2017: env 37: <LANG=en_US.UTF-8>
-Wed Dec 13 18:45:22 2017: env 38: <GDM_LANG=en_US>
-Wed Dec 13 18:45:22 2017: env 39: <MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path>
-Wed Dec 13 18:45:22 2017: env 40: <LC_MEASUREMENT=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 41: <COMPIZ_CONFIG_PROFILE=ubuntu>
-Wed Dec 13 18:45:22 2017: env 42: <IM_CONFIG_PHASE=1>
-Wed Dec 13 18:45:22 2017: env 43: <GDMSESSION=ubuntu>
-Wed Dec 13 18:45:22 2017: env 44: <SESSIONTYPE=gnome-session>
-Wed Dec 13 18:45:22 2017: env 45: <GTK2_MODULES=overlay-scrollbar>
-Wed Dec 13 18:45:22 2017: env 46: <SHLVL=1>
-Wed Dec 13 18:45:22 2017: env 47: <HOME=/home/lqschool>
-Wed Dec 13 18:45:22 2017: env 48: <XDG_SEAT=seat0>
-Wed Dec 13 18:45:22 2017: env 49: <LANGUAGE=en_US>
-Wed Dec 13 18:45:22 2017: env 50: <GNOME_DESKTOP_SESSION_ID=this-is-deprecated>
-Wed Dec 13 18:45:22 2017: env 51: <UPSTART_INSTANCE=>
-Wed Dec 13 18:45:22 2017: env 52: <UPSTART_EVENTS=xsession started>
-Wed Dec 13 18:45:22 2017: env 53: <XDG_SESSION_DESKTOP=ubuntu>
-Wed Dec 13 18:45:22 2017: env 54: <LOGNAME=lqschool>
-Wed Dec 13 18:45:22 2017: env 55: <COMPIZ_BIN_PATH=/usr/bin/>
-Wed Dec 13 18:45:22 2017: env 56: <DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-sq701DYa01>
-Wed Dec 13 18:45:22 2017: env 57: <XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop>
-Wed Dec 13 18:45:22 2017: env 58: <QT4_IM_MODULE=xim>
-Wed Dec 13 18:45:22 2017: env 59: <LESSOPEN=| /usr/bin/lesspipe %s>
-Wed Dec 13 18:45:22 2017: env 60: <INSTANCE=>
-Wed Dec 13 18:45:22 2017: env 61: <UPSTART_JOB=unity7>
-Wed Dec 13 18:45:22 2017: env 62: <XDG_RUNTIME_DIR=/run/user/1000>
-Wed Dec 13 18:45:22 2017: env 63: <DISPLAY=:0>
-Wed Dec 13 18:45:22 2017: env 64: <XDG_CURRENT_DESKTOP=Unity>
-Wed Dec 13 18:45:22 2017: env 65: <GTK_IM_MODULE=ibus>
-Wed Dec 13 18:45:22 2017: env 66: <LESSCLOSE=/usr/bin/lesspipe %s %s>
-Wed Dec 13 18:45:22 2017: env 67: <LC_TIME=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 68: <LC_NAME=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: env 69: <XAUTHORITY=/home/lqschool/.Xauthority>
-Wed Dec 13 18:45:22 2017: env 70: <OLDPWD=/home/lqschool/git/pior_Q/build-wrapper-linux-x86>
-Wed Dec 13 18:45:22 2017: env 71: <_=./build-wrapper-linux-x86-64>
-Wed Dec 13 18:45:22 2017: executing: <make>
-Wed Dec 13 18:45:22 2017: initializing json file
-Wed Dec 13 18:45:22 2017: process created with pid: 710
-Wed Dec 13 18:45:22 2017: parent pid: 709
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </home/lqschool/git/pior_Q/build-wrapper-linux-x86-64>
-Wed Dec 13 18:45:22 2017: argv[0]: <./build-wrapper-linux-x86-64>
-Wed Dec 13 18:45:22 2017: argv[1]: <-c>
-Wed Dec 13 18:45:22 2017: argv[2]: <>
-Wed Dec 13 18:45:22 2017: argv[3]: <make>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 710
-Wed Dec 13 18:45:22 2017: process created with pid: 711
-Wed Dec 13 18:45:22 2017: parent pid: 710
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </usr/bin/make>
-Wed Dec 13 18:45:22 2017: argv[0]: <make>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 711
-Wed Dec 13 18:45:22 2017: process created with pid: 712
-Wed Dec 13 18:45:22 2017: parent pid: 711
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </bin/rm>
-Wed Dec 13 18:45:22 2017: argv[0]: <rm>
-Wed Dec 13 18:45:22 2017: argv[1]: <-rf>
-Wed Dec 13 18:45:22 2017: argv[2]: <build>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 712
-Wed Dec 13 18:45:22 2017: process created with pid: 713
-Wed Dec 13 18:45:22 2017: parent pid: 711
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </bin/mkdir>
-Wed Dec 13 18:45:22 2017: argv[0]: <mkdir>
-Wed Dec 13 18:45:22 2017: argv[1]: <build>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 713
-Wed Dec 13 18:45:22 2017: process created with pid: 714
-Wed Dec 13 18:45:22 2017: parent pid: 711
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </usr/bin/gcc-5>
-Wed Dec 13 18:45:22 2017: argv[0]: <gcc>
-Wed Dec 13 18:45:22 2017: argv[1]: <random.c>
-Wed Dec 13 18:45:22 2017: argv[2]: <-o>
-Wed Dec 13 18:45:22 2017: argv[3]: <build/random>
-Wed Dec 13 18:45:22 2017: envp[0]: <SQ_WRAPPER_SOCKET=/tmp/build-wrapper-socket.Bm9JlJ>
-Wed Dec 13 18:45:22 2017: envp[1]: <SQ_WRAPPER_LIBRARY=/home/lqschool/git/pior_Q/libinterceptor-${PLATFORM}.so>
-Wed Dec 13 18:45:22 2017: envp[2]: <DESKTOP_SESSION=ubuntu>
-Wed Dec 13 18:45:22 2017: envp[3]: <XDG_SESSION_TYPE=x11>
-Wed Dec 13 18:45:22 2017: envp[4]: <UPSTART_INSTANCE=>
-Wed Dec 13 18:45:22 2017: envp[5]: <XAUTHORITY=/home/lqschool/.Xauthority>
-Wed Dec 13 18:45:22 2017: envp[6]: <GDMSESSION=ubuntu>
-Wed Dec 13 18:45:22 2017: envp[7]: <XMODIFIERS=@im=ibus>
-Wed Dec 13 18:45:22 2017: envp[8]: <SHELL=/bin/bash>
-Wed Dec 13 18:45:22 2017: envp[9]: <GDM_LANG=en_US>
-Wed Dec 13 18:45:22 2017: envp[10]: <VTE_VERSION=4205>
-Wed Dec 13 18:45:22 2017: envp[11]: <_=./build-wrapper-linux-x86-64>
-Wed Dec 13 18:45:22 2017: envp[12]: <XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg>
-Wed Dec 13 18:45:22 2017: envp[13]: <IM_CONFIG_PHASE=1>
-Wed Dec 13 18:45:22 2017: envp[14]: <SESSIONTYPE=gnome-session>
-Wed Dec 13 18:45:22 2017: envp[15]: <MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path>
-Wed Dec 13 18:45:22 2017: envp[16]: <XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop>
-Wed Dec 13 18:45:22 2017: envp[17]: <CLUTTER_IM_MODULE=xim>
-Wed Dec 13 18:45:22 2017: envp[18]: <LESSOPEN=| /usr/bin/lesspipe %s>
-Wed Dec 13 18:45:22 2017: envp[19]: <LC_NAME=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[20]: <XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0>
-Wed Dec 13 18:45:22 2017: envp[21]: <PATH=/home/lqschool/.cargo/bin:/home/lqschool/bin:/home/lqschool/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin>
-Wed Dec 13 18:45:22 2017: envp[22]: <GPG_AGENT_INFO=/home/lqschool/.gnupg/S.gpg-agent:0:1>
-Wed Dec 13 18:45:22 2017: envp[23]: <UPSTART_JOB=unity7>
-Wed Dec 13 18:45:22 2017: envp[24]: <XDG_RUNTIME_DIR=/run/user/1000>
-Wed Dec 13 18:45:22 2017: envp[25]: <WINDOWID=60817418>
-Wed Dec 13 18:45:22 2017: envp[26]: <LC_NUMERIC=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[27]: <SESSION=ubuntu>
-Wed Dec 13 18:45:22 2017: envp[28]: <XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/lqschool>
-Wed Dec 13 18:45:22 2017: envp[29]: <LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:>
-Wed Dec 13 18:45:22 2017: envp[30]: <JOB=unity-settings-daemon>
-Wed Dec 13 18:45:22 2017: envp[31]: <XDG_SESSION_DESKTOP=ubuntu>
-Wed Dec 13 18:45:22 2017: envp[32]: <SSH_AUTH_SOCK=/run/user/1000/keyring/ssh>
-Wed Dec 13 18:45:22 2017: envp[33]: <DISPLAY=:0>
-Wed Dec 13 18:45:22 2017: envp[34]: <GTK_IM_MODULE=ibus>
-Wed Dec 13 18:45:22 2017: envp[35]: <HOME=/home/lqschool>
-Wed Dec 13 18:45:22 2017: envp[36]: <PWD=/home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: envp[37]: <QT_QPA_PLATFORMTHEME=appmenu-qt5>
-Wed Dec 13 18:45:22 2017: envp[38]: <XDG_SEAT=seat0>
-Wed Dec 13 18:45:22 2017: envp[39]: <GTK_MODULES=gail:atk-bridge:unity-gtk-module>
-Wed Dec 13 18:45:22 2017: envp[40]: <DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-sq701DYa01>
-Wed Dec 13 18:45:22 2017: envp[41]: <LESSCLOSE=/usr/bin/lesspipe %s %s>
-Wed Dec 13 18:45:22 2017: envp[42]: <LOGNAME=lqschool>
-Wed Dec 13 18:45:22 2017: envp[43]: <QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1>
-Wed Dec 13 18:45:22 2017: envp[44]: <GNOME_DESKTOP_SESSION_ID=this-is-deprecated>
-Wed Dec 13 18:45:22 2017: envp[45]: <XDG_VTNR=7>
-Wed Dec 13 18:45:22 2017: envp[46]: <LC_TIME=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[47]: <QT_IM_MODULE=ibus>
-Wed Dec 13 18:45:22 2017: envp[48]: <SHLVL=1>
-Wed Dec 13 18:45:22 2017: envp[49]: <COMPIZ_CONFIG_PROFILE=ubuntu>
-Wed Dec 13 18:45:22 2017: envp[50]: <XDG_SESSION_ID=c2>
-Wed Dec 13 18:45:22 2017: envp[51]: <USER=lqschool>
-Wed Dec 13 18:45:22 2017: envp[52]: <LC_MONETARY=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[53]: <XDG_CURRENT_DESKTOP=Unity>
-Wed Dec 13 18:45:22 2017: envp[54]: <UPSTART_EVENTS=xsession started>
-Wed Dec 13 18:45:22 2017: envp[55]: <GNOME_KEYRING_PID=>
-Wed Dec 13 18:45:22 2017: envp[56]: <LC_TELEPHONE=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[57]: <OLDPWD=/home/lqschool/git/pior_Q/build-wrapper-linux-x86>
-Wed Dec 13 18:45:22 2017: envp[58]: <LANGUAGE=en_US>
-Wed Dec 13 18:45:22 2017: envp[59]: <XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0>
-Wed Dec 13 18:45:22 2017: envp[60]: <GNOME_KEYRING_CONTROL=>
-Wed Dec 13 18:45:22 2017: envp[61]: <MAKEFLAGS=>
-Wed Dec 13 18:45:22 2017: envp[62]: <MFLAGS=>
-Wed Dec 13 18:45:22 2017: envp[63]: <MAKE_TERMOUT=/dev/pts/19>
-Wed Dec 13 18:45:22 2017: envp[64]: <LC_PAPER=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[65]: <GTK2_MODULES=overlay-scrollbar>
-Wed Dec 13 18:45:22 2017: envp[66]: <QT_ACCESSIBILITY=1>
-Wed Dec 13 18:45:22 2017: envp[67]: <COMPIZ_BIN_PATH=/usr/bin/>
-Wed Dec 13 18:45:22 2017: envp[68]: <DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path>
-Wed Dec 13 18:45:22 2017: envp[69]: <UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/2460>
-Wed Dec 13 18:45:22 2017: envp[70]: <LC_MEASUREMENT=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[71]: <INSTANCE=>
-Wed Dec 13 18:45:22 2017: envp[72]: <QT4_IM_MODULE=xim>
-Wed Dec 13 18:45:22 2017: envp[73]: <LC_IDENTIFICATION=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[74]: <MAKE_TERMERR=/dev/pts/19>
-Wed Dec 13 18:45:22 2017: envp[75]: <LC_ADDRESS=sv_SE.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[76]: <LANG=en_US.UTF-8>
-Wed Dec 13 18:45:22 2017: envp[77]: <TERM=xterm-256color>
-Wed Dec 13 18:45:22 2017: envp[78]: <MAKELEVEL=1>
-Wed Dec 13 18:45:22 2017: envp[79]: <LD_PRELOAD=>
-Wed Dec 13 18:45:22 2017: Probing C compiler: /usr/bin/gcc-5 
-Wed Dec 13 18:45:22 2017: exit code: 0
-Wed Dec 13 18:45:22 2017: stdout:
+Wed Dec 13 18:50:34 2017: build-wrapper, version 5.0 (linux-x86)
+Wed Dec 13 18:50:34 2017: System name: Linux Nodename: lqschool-Latitude-E7470 Release: 4.10.0-40-generic Version: #44~16.04.1-Ubuntu SMP Thu Nov 9 15:37:44 UTC 2017 Machine: x86_64
+Wed Dec 13 18:50:34 2017: socket path: /tmp/build-wrapper-socket.nNq2Me
+Wed Dec 13 18:50:34 2017: dynamic library found: /home/lqschool/git/pior_Q/libinterceptor-i686.so
+Wed Dec 13 18:50:34 2017: dynamic library found: /home/lqschool/git/pior_Q/libinterceptor-x86_64.so
+Wed Dec 13 18:50:34 2017: command executed as: <./build-wrapper-linux-x86-64>
+Wed Dec 13 18:50:34 2017: command line received: <make>
+Wed Dec 13 18:50:34 2017: env 0: <XDG_VTNR=7>
+Wed Dec 13 18:50:34 2017: env 1: <LC_PAPER=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 2: <LC_ADDRESS=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 3: <XDG_SESSION_ID=c2>
+Wed Dec 13 18:50:34 2017: env 4: <XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/lqschool>
+Wed Dec 13 18:50:34 2017: env 5: <LC_MONETARY=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 6: <CLUTTER_IM_MODULE=xim>
+Wed Dec 13 18:50:34 2017: env 7: <SESSION=ubuntu>
+Wed Dec 13 18:50:34 2017: env 8: <GPG_AGENT_INFO=/home/lqschool/.gnupg/S.gpg-agent:0:1>
+Wed Dec 13 18:50:34 2017: env 9: <TERM=xterm-256color>
+Wed Dec 13 18:50:34 2017: env 10: <VTE_VERSION=4205>
+Wed Dec 13 18:50:34 2017: env 11: <XDG_MENU_PREFIX=gnome->
+Wed Dec 13 18:50:34 2017: env 12: <SHELL=/bin/bash>
+Wed Dec 13 18:50:34 2017: env 13: <QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1>
+Wed Dec 13 18:50:34 2017: env 14: <WINDOWID=60836442>
+Wed Dec 13 18:50:34 2017: env 15: <LC_NUMERIC=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 16: <UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/2460>
+Wed Dec 13 18:50:34 2017: env 17: <GNOME_KEYRING_CONTROL=>
+Wed Dec 13 18:50:34 2017: env 18: <GTK_MODULES=gail:atk-bridge:unity-gtk-module>
+Wed Dec 13 18:50:34 2017: env 19: <USER=lqschool>
+Wed Dec 13 18:50:34 2017: env 20: <LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:>
+Wed Dec 13 18:50:34 2017: env 21: <QT_ACCESSIBILITY=1>
+Wed Dec 13 18:50:34 2017: env 22: <LC_TELEPHONE=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 23: <XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0>
+Wed Dec 13 18:50:34 2017: env 24: <XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0>
+Wed Dec 13 18:50:34 2017: env 25: <SSH_AUTH_SOCK=/run/user/1000/keyring/ssh>
+Wed Dec 13 18:50:34 2017: env 26: <SESSION_MANAGER=local/lqschool-Latitude-E7470:@/tmp/.ICE-unix/2707,unix/lqschool-Latitude-E7470:/tmp/.ICE-unix/2707>
+Wed Dec 13 18:50:34 2017: env 27: <DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path>
+Wed Dec 13 18:50:34 2017: env 28: <XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg>
+Wed Dec 13 18:50:34 2017: env 29: <DESKTOP_SESSION=ubuntu>
+Wed Dec 13 18:50:34 2017: env 30: <PATH=/home/lqschool/.cargo/bin:/home/lqschool/bin:/home/lqschool/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin>
+Wed Dec 13 18:50:34 2017: env 31: <QT_IM_MODULE=ibus>
+Wed Dec 13 18:50:34 2017: env 32: <QT_QPA_PLATFORMTHEME=appmenu-qt5>
+Wed Dec 13 18:50:34 2017: env 33: <LC_IDENTIFICATION=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 34: <XDG_SESSION_TYPE=x11>
+Wed Dec 13 18:50:34 2017: env 35: <PWD=/home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: env 36: <JOB=dbus>
+Wed Dec 13 18:50:34 2017: env 37: <XMODIFIERS=@im=ibus>
+Wed Dec 13 18:50:34 2017: env 38: <GNOME_KEYRING_PID=>
+Wed Dec 13 18:50:34 2017: env 39: <LANG=en_US.UTF-8>
+Wed Dec 13 18:50:34 2017: env 40: <GDM_LANG=en_US>
+Wed Dec 13 18:50:34 2017: env 41: <MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path>
+Wed Dec 13 18:50:34 2017: env 42: <LC_MEASUREMENT=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 43: <COMPIZ_CONFIG_PROFILE=ubuntu>
+Wed Dec 13 18:50:34 2017: env 44: <IM_CONFIG_PHASE=1>
+Wed Dec 13 18:50:34 2017: env 45: <GDMSESSION=ubuntu>
+Wed Dec 13 18:50:34 2017: env 46: <SESSIONTYPE=gnome-session>
+Wed Dec 13 18:50:34 2017: env 47: <GTK2_MODULES=overlay-scrollbar>
+Wed Dec 13 18:50:34 2017: env 48: <SHLVL=1>
+Wed Dec 13 18:50:34 2017: env 49: <HOME=/home/lqschool>
+Wed Dec 13 18:50:34 2017: env 50: <XDG_SEAT=seat0>
+Wed Dec 13 18:50:34 2017: env 51: <LANGUAGE=en_US>
+Wed Dec 13 18:50:34 2017: env 52: <GNOME_DESKTOP_SESSION_ID=this-is-deprecated>
+Wed Dec 13 18:50:34 2017: env 53: <XDG_SESSION_DESKTOP=ubuntu>
+Wed Dec 13 18:50:34 2017: env 54: <LOGNAME=lqschool>
+Wed Dec 13 18:50:34 2017: env 55: <DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-sq701DYa01>
+Wed Dec 13 18:50:34 2017: env 56: <XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop>
+Wed Dec 13 18:50:34 2017: env 57: <QT4_IM_MODULE=xim>
+Wed Dec 13 18:50:34 2017: env 58: <LESSOPEN=| /usr/bin/lesspipe %s>
+Wed Dec 13 18:50:34 2017: env 59: <INSTANCE=>
+Wed Dec 13 18:50:34 2017: env 60: <XDG_RUNTIME_DIR=/run/user/1000>
+Wed Dec 13 18:50:34 2017: env 61: <DISPLAY=:0>
+Wed Dec 13 18:50:34 2017: env 62: <XDG_CURRENT_DESKTOP=Unity>
+Wed Dec 13 18:50:34 2017: env 63: <GTK_IM_MODULE=ibus>
+Wed Dec 13 18:50:34 2017: env 64: <LESSCLOSE=/usr/bin/lesspipe %s %s>
+Wed Dec 13 18:50:34 2017: env 65: <LC_TIME=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 66: <LC_NAME=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: env 67: <XAUTHORITY=/home/lqschool/.Xauthority>
+Wed Dec 13 18:50:34 2017: env 68: <_=./build-wrapper-linux-x86-64>
+Wed Dec 13 18:50:34 2017: executing: <make>
+Wed Dec 13 18:50:34 2017: initializing json file
+Wed Dec 13 18:50:34 2017: process created with pid: 822
+Wed Dec 13 18:50:34 2017: parent pid: 821
+Wed Dec 13 18:50:34 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: executable: </home/lqschool/git/pior_Q/build-wrapper-linux-x86-64>
+Wed Dec 13 18:50:34 2017: argv[0]: <./build-wrapper-linux-x86-64>
+Wed Dec 13 18:50:34 2017: argv[1]: <-c>
+Wed Dec 13 18:50:34 2017: argv[2]: <>
+Wed Dec 13 18:50:34 2017: argv[3]: <make>
+Wed Dec 13 18:50:34 2017: skipping process with pid: 822
+Wed Dec 13 18:50:34 2017: process created with pid: 823
+Wed Dec 13 18:50:34 2017: parent pid: 822
+Wed Dec 13 18:50:34 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: executable: </usr/bin/make>
+Wed Dec 13 18:50:34 2017: argv[0]: <make>
+Wed Dec 13 18:50:34 2017: skipping process with pid: 823
+Wed Dec 13 18:50:34 2017: process created with pid: 824
+Wed Dec 13 18:50:34 2017: parent pid: 823
+Wed Dec 13 18:50:34 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: executable: </bin/rm>
+Wed Dec 13 18:50:34 2017: argv[0]: <rm>
+Wed Dec 13 18:50:34 2017: argv[1]: <-rf>
+Wed Dec 13 18:50:34 2017: argv[2]: <build>
+Wed Dec 13 18:50:34 2017: skipping process with pid: 824
+Wed Dec 13 18:50:34 2017: process created with pid: 825
+Wed Dec 13 18:50:34 2017: parent pid: 823
+Wed Dec 13 18:50:34 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: executable: </bin/mkdir>
+Wed Dec 13 18:50:34 2017: argv[0]: <mkdir>
+Wed Dec 13 18:50:34 2017: argv[1]: <build>
+Wed Dec 13 18:50:34 2017: skipping process with pid: 825
+Wed Dec 13 18:50:34 2017: process created with pid: 827
+Wed Dec 13 18:50:34 2017: parent pid: 823
+Wed Dec 13 18:50:34 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: executable: </usr/bin/gcc-5>
+Wed Dec 13 18:50:34 2017: argv[0]: <gcc>
+Wed Dec 13 18:50:34 2017: argv[1]: <random.c>
+Wed Dec 13 18:50:34 2017: argv[2]: <-o>
+Wed Dec 13 18:50:34 2017: argv[3]: <build/random>
+Wed Dec 13 18:50:34 2017: envp[0]: <SQ_WRAPPER_SOCKET=/tmp/build-wrapper-socket.nNq2Me>
+Wed Dec 13 18:50:34 2017: envp[1]: <SQ_WRAPPER_LIBRARY=/home/lqschool/git/pior_Q/libinterceptor-${PLATFORM}.so>
+Wed Dec 13 18:50:34 2017: envp[2]: <DESKTOP_SESSION=ubuntu>
+Wed Dec 13 18:50:34 2017: envp[3]: <XDG_SESSION_TYPE=x11>
+Wed Dec 13 18:50:34 2017: envp[4]: <XAUTHORITY=/home/lqschool/.Xauthority>
+Wed Dec 13 18:50:34 2017: envp[5]: <GDMSESSION=ubuntu>
+Wed Dec 13 18:50:34 2017: envp[6]: <XMODIFIERS=@im=ibus>
+Wed Dec 13 18:50:34 2017: envp[7]: <SHELL=/bin/bash>
+Wed Dec 13 18:50:34 2017: envp[8]: <GDM_LANG=en_US>
+Wed Dec 13 18:50:34 2017: envp[9]: <VTE_VERSION=4205>
+Wed Dec 13 18:50:34 2017: envp[10]: <_=./build-wrapper-linux-x86-64>
+Wed Dec 13 18:50:34 2017: envp[11]: <XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg>
+Wed Dec 13 18:50:34 2017: envp[12]: <IM_CONFIG_PHASE=1>
+Wed Dec 13 18:50:34 2017: envp[13]: <SESSIONTYPE=gnome-session>
+Wed Dec 13 18:50:34 2017: envp[14]: <MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path>
+Wed Dec 13 18:50:34 2017: envp[15]: <XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop>
+Wed Dec 13 18:50:34 2017: envp[16]: <CLUTTER_IM_MODULE=xim>
+Wed Dec 13 18:50:34 2017: envp[17]: <LESSOPEN=| /usr/bin/lesspipe %s>
+Wed Dec 13 18:50:34 2017: envp[18]: <LC_NAME=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[19]: <XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0>
+Wed Dec 13 18:50:34 2017: envp[20]: <PATH=/home/lqschool/.cargo/bin:/home/lqschool/bin:/home/lqschool/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin>
+Wed Dec 13 18:50:34 2017: envp[21]: <GPG_AGENT_INFO=/home/lqschool/.gnupg/S.gpg-agent:0:1>
+Wed Dec 13 18:50:34 2017: envp[22]: <SESSION_MANAGER=local/lqschool-Latitude-E7470:@/tmp/.ICE-unix/2707,unix/lqschool-Latitude-E7470:/tmp/.ICE-unix/2707>
+Wed Dec 13 18:50:34 2017: envp[23]: <XDG_RUNTIME_DIR=/run/user/1000>
+Wed Dec 13 18:50:34 2017: envp[24]: <WINDOWID=60836442>
+Wed Dec 13 18:50:34 2017: envp[25]: <XDG_MENU_PREFIX=gnome->
+Wed Dec 13 18:50:34 2017: envp[26]: <LC_NUMERIC=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[27]: <SESSION=ubuntu>
+Wed Dec 13 18:50:34 2017: envp[28]: <XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/lqschool>
+Wed Dec 13 18:50:34 2017: envp[29]: <LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:>
+Wed Dec 13 18:50:34 2017: envp[30]: <JOB=dbus>
+Wed Dec 13 18:50:34 2017: envp[31]: <XDG_SESSION_DESKTOP=ubuntu>
+Wed Dec 13 18:50:34 2017: envp[32]: <SSH_AUTH_SOCK=/run/user/1000/keyring/ssh>
+Wed Dec 13 18:50:34 2017: envp[33]: <DISPLAY=:0>
+Wed Dec 13 18:50:34 2017: envp[34]: <GTK_IM_MODULE=ibus>
+Wed Dec 13 18:50:34 2017: envp[35]: <HOME=/home/lqschool>
+Wed Dec 13 18:50:34 2017: envp[36]: <PWD=/home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: envp[37]: <QT_QPA_PLATFORMTHEME=appmenu-qt5>
+Wed Dec 13 18:50:34 2017: envp[38]: <XDG_SEAT=seat0>
+Wed Dec 13 18:50:34 2017: envp[39]: <GTK_MODULES=gail:atk-bridge:unity-gtk-module>
+Wed Dec 13 18:50:34 2017: envp[40]: <DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-sq701DYa01>
+Wed Dec 13 18:50:34 2017: envp[41]: <LESSCLOSE=/usr/bin/lesspipe %s %s>
+Wed Dec 13 18:50:34 2017: envp[42]: <LOGNAME=lqschool>
+Wed Dec 13 18:50:34 2017: envp[43]: <QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1>
+Wed Dec 13 18:50:34 2017: envp[44]: <GNOME_DESKTOP_SESSION_ID=this-is-deprecated>
+Wed Dec 13 18:50:34 2017: envp[45]: <XDG_VTNR=7>
+Wed Dec 13 18:50:34 2017: envp[46]: <LC_TIME=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[47]: <QT_IM_MODULE=ibus>
+Wed Dec 13 18:50:34 2017: envp[48]: <SHLVL=1>
+Wed Dec 13 18:50:34 2017: envp[49]: <COMPIZ_CONFIG_PROFILE=ubuntu>
+Wed Dec 13 18:50:34 2017: envp[50]: <XDG_SESSION_ID=c2>
+Wed Dec 13 18:50:34 2017: envp[51]: <USER=lqschool>
+Wed Dec 13 18:50:34 2017: envp[52]: <LC_MONETARY=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[53]: <XDG_CURRENT_DESKTOP=Unity>
+Wed Dec 13 18:50:34 2017: envp[54]: <GNOME_KEYRING_PID=>
+Wed Dec 13 18:50:34 2017: envp[55]: <LC_TELEPHONE=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[56]: <LANGUAGE=en_US>
+Wed Dec 13 18:50:34 2017: envp[57]: <XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0>
+Wed Dec 13 18:50:34 2017: envp[58]: <GNOME_KEYRING_CONTROL=>
+Wed Dec 13 18:50:34 2017: envp[59]: <MAKEFLAGS=>
+Wed Dec 13 18:50:34 2017: envp[60]: <MFLAGS=>
+Wed Dec 13 18:50:34 2017: envp[61]: <MAKE_TERMOUT=/dev/pts/20>
+Wed Dec 13 18:50:34 2017: envp[62]: <LC_PAPER=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[63]: <GTK2_MODULES=overlay-scrollbar>
+Wed Dec 13 18:50:34 2017: envp[64]: <QT_ACCESSIBILITY=1>
+Wed Dec 13 18:50:34 2017: envp[65]: <DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path>
+Wed Dec 13 18:50:34 2017: envp[66]: <UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/2460>
+Wed Dec 13 18:50:34 2017: envp[67]: <LC_MEASUREMENT=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[68]: <INSTANCE=>
+Wed Dec 13 18:50:34 2017: envp[69]: <QT4_IM_MODULE=xim>
+Wed Dec 13 18:50:34 2017: envp[70]: <LC_IDENTIFICATION=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[71]: <MAKE_TERMERR=/dev/pts/20>
+Wed Dec 13 18:50:34 2017: envp[72]: <LC_ADDRESS=sv_SE.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[73]: <LANG=en_US.UTF-8>
+Wed Dec 13 18:50:34 2017: envp[74]: <TERM=xterm-256color>
+Wed Dec 13 18:50:34 2017: envp[75]: <MAKELEVEL=1>
+Wed Dec 13 18:50:34 2017: envp[76]: <LD_PRELOAD=>
+Wed Dec 13 18:50:34 2017: Probing C compiler: /usr/bin/gcc-5 
+Wed Dec 13 18:50:34 2017: exit code: 0
+Wed Dec 13 18:50:34 2017: stdout:
 #define __SSP_STRONG__ 3
 #define __DBL_MIN_EXP__ (-1021)
 #define __UINT_LEAST16_MAX__ 0xffff
@@ -449,7 +443,7 @@ Wed Dec 13 18:45:22 2017: stdout:
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_RELEASE 3
 
-Wed Dec 13 18:45:22 2017: stderr:
+Wed Dec 13 18:50:34 2017: stderr:
 Using built-in specs.
 COLLECT_GCC=gcc
 Target: x86_64-linux-gnu
@@ -472,9 +466,9 @@ COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-dM' '-E' '-mtune=generic' '-march=x86-64'
 
-Wed Dec 13 18:45:22 2017: Probing C++ compiler: /usr/bin/gcc-5 
-Wed Dec 13 18:45:22 2017: exit code: 0
-Wed Dec 13 18:45:22 2017: stdout:
+Wed Dec 13 18:50:34 2017: Probing C++ compiler: /usr/bin/gcc-5 
+Wed Dec 13 18:50:34 2017: exit code: 0
+Wed Dec 13 18:50:34 2017: stdout:
 #define __SSP_STRONG__ 3
 #define __DBL_MIN_EXP__ (-1021)
 #define __UINT_LEAST16_MAX__ 0xffff
@@ -734,7 +728,7 @@ Wed Dec 13 18:45:22 2017: stdout:
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_RELEASE 3
 
-Wed Dec 13 18:45:22 2017: stderr:
+Wed Dec 13 18:50:34 2017: stderr:
 Using built-in specs.
 COLLECT_GCC=gcc
 Target: x86_64-linux-gnu
@@ -761,147 +755,147 @@ COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-dM' '-E' '-mtune=generic' '-march=x86-64'
 
-Wed Dec 13 18:45:22 2017: process created with pid: 715
-Wed Dec 13 18:45:22 2017: parent pid: 714
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </usr/lib/gcc/x86_64-linux-gnu/5/cc1>
-Wed Dec 13 18:45:22 2017: argv[0]: </usr/lib/gcc/x86_64-linux-gnu/5/cc1>
-Wed Dec 13 18:45:22 2017: argv[1]: <-quiet>
-Wed Dec 13 18:45:22 2017: argv[2]: <-imultiarch>
-Wed Dec 13 18:45:22 2017: argv[3]: <x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[4]: <random.c>
-Wed Dec 13 18:45:22 2017: argv[5]: <-quiet>
-Wed Dec 13 18:45:22 2017: argv[6]: <-dumpbase>
-Wed Dec 13 18:45:22 2017: argv[7]: <random.c>
-Wed Dec 13 18:45:22 2017: argv[8]: <-mtune=generic>
-Wed Dec 13 18:45:22 2017: argv[9]: <-march=x86-64>
-Wed Dec 13 18:45:22 2017: argv[10]: <-auxbase>
-Wed Dec 13 18:45:22 2017: argv[11]: <random>
-Wed Dec 13 18:45:22 2017: argv[12]: <-fstack-protector-strong>
-Wed Dec 13 18:45:22 2017: argv[13]: <-Wformat>
-Wed Dec 13 18:45:22 2017: argv[14]: <-Wformat-security>
-Wed Dec 13 18:45:22 2017: argv[15]: <-o>
-Wed Dec 13 18:45:22 2017: argv[16]: </tmp/ccOb48QL.s>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 715
-Wed Dec 13 18:45:22 2017: process created with pid: 720
-Wed Dec 13 18:45:22 2017: parent pid: 714
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </usr/bin/x86_64-linux-gnu-as>
-Wed Dec 13 18:45:22 2017: argv[0]: <as>
-Wed Dec 13 18:45:22 2017: argv[1]: <--64>
-Wed Dec 13 18:45:22 2017: argv[2]: <-o>
-Wed Dec 13 18:45:22 2017: argv[3]: </tmp/ccupcKuj.o>
-Wed Dec 13 18:45:22 2017: argv[4]: </tmp/ccOb48QL.s>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 720
-Wed Dec 13 18:45:22 2017: process created with pid: 721
-Wed Dec 13 18:45:22 2017: parent pid: 714
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </usr/lib/gcc/x86_64-linux-gnu/5/collect2>
-Wed Dec 13 18:45:22 2017: argv[0]: </usr/lib/gcc/x86_64-linux-gnu/5/collect2>
-Wed Dec 13 18:45:22 2017: argv[1]: <-plugin>
-Wed Dec 13 18:45:22 2017: argv[2]: </usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so>
-Wed Dec 13 18:45:22 2017: argv[3]: <-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper>
-Wed Dec 13 18:45:22 2017: argv[4]: <-plugin-opt=-fresolution=/tmp/cckRV58Q.res>
-Wed Dec 13 18:45:22 2017: argv[5]: <-plugin-opt=-pass-through=-lgcc>
-Wed Dec 13 18:45:22 2017: argv[6]: <-plugin-opt=-pass-through=-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[7]: <-plugin-opt=-pass-through=-lc>
-Wed Dec 13 18:45:22 2017: argv[8]: <-plugin-opt=-pass-through=-lgcc>
-Wed Dec 13 18:45:22 2017: argv[9]: <-plugin-opt=-pass-through=-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[10]: <--sysroot=/>
-Wed Dec 13 18:45:22 2017: argv[11]: <--build-id>
-Wed Dec 13 18:45:22 2017: argv[12]: <--eh-frame-hdr>
-Wed Dec 13 18:45:22 2017: argv[13]: <-m>
-Wed Dec 13 18:45:22 2017: argv[14]: <elf_x86_64>
-Wed Dec 13 18:45:22 2017: argv[15]: <--hash-style=gnu>
-Wed Dec 13 18:45:22 2017: argv[16]: <--as-needed>
-Wed Dec 13 18:45:22 2017: argv[17]: <-dynamic-linker>
-Wed Dec 13 18:45:22 2017: argv[18]: </lib64/ld-linux-x86-64.so.2>
-Wed Dec 13 18:45:22 2017: argv[19]: <-z>
-Wed Dec 13 18:45:22 2017: argv[20]: <relro>
-Wed Dec 13 18:45:22 2017: argv[21]: <-o>
-Wed Dec 13 18:45:22 2017: argv[22]: <build/random>
-Wed Dec 13 18:45:22 2017: argv[23]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o>
-Wed Dec 13 18:45:22 2017: argv[24]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o>
-Wed Dec 13 18:45:22 2017: argv[25]: </usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o>
-Wed Dec 13 18:45:22 2017: argv[26]: <-L/usr/lib/gcc/x86_64-linux-gnu/5>
-Wed Dec 13 18:45:22 2017: argv[27]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[28]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib>
-Wed Dec 13 18:45:22 2017: argv[29]: <-L/lib/x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[30]: <-L/lib/../lib>
-Wed Dec 13 18:45:22 2017: argv[31]: <-L/usr/lib/x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[32]: <-L/usr/lib/../lib>
-Wed Dec 13 18:45:22 2017: argv[33]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..>
-Wed Dec 13 18:45:22 2017: argv[34]: </tmp/ccupcKuj.o>
-Wed Dec 13 18:45:22 2017: argv[35]: <-lgcc>
-Wed Dec 13 18:45:22 2017: argv[36]: <--as-needed>
-Wed Dec 13 18:45:22 2017: argv[37]: <-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[38]: <--no-as-needed>
-Wed Dec 13 18:45:22 2017: argv[39]: <-lc>
-Wed Dec 13 18:45:22 2017: argv[40]: <-lgcc>
-Wed Dec 13 18:45:22 2017: argv[41]: <--as-needed>
-Wed Dec 13 18:45:22 2017: argv[42]: <-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[43]: <--no-as-needed>
-Wed Dec 13 18:45:22 2017: argv[44]: </usr/lib/gcc/x86_64-linux-gnu/5/crtend.o>
-Wed Dec 13 18:45:22 2017: argv[45]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 721
-Wed Dec 13 18:45:22 2017: process created with pid: 722
-Wed Dec 13 18:45:22 2017: parent pid: 721
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </usr/bin/x86_64-linux-gnu-ld.bfd>
-Wed Dec 13 18:45:22 2017: argv[0]: </usr/bin/ld>
-Wed Dec 13 18:45:22 2017: argv[1]: <-plugin>
-Wed Dec 13 18:45:22 2017: argv[2]: </usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so>
-Wed Dec 13 18:45:22 2017: argv[3]: <-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper>
-Wed Dec 13 18:45:22 2017: argv[4]: <-plugin-opt=-fresolution=/tmp/cckRV58Q.res>
-Wed Dec 13 18:45:22 2017: argv[5]: <-plugin-opt=-pass-through=-lgcc>
-Wed Dec 13 18:45:22 2017: argv[6]: <-plugin-opt=-pass-through=-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[7]: <-plugin-opt=-pass-through=-lc>
-Wed Dec 13 18:45:22 2017: argv[8]: <-plugin-opt=-pass-through=-lgcc>
-Wed Dec 13 18:45:22 2017: argv[9]: <-plugin-opt=-pass-through=-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[10]: <--sysroot=/>
-Wed Dec 13 18:45:22 2017: argv[11]: <--build-id>
-Wed Dec 13 18:45:22 2017: argv[12]: <--eh-frame-hdr>
-Wed Dec 13 18:45:22 2017: argv[13]: <-m>
-Wed Dec 13 18:45:22 2017: argv[14]: <elf_x86_64>
-Wed Dec 13 18:45:22 2017: argv[15]: <--hash-style=gnu>
-Wed Dec 13 18:45:22 2017: argv[16]: <--as-needed>
-Wed Dec 13 18:45:22 2017: argv[17]: <-dynamic-linker>
-Wed Dec 13 18:45:22 2017: argv[18]: </lib64/ld-linux-x86-64.so.2>
-Wed Dec 13 18:45:22 2017: argv[19]: <-z>
-Wed Dec 13 18:45:22 2017: argv[20]: <relro>
-Wed Dec 13 18:45:22 2017: argv[21]: <-o>
-Wed Dec 13 18:45:22 2017: argv[22]: <build/random>
-Wed Dec 13 18:45:22 2017: argv[23]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o>
-Wed Dec 13 18:45:22 2017: argv[24]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o>
-Wed Dec 13 18:45:22 2017: argv[25]: </usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o>
-Wed Dec 13 18:45:22 2017: argv[26]: <-L/usr/lib/gcc/x86_64-linux-gnu/5>
-Wed Dec 13 18:45:22 2017: argv[27]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[28]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib>
-Wed Dec 13 18:45:22 2017: argv[29]: <-L/lib/x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[30]: <-L/lib/../lib>
-Wed Dec 13 18:45:22 2017: argv[31]: <-L/usr/lib/x86_64-linux-gnu>
-Wed Dec 13 18:45:22 2017: argv[32]: <-L/usr/lib/../lib>
-Wed Dec 13 18:45:22 2017: argv[33]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..>
-Wed Dec 13 18:45:22 2017: argv[34]: </tmp/ccupcKuj.o>
-Wed Dec 13 18:45:22 2017: argv[35]: <-lgcc>
-Wed Dec 13 18:45:22 2017: argv[36]: <--as-needed>
-Wed Dec 13 18:45:22 2017: argv[37]: <-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[38]: <--no-as-needed>
-Wed Dec 13 18:45:22 2017: argv[39]: <-lc>
-Wed Dec 13 18:45:22 2017: argv[40]: <-lgcc>
-Wed Dec 13 18:45:22 2017: argv[41]: <--as-needed>
-Wed Dec 13 18:45:22 2017: argv[42]: <-lgcc_s>
-Wed Dec 13 18:45:22 2017: argv[43]: <--no-as-needed>
-Wed Dec 13 18:45:22 2017: argv[44]: </usr/lib/gcc/x86_64-linux-gnu/5/crtend.o>
-Wed Dec 13 18:45:22 2017: argv[45]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 722
-Wed Dec 13 18:45:22 2017: process created with pid: 723
-Wed Dec 13 18:45:22 2017: parent pid: 711
-Wed Dec 13 18:45:22 2017: working directory: </home/lqschool/git/pior_Q>
-Wed Dec 13 18:45:22 2017: executable: </bin/dash>
-Wed Dec 13 18:45:22 2017: argv[0]: </bin/sh>
-Wed Dec 13 18:45:22 2017: argv[1]: <-c>
-Wed Dec 13 18:45:22 2017: argv[2]: <RC=done.o>
-Wed Dec 13 18:45:22 2017: skipping process with pid: 723
-Wed Dec 13 18:45:22 2017: finalizing json file
-Wed Dec 13 18:45:22 2017: returned with code: 0
+Wed Dec 13 18:50:34 2017: process created with pid: 828
+Wed Dec 13 18:50:34 2017: parent pid: 827
+Wed Dec 13 18:50:34 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:34 2017: executable: </usr/lib/gcc/x86_64-linux-gnu/5/cc1>
+Wed Dec 13 18:50:34 2017: argv[0]: </usr/lib/gcc/x86_64-linux-gnu/5/cc1>
+Wed Dec 13 18:50:34 2017: argv[1]: <-quiet>
+Wed Dec 13 18:50:34 2017: argv[2]: <-imultiarch>
+Wed Dec 13 18:50:34 2017: argv[3]: <x86_64-linux-gnu>
+Wed Dec 13 18:50:34 2017: argv[4]: <random.c>
+Wed Dec 13 18:50:34 2017: argv[5]: <-quiet>
+Wed Dec 13 18:50:34 2017: argv[6]: <-dumpbase>
+Wed Dec 13 18:50:34 2017: argv[7]: <random.c>
+Wed Dec 13 18:50:34 2017: argv[8]: <-mtune=generic>
+Wed Dec 13 18:50:34 2017: argv[9]: <-march=x86-64>
+Wed Dec 13 18:50:34 2017: argv[10]: <-auxbase>
+Wed Dec 13 18:50:34 2017: argv[11]: <random>
+Wed Dec 13 18:50:34 2017: argv[12]: <-fstack-protector-strong>
+Wed Dec 13 18:50:34 2017: argv[13]: <-Wformat>
+Wed Dec 13 18:50:34 2017: argv[14]: <-Wformat-security>
+Wed Dec 13 18:50:34 2017: argv[15]: <-o>
+Wed Dec 13 18:50:34 2017: argv[16]: </tmp/cc9iGy6j.s>
+Wed Dec 13 18:50:34 2017: skipping process with pid: 828
+Wed Dec 13 18:50:35 2017: process created with pid: 833
+Wed Dec 13 18:50:35 2017: parent pid: 827
+Wed Dec 13 18:50:35 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:35 2017: executable: </usr/bin/x86_64-linux-gnu-as>
+Wed Dec 13 18:50:35 2017: argv[0]: <as>
+Wed Dec 13 18:50:35 2017: argv[1]: <--64>
+Wed Dec 13 18:50:35 2017: argv[2]: <-o>
+Wed Dec 13 18:50:35 2017: argv[3]: </tmp/cccVkuCB.o>
+Wed Dec 13 18:50:35 2017: argv[4]: </tmp/cc9iGy6j.s>
+Wed Dec 13 18:50:35 2017: skipping process with pid: 833
+Wed Dec 13 18:50:35 2017: process created with pid: 834
+Wed Dec 13 18:50:35 2017: parent pid: 827
+Wed Dec 13 18:50:35 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:35 2017: executable: </usr/lib/gcc/x86_64-linux-gnu/5/collect2>
+Wed Dec 13 18:50:35 2017: argv[0]: </usr/lib/gcc/x86_64-linux-gnu/5/collect2>
+Wed Dec 13 18:50:35 2017: argv[1]: <-plugin>
+Wed Dec 13 18:50:35 2017: argv[2]: </usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so>
+Wed Dec 13 18:50:35 2017: argv[3]: <-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper>
+Wed Dec 13 18:50:35 2017: argv[4]: <-plugin-opt=-fresolution=/tmp/ccbyDc9S.res>
+Wed Dec 13 18:50:35 2017: argv[5]: <-plugin-opt=-pass-through=-lgcc>
+Wed Dec 13 18:50:35 2017: argv[6]: <-plugin-opt=-pass-through=-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[7]: <-plugin-opt=-pass-through=-lc>
+Wed Dec 13 18:50:35 2017: argv[8]: <-plugin-opt=-pass-through=-lgcc>
+Wed Dec 13 18:50:35 2017: argv[9]: <-plugin-opt=-pass-through=-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[10]: <--sysroot=/>
+Wed Dec 13 18:50:35 2017: argv[11]: <--build-id>
+Wed Dec 13 18:50:35 2017: argv[12]: <--eh-frame-hdr>
+Wed Dec 13 18:50:35 2017: argv[13]: <-m>
+Wed Dec 13 18:50:35 2017: argv[14]: <elf_x86_64>
+Wed Dec 13 18:50:35 2017: argv[15]: <--hash-style=gnu>
+Wed Dec 13 18:50:35 2017: argv[16]: <--as-needed>
+Wed Dec 13 18:50:35 2017: argv[17]: <-dynamic-linker>
+Wed Dec 13 18:50:35 2017: argv[18]: </lib64/ld-linux-x86-64.so.2>
+Wed Dec 13 18:50:35 2017: argv[19]: <-z>
+Wed Dec 13 18:50:35 2017: argv[20]: <relro>
+Wed Dec 13 18:50:35 2017: argv[21]: <-o>
+Wed Dec 13 18:50:35 2017: argv[22]: <build/random>
+Wed Dec 13 18:50:35 2017: argv[23]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o>
+Wed Dec 13 18:50:35 2017: argv[24]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o>
+Wed Dec 13 18:50:35 2017: argv[25]: </usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o>
+Wed Dec 13 18:50:35 2017: argv[26]: <-L/usr/lib/gcc/x86_64-linux-gnu/5>
+Wed Dec 13 18:50:35 2017: argv[27]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu>
+Wed Dec 13 18:50:35 2017: argv[28]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib>
+Wed Dec 13 18:50:35 2017: argv[29]: <-L/lib/x86_64-linux-gnu>
+Wed Dec 13 18:50:35 2017: argv[30]: <-L/lib/../lib>
+Wed Dec 13 18:50:35 2017: argv[31]: <-L/usr/lib/x86_64-linux-gnu>
+Wed Dec 13 18:50:35 2017: argv[32]: <-L/usr/lib/../lib>
+Wed Dec 13 18:50:35 2017: argv[33]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..>
+Wed Dec 13 18:50:35 2017: argv[34]: </tmp/cccVkuCB.o>
+Wed Dec 13 18:50:35 2017: argv[35]: <-lgcc>
+Wed Dec 13 18:50:35 2017: argv[36]: <--as-needed>
+Wed Dec 13 18:50:35 2017: argv[37]: <-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[38]: <--no-as-needed>
+Wed Dec 13 18:50:35 2017: argv[39]: <-lc>
+Wed Dec 13 18:50:35 2017: argv[40]: <-lgcc>
+Wed Dec 13 18:50:35 2017: argv[41]: <--as-needed>
+Wed Dec 13 18:50:35 2017: argv[42]: <-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[43]: <--no-as-needed>
+Wed Dec 13 18:50:35 2017: argv[44]: </usr/lib/gcc/x86_64-linux-gnu/5/crtend.o>
+Wed Dec 13 18:50:35 2017: argv[45]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o>
+Wed Dec 13 18:50:35 2017: skipping process with pid: 834
+Wed Dec 13 18:50:35 2017: process created with pid: 835
+Wed Dec 13 18:50:35 2017: parent pid: 834
+Wed Dec 13 18:50:35 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:35 2017: executable: </usr/bin/x86_64-linux-gnu-ld.bfd>
+Wed Dec 13 18:50:35 2017: argv[0]: </usr/bin/ld>
+Wed Dec 13 18:50:35 2017: argv[1]: <-plugin>
+Wed Dec 13 18:50:35 2017: argv[2]: </usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so>
+Wed Dec 13 18:50:35 2017: argv[3]: <-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper>
+Wed Dec 13 18:50:35 2017: argv[4]: <-plugin-opt=-fresolution=/tmp/ccbyDc9S.res>
+Wed Dec 13 18:50:35 2017: argv[5]: <-plugin-opt=-pass-through=-lgcc>
+Wed Dec 13 18:50:35 2017: argv[6]: <-plugin-opt=-pass-through=-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[7]: <-plugin-opt=-pass-through=-lc>
+Wed Dec 13 18:50:35 2017: argv[8]: <-plugin-opt=-pass-through=-lgcc>
+Wed Dec 13 18:50:35 2017: argv[9]: <-plugin-opt=-pass-through=-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[10]: <--sysroot=/>
+Wed Dec 13 18:50:35 2017: argv[11]: <--build-id>
+Wed Dec 13 18:50:35 2017: argv[12]: <--eh-frame-hdr>
+Wed Dec 13 18:50:35 2017: argv[13]: <-m>
+Wed Dec 13 18:50:35 2017: argv[14]: <elf_x86_64>
+Wed Dec 13 18:50:35 2017: argv[15]: <--hash-style=gnu>
+Wed Dec 13 18:50:35 2017: argv[16]: <--as-needed>
+Wed Dec 13 18:50:35 2017: argv[17]: <-dynamic-linker>
+Wed Dec 13 18:50:35 2017: argv[18]: </lib64/ld-linux-x86-64.so.2>
+Wed Dec 13 18:50:35 2017: argv[19]: <-z>
+Wed Dec 13 18:50:35 2017: argv[20]: <relro>
+Wed Dec 13 18:50:35 2017: argv[21]: <-o>
+Wed Dec 13 18:50:35 2017: argv[22]: <build/random>
+Wed Dec 13 18:50:35 2017: argv[23]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o>
+Wed Dec 13 18:50:35 2017: argv[24]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o>
+Wed Dec 13 18:50:35 2017: argv[25]: </usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o>
+Wed Dec 13 18:50:35 2017: argv[26]: <-L/usr/lib/gcc/x86_64-linux-gnu/5>
+Wed Dec 13 18:50:35 2017: argv[27]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu>
+Wed Dec 13 18:50:35 2017: argv[28]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib>
+Wed Dec 13 18:50:35 2017: argv[29]: <-L/lib/x86_64-linux-gnu>
+Wed Dec 13 18:50:35 2017: argv[30]: <-L/lib/../lib>
+Wed Dec 13 18:50:35 2017: argv[31]: <-L/usr/lib/x86_64-linux-gnu>
+Wed Dec 13 18:50:35 2017: argv[32]: <-L/usr/lib/../lib>
+Wed Dec 13 18:50:35 2017: argv[33]: <-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..>
+Wed Dec 13 18:50:35 2017: argv[34]: </tmp/cccVkuCB.o>
+Wed Dec 13 18:50:35 2017: argv[35]: <-lgcc>
+Wed Dec 13 18:50:35 2017: argv[36]: <--as-needed>
+Wed Dec 13 18:50:35 2017: argv[37]: <-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[38]: <--no-as-needed>
+Wed Dec 13 18:50:35 2017: argv[39]: <-lc>
+Wed Dec 13 18:50:35 2017: argv[40]: <-lgcc>
+Wed Dec 13 18:50:35 2017: argv[41]: <--as-needed>
+Wed Dec 13 18:50:35 2017: argv[42]: <-lgcc_s>
+Wed Dec 13 18:50:35 2017: argv[43]: <--no-as-needed>
+Wed Dec 13 18:50:35 2017: argv[44]: </usr/lib/gcc/x86_64-linux-gnu/5/crtend.o>
+Wed Dec 13 18:50:35 2017: argv[45]: </usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o>
+Wed Dec 13 18:50:35 2017: skipping process with pid: 835
+Wed Dec 13 18:50:35 2017: process created with pid: 836
+Wed Dec 13 18:50:35 2017: parent pid: 823
+Wed Dec 13 18:50:35 2017: working directory: </home/lqschool/git/pior_Q>
+Wed Dec 13 18:50:35 2017: executable: </bin/dash>
+Wed Dec 13 18:50:35 2017: argv[0]: </bin/sh>
+Wed Dec 13 18:50:35 2017: argv[1]: <-c>
+Wed Dec 13 18:50:35 2017: argv[2]: <RC=done.o>
+Wed Dec 13 18:50:35 2017: skipping process with pid: 836
+Wed Dec 13 18:50:35 2017: finalizing json file
+Wed Dec 13 18:50:35 2017: returned with code: 0
