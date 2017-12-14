@@ -1,8 +1,13 @@
-make: done.o
+CC=gcc
+SOURCE= src
+CFLAGS=-std=c99 
+
+make:
 	rm -rf build	
 	mkdir build	
-	gcc -std=c99 random.c -o build/random	
-	RC=$?
+	$(CC) $(CFLAGS) src/heap.c -o build/heap.o
+	$(CC) $(CFLAGS) src/linkedlist.c -o build/linkedlist.o	
+	$(CC) $(CFLAGS) src/main.c -o build/main.o	
 plot:
 	./build/random > random.dat	
 	gnuplot random.p
