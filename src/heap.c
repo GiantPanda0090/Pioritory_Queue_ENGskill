@@ -20,14 +20,18 @@ Tree * creatNode(int value);
 int add(Tree *main, int item);
 Tree * naiveMerge(Tree *main, Tree *item);
 int swap(Tree *tail);
-
+Tree pop(Tree *main);
+int merge(Tree *main, Tree *item);
 //method
 int main(){
-  Tree *heap=creatHeap(heap,1);
-  add(heap,0);
-  add(heap,9);
+  Tree *heap=creatHeap(heap,0);
+  add(heap,1);
+  add(heap,2);
+  add(heap,3);
   add(heap,4);
-  add(heap,5);
+  Tree element1=pop(heap);
+  Tree element2=pop(heap);
+  Tree element3=pop(heap);
   printf("not crashed");
 }
 
@@ -57,8 +61,13 @@ swap(tail);
  return 0;
 }
 
-int swap(Tree *tail){
+int merge(Tree *main, Tree *item){
+  Tree *tail =  naiveMerge(main,item);
+  swap(tail);
+  return 0;
+}
 
+int swap(Tree *tail){
   Tree *target;
   target=tail;
 while((target->parent) !=empty){
@@ -75,9 +84,12 @@ Tree * naiveMerge(Tree *main, Tree *item){
   Tree *container;
   //choose head
   if((main->value)>(item -> value)){
-    Tree temp=*head;
-    *head=*item;
+    Tree temp=*main;
+    *main=*item;
     *item=temp;
+    *head=*main;
+  }else{
+    *head=*main;
   }
 container = head;
 if((container->right)==empty){
@@ -121,4 +133,17 @@ if((container->right)==empty){
   item=container;
   container=(parent->right);
 }
+}
+
+Tree pop(Tree *main){
+  Tree *left=(head->left);
+  Tree *right =(head->right);
+  //detach head
+  (left->parent)=empty;
+  (right->parent)=empty;
+  (head->left)=empty;
+  (head->right)=empty;
+  Tree target=*head;
+  merge(left,right);
+  return target;
 }
