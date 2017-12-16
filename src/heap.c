@@ -18,7 +18,8 @@ struct Trees *head;
 Tree * creatHeap(Tree *heap,int value);
 Tree * creatNode(int value);
 int add(Tree *main, int item);
-int naiveMerge(Tree *main, Tree *item);
+Tree * naiveMerge(Tree *main, Tree *item);
+int swap(Tree *tail);
 
 //method
 int main(){
@@ -51,12 +52,26 @@ Tree * creatNode(int value){
 
 int add(Tree *main, int item){
 Tree *itemT=creatNode(item);
- naiveMerge(main, itemT);
+Tree *tail=naiveMerge(main, itemT);
+swap(tail);
  return 0;
 }
 
+int swap(Tree *tail){
 
-int naiveMerge(Tree *main, Tree *item){
+  Tree *target;
+  target=tail;
+while((target->parent) !=empty){
+  target=(target ->parent);
+  Tree *temp =(target->left);
+  (target->left) = (target-> right);
+  (target ->right )=temp;
+}
+  return 0;
+}
+
+
+Tree * naiveMerge(Tree *main, Tree *item){
   Tree *container;
   //choose head
   if((main->value)>(item -> value)){
@@ -72,7 +87,7 @@ if((container->right)==empty){
       //attach new tree
       (item->parent)=parent;
       (parent->right)=item;
-      return 0;
+      return parent->right; //return tail
     }else{
   container=main->right;
 }
@@ -88,7 +103,7 @@ if((container->right)==empty){
       //attach new tree
       (item->parent)=parent;
       (parent->right)=item;
-      return 0;
+      return parent->right; //return tail
     }else{
     container=(container->right);
   }
@@ -106,7 +121,4 @@ if((container->right)==empty){
   item=container;
   container=(parent->right);
 }
-
-return 0;
-
 }
