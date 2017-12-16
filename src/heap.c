@@ -2,57 +2,111 @@
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
+//https://stackoverflow.com/questions/1921539/using-boolean-values-in-c
+typedef struct Trees{
+  struct Trees *parent;
+  struct Trees *left;
+  struct Trees *right;
+  int value;
+}Tree;
 
-int *myArray;
-int size =0;
-void creatHeap(int size);
+//public
+struct Trees *empty =NULL;
+struct Trees *head;
 
+//method declearation
+Tree * creatHeap(Tree *heap,int value);
+Tree * creatNode(int value);
+int add(Tree *main, int item);
+int naiveMerge(Tree *main, Tree *item);
+
+//method
 int main(){
-  creatHeap(10);
-  printf("%lu \n", sizeof(*myArray));
-  return 0;
-}
-void creatHeap(int size){
-  int array[size];
-  myArray= array;
-  size =sizeof(array);
+  Tree *heap=creatHeap(heap,1);
+  add(heap,0);
+  add(heap,9);
+  add(heap,4);
+  add(heap,5);
+  printf("not crashed");
 }
 
-int getHeap(){
-  return *myArray;
+Tree * creatHeap(Tree *heap,int value){
+  Tree *out=malloc(sizeof *out);
+  out->parent=empty;
+  out->left =empty;
+  out->right=empty;
+  out->value=value;
+  head=out;
+  return out;
 }
 
-int getParent(int index,int *heap){
-  int parentIndex=(index - 2) / 2;
-  return heap[parentIndex];
+Tree * creatNode(int value){
+  Tree *out=malloc(sizeof *out);
+  out->parent=empty;
+  out->left =empty;
+  out->right=empty;
+  out->value=value;
+  return out;
 }
 
-int getChildrenLeft(int index,int *heap){
-  int leftIndex = (index * 2) +1;
-  return heap[leftIndex];
+int add(Tree *main, int item){
+Tree *itemT=creatNode(item);
+ naiveMerge(main, itemT);
+ return 0;
 }
 
-int getChildrenRight(int index, int *heap){
-  int rightIndex = (index * 2) + 2;
-  return heap[rightIndex];
-}
 
-int pop(int *heap){
-  if (size==0){
-    return -1;
+int naiveMerge(Tree *main, Tree *item){
+  Tree *container;
+  //choose head
+  if((main->value)>(item -> value)){
+    Tree temp=*head;
+    *head=*item;
+    *item=temp;
   }
-int answer =heap[0];
-heap[0]=heap[sizeof(heap-1)];
-size=size-1;
-//heapifyDown();
-return size;
+container = head;
+if((container->right)==empty){
+      //position found
+      //attach
+      Tree *parent = container;
+      //attach new tree
+      (item->parent)=parent;
+      (parent->right)=item;
+      return 0;
+    }else{
+  container=main->right;
 }
 
+  while(1){
+  //rest
+  while((container->value)<(item -> value)){
+    //check last item
+    if((container->right)==empty){
+      //position found
+      //attach
+      Tree *parent = container;
+      //attach new tree
+      (item->parent)=parent;
+      (parent->right)=item;
+      return 0;
+    }else{
+    container=(container->right);
+  }
+  }
+  //position found
+  //attach
+  Tree *parent = (container->parent);
+  //detch both child and parent
+  (container->parent)=empty;
+  (parent->right) = empty;
+  //attach new tree
+  (item->parent)=parent;
+  (parent->right)=item;
+  //prepare for next round
+  item=container;
+  container=(parent->right);
+}
 
-//void heapifyDown(){
+return 0;
 
-//}
-
-//void heapifyUp(){
-
-//}
+}
