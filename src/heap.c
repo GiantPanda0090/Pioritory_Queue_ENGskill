@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
-//https://stackoverflow.com/questions/1921539/using-boolean-values-in-c
+#include <time.h>
+
+
 typedef struct Trees{
   struct Trees *parent;
   struct Trees *left;
@@ -13,6 +15,8 @@ typedef struct Trees{
 //public
 struct Trees *empty =NULL;
 struct Trees *head;
+int maxTask;
+int nrEvent;
 
 //method declearation
 Tree * creatHeap(Tree *heap,int value);
@@ -22,25 +26,55 @@ Tree * naiveMerge(Tree *main, Tree *item);
 int swap(Tree *tail);
 Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
+
 //method
 int main(){
+  /*
+  clock_t t;
+  maxTask =5;
+  nrEvent =4;
+  t=clock();//predefined  function in c
   Tree *heap=creatHeap(heap,0);
-  add(heap,1);
-  add(heap,2);
-  add(heap,3);
-  add(heap,4);
-  Tree element1=pop(heap);
-  Tree element2=pop(heap);
-  Tree element3=pop(heap);
+  printf("Item %d has been added \n" , 0);
+
+  for (int i =1;i<nrEvent;i++){
+    add(heap,i);
+      printf("Item %d has been added \n" , i);
+  }
+  for (int i =0;i<nrEvent;i++){
+    Tree element=pop(heap);
+    printf("Item %d has been poped \n" , element.value);
+   }
+t=clock()-t;
+float effeciency=((float)t)/CLOCKS_PER_SEC;
+  printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
   printf("not crashed");
+  */
+  clock_t t;
+  maxTask =5;
+  nrEvent =20;
+  t=clock();//predefined  function in c
+
+  Tree *heap=creatHeap(heap,0);
+  printf("Item %d has been added \n" , 0);
+  for (int i =1;i<nrEvent+1;i++){
+    add(heap,i);
+      printf("Item %d has been added \n" , i);
+  }
+
+  for (int i =0;i<nrEvent+1;i++){
+    Tree element=pop(heap);
+    printf("Item %d has been poped \n" , element.value);
+   }
+
+ t=clock()-t;
+ float effeciency=((float)t)/CLOCKS_PER_SEC;
+   printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
+   printf("not crashed");
 }
 
 Tree * creatHeap(Tree *heap,int value){
-  Tree *out=malloc(sizeof *out);
-  out->parent=empty;
-  out->left =empty;
-  out->right=empty;
-  out->value=value;
+  Tree *out=creatNode(value);
   head=out;
   return out;
 }
@@ -84,14 +118,36 @@ Tree * naiveMerge(Tree *main, Tree *item){
   Tree *container;
   //choose head
   if((main->value)>(item -> value)){
-    Tree temp=*main;
-    *main=*item;
-    *item=temp;
-    *head=*main;
+    //exchange item and main
+    Tree *temp=main;
+     main=item;
+     item=temp;
+     //head attach
+    if((main->left)!=empty){
+      main->left->parent=head;
+
+  }
+  if ((main -> right)!=empty){
+    main->right->parent=head;
+
+  }
+  *head=*main;
+    main=head;
   }else{
-    *head=*main;
+    if((main->left)!=empty){
+      main->left->parent=head;
+
+  }
+  if ((main -> right)!=empty){
+    main->right->parent=head;
+
+  }
+  *head=*main;
+    main=head;
   }
 container = head;
+/*
+//first time
 if((container->right)==empty){
       //position found
       //attach
@@ -103,10 +159,11 @@ if((container->right)==empty){
     }else{
   container=main->right;
 }
-
+*/
   while(1){
   //rest
   while((container->value)<(item -> value)){
+
     //check last item
     if((container->right)==empty){
       //position found
@@ -136,14 +193,50 @@ if((container->right)==empty){
 }
 
 Tree pop(Tree *main){
-  Tree *left=(head->left);
-  Tree *right =(head->right);
+  Tree *left=(main->left);
+  Tree *right =(main->right);
+  int leftFlag=0;
+  int rightFlag=0;
+
   //detach head
+
+  //detach left
+  if((main->left)!=empty){
   (left->parent)=empty;
+  (main->left)=empty;
+  leftFlag=1;
+}
+//detach right
+if ((main -> right)!=empty){
   (right->parent)=empty;
-  (head->left)=empty;
-  (head->right)=empty;
-  Tree target=*head;
+  (main->right)=empty;
+  rightFlag=1;
+}
+
+
+  Tree target=*main;
+
+  if(leftFlag==1&&rightFlag==1){
   merge(left,right);
+}else if (leftFlag==1&&rightFlag==0){
+  //attach head to the next Item
+  *head=*left;
+    left=head;
+}else if (leftFlag==0&&rightFlag==1){
+  *head=*right;
+    right=head;
+}
+//reset flag
+leftFlag =0;
+rightFlag=0;
+/*
+  //decompose
+  int t= target.value;
+  //new tree
+  int n =rand()%maxTask;//implement maxTask
+  for(int i=1;i<n;i++){
+    add(head,t+(nrEvent-t)+rand());
+  }
+  */
   return target;
 }
