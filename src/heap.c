@@ -32,27 +32,6 @@ int decompose(Tree element,clock_t timestemp);
 
 //method
 int main(int argc, char *argv[] ){
-  /*
-  clock_t t;
-  maxTask =5;
-  nrEvent =4;
-  t=clock();//predefined  function in c
-  Tree *heap=creatHeap(heap,0);
-  printf("Item %d has been added \n" , 0);
-
-  for (int i =1;i<nrEvent;i++){
-    add(heap,i);
-      printf("Item %d has been added \n" , i);
-  }
-  for (int i =0;i<nrEvent;i++){
-    Tree element=pop(heap);
-    printf("Item %d has been poped \n" , element.value);
-   }
-t=clock()-t;
-float effeciency=((float)t)/CLOCKS_PER_SEC;
-  printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
-  printf("not crashed");
-  */
   maxTask =atoi(argv[1]) ;
   nrEvent =atoi(argv[2]);
   archtecture=atoi(argv[3]);
@@ -67,33 +46,26 @@ while(current<nrEvent){
 
   //add
   Tree *heap=creatHeap(heap,t);
-  //printf("#Item %f has been added \n" , (float)t);
   for (int i =1;i<current+1;i++){
       timestemp =clock();
     add(heap,timestemp);
-      //printf("Item %f has been added \n" ,(float)timestemp);
-      //  printf("This is Item Nr %d \n" ,i);
 
   }
 //pop
   while((heap->left)!=empty||(heap -> right)!=empty){
 
     Tree element=pop(heap);
-    //printf("Item %f has been poped \n" , element.value);
     //decompose
     if(element.arch>0){
    decompose(element, timestemp);
 }
    }
    Tree element=pop(heap);
-  // printf("Item %f has been poped \n" , element.value);
 
 
  t=clock()-t;
  float effeciency=((float)t)/CLOCKS_PER_SEC;
  dataList[counter]=effeciency;
-   //printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
-  // printf("not crashed");
   counter++;
   if (counter==3){
     current++;
@@ -104,16 +76,15 @@ while(current<nrEvent){
   }
   free(head);
 }
+printf("# not crashed");
+
 return 0;
 }
 int decompose(Tree element,clock_t timestemp){
-  //int t= target.value;
   int n =rand()%maxTask;//random N
-  //printf("maxTask been set as %d \n" ,n);
   for(int i=1;i<n;i++){
     timestemp =clock();
     add(head,timestemp);
-    //printf("Item %f has been added \n" ,(float)timestemp);
   }
   element.arch=element.arch-1;
 }
@@ -192,20 +163,6 @@ Tree * naiveMerge(Tree *main, Tree *item){
     main=head;
   }
 container = head;
-/*
-//first time
-if((container->right)==empty){
-      //position found
-      //attach
-      Tree *parent = container;
-      //attach new tree
-      (item->parent)=parent;
-      (parent->right)=item;
-      return parent->right; //return tail
-    }else{
-  container=main->right;
-}
-*/
   while(1){
   //rest
   while((container->value)<=(item -> value)){
@@ -275,15 +232,5 @@ if ((main -> right)!=empty){
 //reset flag
 leftFlag =0;
 rightFlag=0;
-/*
-  //decompose
-  int t= target.value;
-  //new tree
-  int n =rand()%maxTask;//implement maxTask
-  for(int i=1;i<n;i++){
-    float timestemp =clock();
-    add(head,timestemp);
-  }
-*/
   return target;
 }
