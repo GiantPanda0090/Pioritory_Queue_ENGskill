@@ -9,7 +9,8 @@ typedef struct Trees{
   struct Trees *parent;
   struct Trees *left;
   struct Trees *right;
-  int value;
+  float value;
+  int arch;
 }Tree;
 
 //public
@@ -17,18 +18,20 @@ struct Trees *empty =NULL;
 struct Trees *head;
 int maxTask;
 int nrEvent;
+int archtecture;
 
 //method declearation
-Tree * creatHeap(Tree *heap,int value);
-Tree * creatNode(int value);
-int add(Tree *main, int item);
+Tree * creatHeap(Tree *heap,float value);
+Tree * creatNode(float value);
+int add(Tree *main, float item);
 Tree * naiveMerge(Tree *main, Tree *item);
 int swap(Tree *tail);
 Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
+int decompose(Tree element,clock_t timestemp);
 
 //method
-int main(){
+int main(int argc, char *argv[] ){
   /*
   clock_t t;
   maxTask =5;
@@ -50,45 +53,88 @@ float effeciency=((float)t)/CLOCKS_PER_SEC;
   printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
   printf("not crashed");
   */
-  clock_t t;
-  maxTask =5;
-  nrEvent =20;
+  maxTask =atoi(argv[1]) ;
+  nrEvent =atoi(argv[2]);
+  archtecture=atoi(argv[3]);
+
+
+int current=0;
+int counter=0;
+float dataList[3];
+while(current<nrEvent){
+  clock_t t,timestemp;
   t=clock();//predefined  function in c
 
-  Tree *heap=creatHeap(heap,0);
-  printf("Item %d has been added \n" , 0);
-  for (int i =1;i<nrEvent+1;i++){
-    add(heap,i);
-      printf("Item %d has been added \n" , i);
-  }
+  //add
+  Tree *heap=creatHeap(heap,t);
+  //printf("#Item %f has been added \n" , (float)t);
+  for (int i =1;i<current+1;i++){
+      timestemp =clock();
+    add(heap,timestemp);
+      //printf("Item %f has been added \n" ,(float)timestemp);
+      //  printf("This is Item Nr %d \n" ,i);
 
-  for (int i =0;i<nrEvent+1;i++){
+  }
+//pop
+  while((heap->left)!=empty||(heap -> right)!=empty){
+
     Tree element=pop(heap);
-    printf("Item %d has been poped \n" , element.value);
+    //printf("Item %f has been poped \n" , element.value);
+    //decompose
+    if(element.arch>0){
+   decompose(element, timestemp);
+}
    }
+   Tree element=pop(heap);
+  // printf("Item %f has been poped \n" , element.value);
+
 
  t=clock()-t;
  float effeciency=((float)t)/CLOCKS_PER_SEC;
-   printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
-   printf("not crashed");
+ dataList[counter]=effeciency;
+   //printf ("Program took %f seconds to finish.\n",((float)t)/CLOCKS_PER_SEC);
+  // printf("not crashed");
+  counter++;
+  if (counter==3){
+    current++;
+    float sum=dataList[0]+dataList[1]+dataList[2];
+    effeciency=sum / 3;
+    counter=0;
+    printf("%d\t%.8f\n", current, effeciency);
+  }
+  free(head);
+}
+return 0;
+}
+int decompose(Tree element,clock_t timestemp){
+  //int t= target.value;
+  int n =rand()%maxTask;//random N
+  //printf("maxTask been set as %d \n" ,n);
+  for(int i=1;i<n;i++){
+    timestemp =clock();
+    add(head,timestemp);
+    //printf("Item %f has been added \n" ,(float)timestemp);
+  }
+  element.arch=element.arch-1;
 }
 
-Tree * creatHeap(Tree *heap,int value){
+Tree * creatHeap(Tree *heap,float value){
   Tree *out=creatNode(value);
   head=out;
   return out;
 }
 
-Tree * creatNode(int value){
+Tree * creatNode(float value){
   Tree *out=malloc(sizeof *out);
   out->parent=empty;
   out->left =empty;
   out->right=empty;
   out->value=value;
+  out->arch=rand()%archtecture;
   return out;
 }
 
-int add(Tree *main, int item){
+int add(Tree *main, float item){
 Tree *itemT=creatNode(item);
 Tree *tail=naiveMerge(main, itemT);
 swap(tail);
@@ -162,7 +208,7 @@ if((container->right)==empty){
 */
   while(1){
   //rest
-  while((container->value)<(item -> value)){
+  while((container->value)<=(item -> value)){
 
     //check last item
     if((container->right)==empty){
@@ -235,8 +281,9 @@ rightFlag=0;
   //new tree
   int n =rand()%maxTask;//implement maxTask
   for(int i=1;i<n;i++){
-    add(head,t+(nrEvent-t)+rand());
+    float timestemp =clock();
+    add(head,timestemp);
   }
-  */
+*/
   return target;
 }

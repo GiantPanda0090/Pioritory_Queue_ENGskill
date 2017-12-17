@@ -1,7 +1,7 @@
 #!/bin/bash
 #plot for mac
 
-./build/heap > heap.dat	
-./build/linkedlist > linkedlist.dat	
-gnuplot plot.p
-display plot.png
+./build/heap.o 5 18 5 > plot/heap.dat	
+cd plot
+gnuplot heap.p
+display heap.png
