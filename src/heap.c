@@ -22,13 +22,14 @@ int archtecture;
 
 //method declearation
 Tree * creatHeap(Tree *heap,float value);
-Tree * creatNode(float value);
-int add(Tree *main, float item);
-Tree * naiveMerge(Tree *main, Tree *item);
+Tree * creatNode(float value,int arch);
+int add(Tree *main, float item,int arch);
+Tree * naiveMerge(Tree *main1, Tree *item);
 int swap(Tree *tail);
 Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
 int decompose(Tree element,clock_t timestemp);
+int increment();
 
 //method
 int main(int argc, char *argv[] ){
@@ -43,21 +44,20 @@ float dataList[3];
 while(current<nrEvent){
   clock_t t,timestemp;
   t=clock();//predefined  function in c
-
   //add
   Tree *heap=creatHeap(heap,t);
   for (int i =1;i<current+1;i++){
       timestemp =clock();
-    add(heap,timestemp);
+    add(heap,timestemp,rand()%archtecture);
 
   }
 //pop
   while((heap->left)!=empty||(heap -> right)!=empty){
-
     Tree element=pop(heap);
     //decompose
     if(element.arch>0){
    decompose(element, timestemp);
+   //printf("element .arch : %d\n",element.arch);
 }
    }
    Tree element=pop(heap);
@@ -65,6 +65,8 @@ while(current<nrEvent){
 
  t=clock()-t;
  float effeciency=((float)t)/CLOCKS_PER_SEC;
+
+ //average operation
  dataList[counter]=effeciency;
   counter++;
   if (counter==3){
@@ -81,32 +83,37 @@ printf("# not crashed");
 return 0;
 }
 int decompose(Tree element,clock_t timestemp){
-  int n =rand()%maxTask;//random N
-  for(int i=1;i<n;i++){
-    timestemp =clock();
-    add(head,timestemp);
-  }
   element.arch=element.arch-1;
+  int n =rand()%maxTask;//random N
+  int t =element.arch;//random N
+  for(int i=1;i<n;i++){
+
+    add(head,t+increment(),element.arch);
+  }
+}
+
+int increment(){
+  return rand()%(int)(10);
 }
 
 Tree * creatHeap(Tree *heap,float value){
-  Tree *out=creatNode(value);
+  Tree *out=creatNode(value,rand()%archtecture);
   head=out;
   return out;
 }
 
-Tree * creatNode(float value){
+Tree * creatNode(float value,int arch){
   Tree *out=malloc(sizeof *out);
   out->parent=empty;
   out->left =empty;
   out->right=empty;
   out->value=value;
-  out->arch=rand()%archtecture;
+  out->arch=arch;
   return out;
 }
 
-int add(Tree *main, float item){
-Tree *itemT=creatNode(item);
+int add(Tree *main, float item,int arch){
+Tree *itemT=creatNode(item,arch);
 Tree *tail=naiveMerge(main, itemT);
 swap(tail);
  return 0;
@@ -121,7 +128,7 @@ int merge(Tree *main, Tree *item){
 int swap(Tree *tail){
   Tree *target;
   target=tail;
-while((target->parent) !=empty){
+while((target->parent) !=empty){//probelm infinity loop
   target=(target ->parent);
   Tree *temp =(target->left);
   (target->left) = (target-> right);
@@ -131,10 +138,13 @@ while((target->parent) !=empty){
 }
 
 
-Tree * naiveMerge(Tree *main, Tree *item){
+Tree * naiveMerge(Tree *main1, Tree *item){
   Tree *container;
+  Tree *main=malloc(sizeof *main);
+  *main=*main1;
   //choose head
   if((main->value)>(item -> value)){
+
     //exchange item and main
     Tree *temp=main;
      main=item;
@@ -142,14 +152,13 @@ Tree * naiveMerge(Tree *main, Tree *item){
      //head attach
     if((main->left)!=empty){
       main->left->parent=head;
-
   }
   if ((main -> right)!=empty){
     main->right->parent=head;
 
   }
   *head=*main;
-    main=head;
+
   }else{
     if((main->left)!=empty){
       main->left->parent=head;
@@ -160,7 +169,6 @@ Tree * naiveMerge(Tree *main, Tree *item){
 
   }
   *head=*main;
-    main=head;
   }
 container = head;
   while(1){
@@ -168,13 +176,14 @@ container = head;
   while((container->value)<=(item -> value)){
 
     //check last item
-    if((container->right)==empty){
+    if((container->right)==empty){//reason of infinity loop
       //position found
       //attach
       Tree *parent = container;
       //attach new tree
       (item->parent)=parent;
       (parent->right)=item;
+      free(main);
       return parent->right; //return tail
     }else{
     container=(container->right);
