@@ -1,59 +1,76 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include <assert.h>
 
-
 typedef struct node{
-  int data;
-  struct node * next;
-}node;
+    int data;
+    struct node *ptr;
+} node;
 
-node * createLinkedList(int n);
-void displayList(node * head);
+node* insert(node* head, int num) {
+    node *temp, *prev, *next;
+    temp = (node*)malloc(sizeof(node));
+    temp->data = num;
+    temp->ptr = NULL;
+    if(!head){
+        head=temp;
+    } else{
+        prev = NULL;
+        next = head;
+        while(next && next->data<=num){
+            prev = next;
+            next = next->ptr;
+        }
+        if(!next){
+            prev->ptr = temp;
+        } else{
+            if(prev) {
+                temp->ptr = prev->ptr;
+                prev-> ptr = temp;
+            } else {
+                temp->ptr = head;
+                head = temp;
+            }
+        }
+    }
+    return head;
+}
+//free the malloced memory to avoid memory leakage
+void free_list(node *head) {
+    node *prev = head;
+    node *cur = head;
+    while(cur) {
+        prev = cur;
+        cur = prev->ptr;
+        free(prev);
+    }
+}
+
 int main(){
-
-  int n =0;
-  node * HEAD=NULL;
-  printf("\n How many nodes do you want to have in the linkedlist?");
-  scanf("%d",&n );
-
-HEAD=createLinkedList(n);
-displayList(HEAD);
-printf("\n");
-
-  return 0;
-}
-node * createLinkedList(int n){
-  int i=0;
-  node * head=NULL;
-  node * temp=NULL;
-  node * p=NULL;
-
-for(int i=0;i<n;i++){
-  temp = (node*)malloc(sizeof(node));
-  printf("\n enter data");
-  scanf("%d",&(temp -> data));
-  temp->next=NULL;
-  if (head==NULL){
-    head=temp;
-  }
-  else{
-    p=head;
-    while(p->next!=NULL)
-      p=p->next;
-    p->next=temp;
-
-  }
-}
-return head;
-}
-
-void displayList(node * head){
-  node * p=head;
-  while( p!=NULL){
-    printf("\t%d",p->data );
-    p=p->next;
-
-  }
+    int num;
+    int n =0;
+    int r =0;
+    node *head, *p;
+    head = NULL;
+    printf("\n How many nodes do you want to have in the linkedlist?");
+    scanf("%d",&n );
+    for(int i=0;i<n;i++) {
+        printf("Enter a number");
+        scanf("%d",&num);
+        if(num) {
+            head = insert(head, num);
+        }
+    }
+    p = head;
+    printf("\nThe numbers are:\n");
+    while(p) {
+        printf("%d ", p->data);
+        p = p->ptr;
+    }
+    printf("\n New node");
+    scanf("%d",&r );
+    free_list(head);
+    return 0;
 }
