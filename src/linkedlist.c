@@ -3,7 +3,7 @@
 #include <math.h>
 #include <time.h>
 #include <assert.h>
-
+//https://stackoverflow.com/questions/21788598/c-inserting-into-linked-list-in-ascending-order
 typedef struct node{
     int data;
     struct node *ptr;
@@ -69,8 +69,9 @@ int main(){
         printf("%d ", p->data);
         p = p->ptr;
     }
-    printf("\n New node");
-    scanf("%d",&r );
+  //  printf("\n New node");
+  //  scanf("%d",&r );
+  //  insert(head, r);
     free_list(head);
     return 0;
 }
