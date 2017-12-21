@@ -11,6 +11,7 @@ typedef struct Trees{
   struct Trees *right;
   float value;
   int arch;
+  struct Trees *self;
 }Tree;
 
 //public
@@ -19,6 +20,7 @@ struct Trees *head;
 int maxTask;
 int nrEvent;
 int archtecture;
+
 
 //method declearation
 Tree * creatHeap(Tree *heap,float value);
@@ -33,15 +35,17 @@ int increment();
 
 //method
 int main(int argc, char *argv[] ){
+if(argc != 4) {
+    printf("usage: list <maxTask> <nrEvent> <archtecture>\n");
+    exit(0);
+  }
   maxTask =atoi(argv[1]) ;
   nrEvent =atoi(argv[2]);
   archtecture=atoi(argv[3]);
+  int counter=0;
 
-
-int current=0;
-int counter=0;
+int current=nrEvent;
 float dataList[3];
-while(current<nrEvent){
   clock_t t,timestemp;
   t=clock();//predefined  function in c
   //add
@@ -54,31 +58,35 @@ while(current<nrEvent){
 //pop
   while((heap->left)!=empty||(heap -> right)!=empty){
     Tree element=pop(heap);
+
     //decompose
     if(element.arch>0){
    decompose(element, timestemp);
    //printf("element .arch : %d\n",element.arch);
 }
+
    }
    Tree element=pop(heap);
 
 
  t=clock()-t;
  float effeciency=((float)t)/CLOCKS_PER_SEC;
-
+/*
  //average operation
  dataList[counter]=effeciency;
-  counter++;
-  if (counter==3){
+  if (counter==2){
     current++;
     float sum=dataList[0]+dataList[1]+dataList[2];
     effeciency=sum / 3;
     counter=0;
     printf("%d\t%.8f\n", current, effeciency);
   }
-  free(head);
-}
-printf("# not crashed");
+*/
+  printf("%d\t%.8f\n", current, effeciency);
+
+
+
+//printf("# not crashed");
 
 return 0;
 }
@@ -109,6 +117,7 @@ Tree * creatNode(float value,int arch){
   out->right=empty;
   out->value=value;
   out->arch=arch;
+  out->self=&*out;
   return out;
 }
 
@@ -158,7 +167,6 @@ Tree * naiveMerge(Tree *main1, Tree *item){
 
   }
   *head=*main;
-
   }else{
     if((main->left)!=empty){
       main->left->parent=head;
