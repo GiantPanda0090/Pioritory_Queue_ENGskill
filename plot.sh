@@ -1,5 +1,7 @@
 #!/bin/bash
 #plot 
+echo "This script will run a complexity comparision for two different piority queue implementaion linkedlist vs skewheap"	
+echo "preperation......"	
 cd plot
 rm -rf 2
 rm -rf 4
@@ -20,15 +22,60 @@ mkdir 14
 mkdir 16
 mkdir 18
 cd ..
-./run1.sh 900 10000 50 > plot/2/heap.dat	
-./run1.sh 900 10000 50 > plot/4/heap.dat	
-./run1.sh 900 10000 50 > plot/6/heap.dat	
-./run1.sh 1000 10000 50 > plot/8/heap.dat	
-./run1.sh 1000 10000 50 > plot/10/heap.dat	
-./run1.sh 1000 10000 50 > plot/12/heap.dat
-./run1.sh 1100 10000 50 > plot/14/heap.dat	
-./run1.sh 1100 10000 50 > plot/16/heap.dat	
-./run1.sh 1100 10000 50 > plot/18/heap.dat	
+echo "compliling all component"
+make
+echo "SUCESSFUL COMPILED"
+echo "simulation start"	
+./run1.sh 5 5000 3 > plot/2/heap.dat	
+echo "1st run"
+./run1.sh 5 5000 3 > plot/4/heap.dat	
+echo "2nd run"
+./run1.sh 5 5000 3 > plot/6/heap.dat
+echo "3rd run"
+echo "skew heap done"	
+./run2.sh 5 5000 3 > plot/2/linkedlist.dat
+echo "1st run"	
+./run2.sh 5 5000 3 > plot/4/linkedlist.dat	
+echo "2nd run"
+./run2.sh 5 5000 3 > plot/6/linkedlist.dat
+echo "3rd run"
+echo "linked list done"	
+echo "1st data pattern done"	
+./run1.sh 4 5000 4 > plot/8/heap.dat	
+echo "1st run"
+./run1.sh 4 5000 4 > plot/10/heap.dat
+echo "2nd run"	
+./run1.sh 4 5000 4 > plot/12/heap.dat
+echo "3rd run"
+echo "skew heap done"	
+./run2.sh 4 5000 4 > plot/8/linkedlist.dat
+echo "1st run"	
+./run2.sh 4 5000 4 > plot/10/linkedlist.dat
+echo "2nd run"	
+./run2.sh 4 5000 4 > plot/12/linkedlist.dat
+echo "3rd run"
+echo "skew heap done"	
+echo "2nd data pattern done"
+./run1.sh 6 5000 2 > plot/14/heap.dat
+echo "1st run"	
+./run1.sh 6 5000 2 > plot/16/heap.dat
+echo "2nd run"	
+./run1.sh 6 5000 2 > plot/18/heap.dat
+echo "3rd run"
+echo "skew heap done"	
+./run2.sh 6 5000 2 > plot/14/linkedlist.dat
+echo "1st run"	
+./run2.sh 6 5000 2 > plot/16/linkedlist.dat
+echo "2nd run"	
+./run2.sh 6 5000 2 > plot/18/linkedlist.dat
+echo "3rd run"
+echo "skew heap done"		
+echo "3rd data pattern done"
+echo "SIMULATION SUECCESSED,PLOTING GRAPH......"
 cd plot
 gnuplot heap.p
+echo "plot done!"
+echo "open graph"
 display heap.png
+echo "not crashed!"
+

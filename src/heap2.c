@@ -55,7 +55,6 @@ float dataList[3];
     add(heap,timestemp,rand()%archtecture);
 
   }
-
 //pop
   while((heap->left)!=empty||(heap -> right)!=empty){
     Tree element=pop(heap);
@@ -63,6 +62,7 @@ float dataList[3];
     //decompose
     if(element.arch>0){
    decompose(element, timestemp);
+   //printf("element .arch : %d\n",element.arch);
 }
 
    }
@@ -70,8 +70,21 @@ float dataList[3];
 
 
  t=clock()-t;
- float effeciency=((float)t)/CLOCKS_PER_SEC*1000;
+ float effeciency=((float)t)/CLOCKS_PER_SEC;
+/*
+ //average operation
+ dataList[counter]=effeciency;
+  if (counter==2){
+    current++;
+    float sum=dataList[0]+dataList[1]+dataList[2];
+    effeciency=sum / 3;
+    counter=0;
+    printf("%d\t%.8f\n", current, effeciency);
+  }
+*/
   printf("%d\t%.8f\n", current, effeciency);
+
+
 
 //printf("# not crashed");
 
@@ -80,14 +93,15 @@ return 0;
 int decompose(Tree element,clock_t timestemp){
   element.arch=element.arch-1;
   int n =rand()%maxTask;//random N
-  int t =element.value;//random N
+  int t =element.arch;//random N
   for(int i=1;i<n;i++){
+
     add(head,t+increment(),element.arch);
   }
 }
 
 int increment(){
-  return rand()%(int)(1000);
+  return rand()%(int)(10);
 }
 
 Tree * creatHeap(Tree *heap,float value){
@@ -109,7 +123,8 @@ Tree * creatNode(float value,int arch){
 
 int add(Tree *main, float item,int arch){
 Tree *itemT=creatNode(item,arch);
-merge(main, itemT);
+Tree *tail=naiveMerge(main, itemT);
+swap(tail);
  return 0;
 }
 
@@ -120,11 +135,13 @@ int merge(Tree *main, Tree *item){
 }
 
 int swap(Tree *tail){
-while((tail->parent) !=empty){//probelm infinity loop
-  tail=(tail ->parent);
-  Tree *temp =(tail->left);
-  (tail->left) = (tail-> right);
-  (tail ->right)=temp;
+  Tree *target;
+  target=tail;
+while((target->parent) !=empty){//probelm infinity loop
+  target=(target ->parent);
+  Tree *temp =(target->left);
+  (target->left) = (target-> right);
+  (target ->right )=temp;
 }
   return 0;
 }
@@ -150,7 +167,6 @@ Tree * naiveMerge(Tree *main1, Tree *item){
 
   }
   *head=*main;
-  //free(main1);
   }else{
     if((main->left)!=empty){
       main->left->parent=head;
@@ -161,7 +177,6 @@ Tree * naiveMerge(Tree *main1, Tree *item){
 
   }
   *head=*main;
-  //free(main1);
   }
 container = head;
   while(1){
@@ -223,18 +238,13 @@ if ((main -> right)!=empty){
 
   if(leftFlag==1&&rightFlag==1){
   merge(left,right);
-  if(head->value==left->value){
-    free(left);
-  }else if(head->value ==right->value){
-    //free(right);
-  }
 }else if (leftFlag==1&&rightFlag==0){
   //attach head to the next Item
   *head=*left;
-  free(left);
+    left=head;
 }else if (leftFlag==0&&rightFlag==1){
   *head=*right;
-  free(right);
+    right=head;
 }
 //reset flag
 leftFlag =0;
