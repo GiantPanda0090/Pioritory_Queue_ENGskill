@@ -7,45 +7,50 @@
 typedef struct node{
     float data;
     struct node *ptr;
+    struct node *tail;
     int arch;
 } node;
 
 int archtecture=1;
 int maxTask =1;
-
 node* insert(node* head, float num, int arch) {
-    node *temp, *prev, *next;
+    node *temp, *prev, *next,*tail;
     temp = (node*)malloc(sizeof(node));
     temp->data = num;
     temp->ptr = NULL;
     temp->arch = arch;
     if(!head){
         head=temp;
+        tail=temp;
     } else{
+      tail=head->tail;
+      int avg =head->data+tail->data;
+      avg=avg/2;
         prev = NULL;
         next = head;
-        while(next && next->data<=num){
-            prev = next;
-            next = next->ptr;
-        }
-        if(!next){
-            prev->ptr = temp;
-        } else{
-            if(prev) {
-                temp->ptr = prev->ptr;
-                prev-> ptr = temp;
-            } else {
-                temp->ptr = head;
-                head = temp;
-            }
+        if(num>avg){
+            prev = tail;
+            next = NULL;
+            tail->ptr = temp;
+            temp->ptr = NULL;
+            tail=temp;
+        }else{
+          temp->ptr=next;
+          head =temp;
         }
     }
+    head->tail=tail;
+
     return head;
 }
 
 node *trace=NULL;
 node pop(node* head){
+  node *tail=head->tail;
   trace =head->ptr;
+  if(trace!=NULL){
+    trace->tail=head->tail;
+  }
   node out = *head;
 free(head);
   return out;
@@ -96,51 +101,59 @@ int main(int argc, char *argv[]){
     t=clock();
     //add
     for(int i=0;i<n;i++) {
-        //printf("Enter a number");
-        //scanf("%d",&num);
         timestemp =clock();
         head = insert(head, timestemp,archtecture);
     }
     p = head;
 
     //DEBUG
-      //  printf("\n#The numbers are:\n");
+    /*
+        printf("\n#The numbers are:\n");
         while(p) {
-          //  printf("#%f ", p->data);
+            printf("#%f ", p->data);
             p = p->ptr;
         }
-
+*/
     //pop
     while(head->ptr!=NULL){
       node poped_node=pop(head);
       head=trace;
 
-
-      //printf("\n#POPED %f\n",poped_node.data );
       //DEBUG
-      //p = head;
-        //  printf("#Current list:\n");
-        //  while(p) {
-          //    printf("#%f ", p->data);
-          //    p = p->ptr;
-          //}
-          //printf("\n ");
-
+/*
+      printf("\n#POPED %f\n",poped_node.data );
+      p = head;
+          printf("#Current list:\n");
+          while(p) {
+             printf("#%f ", p->data);
+              p = p->ptr;
+          }
+          printf("\n ");
+*/
       //decompose
       if(poped_node.arch>0){
      decompose(head,poped_node);
   }
+
+
+  //DEBUG
+  /*
+  p = head;
+      printf("#Current list:\n");
+      while(p) {
+         printf("#%f ", p->data);
+          p = p->ptr;
+      }
+      printf("\n ");
+      */
      }
 
     // printf("#LAST ONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
      node poped_node=pop(head);//last
-     //printf("\n#POPED %f\n",poped_node.data );
-
-
-  //  printf("\n New node");
-  //  scanf("%d",&r );
-  //  insert(head, r);
-    //free_list(head);
+     /*
+    printf("\n#POPED %f\n",poped_node.data );
+    */
     t=clock()-t;
     float effeciency=((float)t)/CLOCKS_PER_SEC*1000;
     int current= n;

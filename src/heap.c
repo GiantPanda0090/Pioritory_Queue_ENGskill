@@ -33,6 +33,23 @@ int merge(Tree *main, Tree *item);
 int decompose(Tree element,clock_t timestemp);
 int increment();
 
+int debug(Tree *head) {
+    if(head == NULL){
+//        printf(" \t ");
+      return 0;
+
+    }
+    //printf(" \t ");
+    debug(head -> left);
+    //printf(" \t ");
+    printf("# |____");
+    printf(" %f\n",head -> value);
+    //printf(" \t ");
+
+    debug(head ->right);
+
+}
+
 //method
 int main(int argc, char *argv[] ){
 if(argc != 4) {
@@ -53,20 +70,36 @@ float dataList[3];
   for (int i =1;i<current+1;i++){
       timestemp =clock();
     add(heap,timestemp,rand()%archtecture);
-
   }
-
+  /*
+  printf("\n#After head: \n");
+  printf("#head is %f\n",head->value);
+  debug(head);
+  */
 //pop
   while((heap->left)!=empty||(heap -> right)!=empty){
     Tree element=pop(heap);
-
+    /*
+    printf("\n#After pop: \n");
+    printf("head is %f\n",head->value);
+debug(head);
+*/
     //decompose
     if(element.arch>0){
    decompose(element, timestemp);
+   /*
+   printf("\n#After decompose: \n");
+   printf("head is %f\n",head->value);
+   debug(head);
+   */
 }
-
    }
    Tree element=pop(heap);
+   /*
+   printf("\n#After last pop: \n");
+   printf("head is %f\n",head->value);
+   debug(head);
+   */
 
 
  t=clock()-t;
