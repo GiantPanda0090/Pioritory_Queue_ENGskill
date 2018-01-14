@@ -7,6 +7,7 @@
 typedef struct node{
     float data;
     struct node *ptr;
+    struct node *ptr_p;
     struct node *tail;
     int arch;
 } node;
@@ -19,24 +20,54 @@ node* insert(node* head, float num, int arch) {
     temp->data = num;
     temp->ptr = NULL;
     temp->arch = arch;
+    //first
     if(!head){
         head=temp;
         tail=temp;
     } else{
       tail=head->tail;
       int avg =head->data+tail->data;
-      avg=avg/2;
+      avg=avg/2;//average
         prev = NULL;
         next = head;
-        if(num>avg){
+        if(num>avg){//end
             prev = tail;
             next = NULL;
-            tail->ptr = temp;
-            temp->ptr = NULL;
-            tail=temp;
+            while(prev && prev->data>num){
+              next = prev;
+              prev = prev->ptr_p;
+          }
+          if(!next){
+              prev->ptr = temp;
+              tail->ptr = temp;
+              temp->ptr = next;
+              tail=temp;
+          } else{
+                  temp->ptr = prev->ptr;
+                  temp->ptr_p = prev;
+                  prev-> ptr = temp;
+                  prev->ptr->ptr_p=temp;
+  }
+
+
+
         }else{
-          temp->ptr=next;
-          head =temp;
+            while(next && next->data<=num){
+              prev = next;
+              next = next->ptr;
+          }
+              if(prev) {
+                  temp->ptr = prev->ptr;
+                  temp->ptr_p = prev;
+                  prev-> ptr = temp;
+                  prev->ptr->ptr_p=temp;
+              } else {
+                  temp->ptr = head;
+                  head->ptr_p=temp;
+                  head = temp;
+              }
+
+
         }
     }
     head->tail=tail;
@@ -68,8 +99,12 @@ void free_list(node *head) {
     }
 }
 
-int increment(){
-  return rand()%(int)(1000);
+int increment(node* head){
+  int avg =(head->tail->data)-(head->data);
+  if (avg ==0){
+    avg=5;
+  }
+  return rand()%(int)(avg);
 }
 
 int decompose(node* head,node element){
@@ -77,7 +112,7 @@ int decompose(node* head,node element){
   int n =rand()%maxTask;//random N
   int t =element.data;// obtain value from main node
   for(int i=1;i<n;i++){
-    head = insert(head, t+increment(),element.arch);
+    head = insert(head, t+increment(head),element.arch);
   }
   return 0;
 }
@@ -107,12 +142,13 @@ int main(int argc, char *argv[]){
     p = head;
 
     //DEBUG
-    /*
+/*
         printf("\n#The numbers are:\n");
         while(p) {
             printf("#%f ", p->data);
             p = p->ptr;
         }
+
 */
     //pop
     while(head->ptr!=NULL){
@@ -129,15 +165,15 @@ int main(int argc, char *argv[]){
               p = p->ptr;
           }
           printf("\n ");
-*/
+
       //decompose
       if(poped_node.arch>0){
      decompose(head,poped_node);
   }
-
+*/
 
   //DEBUG
-  /*
+/*
   p = head;
       printf("#Current list:\n");
       while(p) {
@@ -145,15 +181,16 @@ int main(int argc, char *argv[]){
           p = p->ptr;
       }
       printf("\n ");
-      */
+*/
      }
 
+//debyg
     // printf("#LAST ONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
      node poped_node=pop(head);//last
-     /*
-    printf("\n#POPED %f\n",poped_node.data );
-    */
+//debug
+    //printf("\n#POPED %f\n",poped_node.data );
+
     t=clock()-t;
     float effeciency=((float)t)/CLOCKS_PER_SEC*1000;
     int current= n;

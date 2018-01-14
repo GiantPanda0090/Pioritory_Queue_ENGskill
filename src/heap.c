@@ -120,7 +120,7 @@ int decompose(Tree element,clock_t timestemp){
 }
 
 int increment(){
-  return rand()%(int)(1000);
+  return rand()%(int)(300);
 }
 
 Tree * creatHeap(Tree *heap,float value){
