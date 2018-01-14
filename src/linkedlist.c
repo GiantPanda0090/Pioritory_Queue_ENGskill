@@ -14,6 +14,7 @@ typedef struct node{
 
 int archtecture=1;
 int maxTask =1;
+int pCount;
 node* insert(node* head, float num, int arch) {
     node *temp, *prev, *next,*tail;
     temp = (node*)malloc(sizeof(node));
@@ -39,8 +40,8 @@ node* insert(node* head, float num, int arch) {
           }
           if(!next){
               prev->ptr = temp;
-              tail->ptr = temp;
               temp->ptr = next;
+              temp->ptr_p=prev;
               tail=temp;
           } else{
                   temp->ptr = prev->ptr;
@@ -51,7 +52,7 @@ node* insert(node* head, float num, int arch) {
 
 
 
-        }else{
+}else{//front
             while(next && next->data<=num){
               prev = next;
               next = next->ptr;
@@ -84,6 +85,7 @@ node pop(node* head){
   }
   node out = *head;
 free(head);
+pCount++;
   return out;
 }
 
@@ -100,11 +102,10 @@ void free_list(node *head) {
 }
 
 int increment(node* head){
-  int avg =(head->tail->data)-(head->data);
-  if (avg ==0){
-    avg=5;
-  }
-  return rand()%(int)(avg);
+  int avg =500;
+  int out=rand()%(avg+1);
+  //printf("%d , %d\n",out,avg);
+  return out ;
 }
 
 int decompose(node* head,node element){
@@ -134,6 +135,7 @@ int main(int argc, char *argv[]){
     node *head, *p;
     head = NULL;
     t=clock();
+    srand(time(NULL));
     //add
     for(int i=0;i<n;i++) {
         timestemp =clock();
@@ -165,12 +167,14 @@ int main(int argc, char *argv[]){
               p = p->ptr;
           }
           printf("\n ");
+*/
+
 
       //decompose
       if(poped_node.arch>0){
      decompose(head,poped_node);
   }
-*/
+
 
   //DEBUG
 /*

@@ -20,6 +20,10 @@ struct Trees *head;
 int maxTask;
 int nrEvent;
 int archtecture;
+int dynAvg;
+int chance;
+int pCount;
+
 
 
 //method declearation
@@ -36,8 +40,8 @@ int increment();
 int debug(Tree *head) {
     if(head == NULL){
 //        printf(" \t ");
+printf("# dynavg value %d\n",dynAvg);
       return 0;
-
     }
     //printf(" \t ");
     debug(head -> left);
@@ -60,11 +64,16 @@ if(argc != 4) {
   nrEvent =atoi(argv[2]);
   archtecture=atoi(argv[3]);
   int counter=0;
+  dynAvg=0;
+  chance=0;
+  pCount=0;
+
 
 int current=nrEvent;
 float dataList[3];
   clock_t t,timestemp;
   t=clock();//predefined  function in c
+  srand(time(NULL));
   //add
   Tree *heap=creatHeap(heap,t);
   for (int i =1;i<current+1;i++){
@@ -120,7 +129,8 @@ int decompose(Tree element,clock_t timestemp){
 }
 
 int increment(){
-  return rand()%(int)(300);
+  int randomNr=rand()%(int)(500);
+  return randomNr;
 }
 
 Tree * creatHeap(Tree *heap,float value){
@@ -139,8 +149,17 @@ Tree * creatNode(float value,int arch){
   out->self=&*out;
   return out;
 }
-
 int add(Tree *main, float item,int arch){
+  int replacement=0;
+if(item > head->value){
+  replacement=item-head->value;
+}else{
+  replacement=head->value-item;
+}
+if(replacement>dynAvg){
+  dynAvg=replacement;
+}
+
 Tree *itemT=creatNode(item,arch);
 merge(main, itemT);
  return 0;
@@ -154,14 +173,16 @@ int merge(Tree *main, Tree *item){
 
 int swap(Tree *tail){
 while((tail->parent) !=empty){//probelm infinity loop
+  pCount++;
   tail=(tail ->parent);
   Tree *temp =(tail->left);
   (tail->left) = (tail-> right);
   (tail ->right)=temp;
 }
+//printf("# %d\n",pCount);
+pCount=0;
   return 0;
 }
-
 
 Tree * naiveMerge(Tree *main1, Tree *item){
   Tree *container;
@@ -200,7 +221,7 @@ container = head;
   while(1){
   //rest
   while((container->value)<=(item -> value)){
-
+pCount++;
     //check last item
     if((container->right)==empty){//reason of infinity loop
       //position found
@@ -235,7 +256,7 @@ Tree pop(Tree *main){
   Tree *right =(main->right);
   int leftFlag=0;
   int rightFlag=0;
-
+pCount++;
   //detach head
 
   //detach left

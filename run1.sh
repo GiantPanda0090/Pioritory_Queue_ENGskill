@@ -2,10 +2,11 @@
 #plot 
 
 counter=1
-while [ $counter -le $2 ]
+num=$(echo "$2+1" |bc )
+while [ $counter -le $num ]
 do
 ./build/heap.o $1 $counter $3
-counter=$(echo "$counter+250" |bc )
+counter=$(echo "$counter+100" |bc )
 done
 
 

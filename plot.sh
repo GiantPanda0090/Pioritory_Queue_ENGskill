@@ -26,48 +26,48 @@ echo "compliling all component"
 make
 echo "SUCESSFUL COMPILED"
 echo "simulation start"	
-./run2.sh 10 10000 15 > plot/2/linkedlist.dat
+./run2.sh 5 1000 5 > plot/2/linkedlist.dat
 echo "1st run"	
-./run2.sh 10 10000 15 > plot/4/linkedlist.dat	
+./run2.sh 5 1000 5 > plot/4/linkedlist.dat	
 echo "2nd run"
-./run2.sh 10 10000 15 > plot/6/linkedlist.dat
+./run2.sh 5 1000 5 > plot/6/linkedlist.dat
 echo "3rd run"
 echo "linked list done"	
-./run1.sh 10 10000 15 > plot/2/heap.dat	
+./run1.sh 5 1000 5 > plot/2/heap.dat	
 echo "1st run"
-./run1.sh 10 10000 15 > plot/4/heap.dat	
+./run1.sh 5 1000 5 > plot/4/heap.dat	
 echo "2nd run"
-./run1.sh 10 10000 15 > plot/6/heap.dat
+./run1.sh 5 1000 5 > plot/6/heap.dat
 echo "3rd run"
 echo "skew heap done"	
 echo "1st data pattern done"	
-./run1.sh 15 10000 5 > plot/8/heap.dat	
+./run1.sh 3  1000 6 > plot/8/heap.dat	
 echo "1st run"
-./run1.sh 15 10000 5 > plot/10/heap.dat
+./run1.sh 3  1000 6 > plot/10/heap.dat
 echo "2nd run"	
-./run1.sh 15 10000 5 > plot/12/heap.dat
+./run1.sh 3  1000 6 > plot/12/heap.dat
 echo "3rd run"
 echo "skew heap done"	
-./run2.sh 15 10000 5 > plot/8/linkedlist.dat
+./run2.sh 3  1000 6 > plot/8/linkedlist.dat
 echo "1st run"	
-./run2.sh 15 10000 5 > plot/10/linkedlist.dat
+./run2.sh 3  1000 6 > plot/10/linkedlist.dat
 echo "2nd run"	
-./run2.sh 15 10000 5 > plot/12/linkedlist.dat
+./run2.sh 3  1000 6 > plot/12/linkedlist.dat
 echo "3rd run"
 echo "linkedlist done"	
 echo "2nd data pattern done"
-./run2.sh 5 10000 10 > plot/14/linkedlist.dat
+./run2.sh 6 1000 3 > plot/14/linkedlist.dat
 echo "1st run"	
-./run2.sh 5 10000 10 > plot/16/linkedlist.dat
+./run2.sh 6 1000 3 > plot/16/linkedlist.dat
 echo "2nd run"	
-./run2.sh 5 10000 10 > plot/18/linkedlist.dat
+./run2.sh 6 1000 3 > plot/18/linkedlist.dat
 echo "3rd run"
 echo "linked list done"
-./run1.sh 5 10000 10 > plot/14/heap.dat
+./run1.sh 6 1000 3 > plot/14/heap.dat
 echo "1st run"	
-./run1.sh 5 10000 10 > plot/16/heap.dat
+./run1.sh 6 1000 3 > plot/16/heap.dat
 echo "2nd run"	
-./run1.sh 5 10000 10 > plot/18/heap.dat
+./run1.sh 6 1000 3 > plot/18/heap.dat
 echo "3rd run"
 echo "skew heap done"			
 echo "3rd data pattern done"
