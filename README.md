@@ -18,6 +18,8 @@ If only need the create the graph under previous  simulation results under plot 
 Currently issue:
 
 1.Skew heap implementation has memory leak
+
 2.SonarQube issue has not been fixed yet
+
 3.Report is pending..... 
 
