@@ -2,11 +2,12 @@
 #plot 
 
 counter=1
-num=$(echo "$2+1" |bc )
+num=$(echo "$1+1" |bc )
 while [ $counter -le $num ]
 do
-./build/linkedlist.o $1 $counter $3
+./build/heap.o $counter
 counter=$(echo "$counter+100" |bc )
+
 done
 
 

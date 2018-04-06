@@ -3,5 +3,5 @@
 
 
 cd plot
-gnuplot heap.p
+gnuplot heap.p >stat.txt
 display heap.png

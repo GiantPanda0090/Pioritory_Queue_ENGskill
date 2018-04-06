@@ -16,8 +16,8 @@ set key left top
 set xlabel "Number of Application"
 set ylabel "Time cost"
 
-data1 = "<( paste */heap.dat )"
-data2 = "<( paste */linkedlist.dat )"
+data1 = "<( paste plot/*/heap.dat )"
+data2 = "<( paste plot/*/linkedlist.dat )"
 
 f1(x)=a1*x+b1
 a1=1

@@ -10,26 +10,26 @@ typedef struct Trees{
   struct Trees *left;
   struct Trees *right;
   float value;
-  int arch;
   struct Trees *self;
 }Tree;
 
 //public
 struct Trees *empty =NULL;
 struct Trees *head;
-int maxTask;
+
 int nrEvent;
-int archtecture;
 int dynAvg;
 int chance;
 int pCount;
+int add_counter=0;
+clock_t save;
 
 
 
 //method declearation
 Tree * creatHeap(Tree *heap,float value);
-Tree * creatNode(float value,int arch);
-int add(Tree *main, float item,int arch);
+Tree * creatNode(float value);
+int add(Tree *main, float item);
 Tree * naiveMerge(Tree *main1, Tree *item);
 int swap(Tree *tail);
 Tree pop(Tree *main);
@@ -56,29 +56,29 @@ printf("# dynavg value %d\n",dynAvg);
 
 //method
 int main(int argc, char *argv[] ){
-if(argc != 4) {
-    printf("usage: list <maxTask> <nrEvent> <archtecture>\n");
+if(argc != 2) {
+    printf("usage: list  <nrEvent> \n");
     exit(0);
   }
-  maxTask =atoi(argv[1]) ;
-  nrEvent =atoi(argv[2]);
-  archtecture=atoi(argv[3]);
+
+  nrEvent =atoi(argv[1]);
+
   int counter=0;
   dynAvg=0;
   chance=0;
   pCount=0;
-
-
-int current=nrEvent;
+clock_t rand_t;
+   srand((unsigned) time(&rand_t));
+  int current =(rand()+rand()-rand())%(nrEvent-add_counter);//random N
 float dataList[3];
   clock_t t,timestemp;
-  t=clock();//predefined  function in c
-  srand(time(NULL));
+
+
   //add
   Tree *heap=creatHeap(heap,t);
   for (int i =1;i<current+1;i++){
       timestemp =clock();
-    add(heap,timestemp,rand()%archtecture);
+    add(heap,timestemp);
   }
   /*
   printf("\n#After head: \n");
@@ -93,8 +93,10 @@ float dataList[3];
     printf("head is %f\n",head->value);
 debug(head);
 */
+
+
     //decompose
-    if(element.arch>0){
+    if(add_counter<nrEvent){
    decompose(element, timestemp);
    /*
    printf("\n#After decompose: \n");
@@ -102,7 +104,13 @@ debug(head);
    debug(head);
    */
 }
+
    }
+
+
+
+
+
    Tree element=pop(heap);
    /*
    printf("\n#After last pop: \n");
@@ -111,20 +119,24 @@ debug(head);
    */
 
 
- t=clock()-t;
- float effeciency=((float)t)/CLOCKS_PER_SEC*1000;
-  printf("%d\t%.8f\n", current, effeciency);
+
+    double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
+     printf("%d\t%.8lf\n", add_counter, effeciency);
+
 
 //printf("# not crashed");
 
 return 0;
 }
+
+
 int decompose(Tree element,clock_t timestemp){
-  element.arch=element.arch-1;
-  int n =rand()%maxTask;//random N
+    int n =(rand()+rand()-rand())%(nrEvent-add_counter);//random N//random N
   int t =element.value;//random N
+float variable=0;
   for(int i=1;i<n;i++){
-    add(head,t+increment(),element.arch);
+     variable =t+increment();
+    add(head,variable);
   }
 }
 
@@ -134,22 +146,23 @@ int increment(){
 }
 
 Tree * creatHeap(Tree *heap,float value){
-  Tree *out=creatNode(value,rand()%archtecture);
+  Tree *out=creatNode(value);
   head=out;
   return out;
 }
 
-Tree * creatNode(float value,int arch){
+Tree * creatNode(float value){
   Tree *out=malloc(sizeof *out);
   out->parent=empty;
   out->left =empty;
   out->right=empty;
   out->value=value;
-  out->arch=arch;
   out->self=&*out;
   return out;
 }
-int add(Tree *main, float item,int arch){
+int add(Tree *main, float item){
+clock_t start,end;
+start=clock();
   int replacement=0;
 if(item > head->value){
   replacement=item-head->value;
@@ -160,8 +173,11 @@ if(replacement>dynAvg){
   dynAvg=replacement;
 }
 
-Tree *itemT=creatNode(item,arch);
+Tree *itemT=creatNode(item);
 merge(main, itemT);
+end=clock();
+save=save+(end-start);
+add_counter++;
  return 0;
 }
 
@@ -252,6 +268,8 @@ pCount++;
 }
 
 Tree pop(Tree *main){
+clock_t start,end;
+start=clock();
   Tree *left=(main->left);
   Tree *right =(main->right);
   int leftFlag=0;
@@ -293,5 +311,7 @@ if ((main -> right)!=empty){
 //reset flag
 leftFlag =0;
 rightFlag=0;
+end =clock();
+save=save+(end-start);
   return target;
 }
