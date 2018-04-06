@@ -15,8 +15,11 @@ Run ./plot.sh and wait for simulation complete. The result will be output into t
 or
 If only need the create the graph under previous  simulation results under plot folder, run ./just_plot.sh. 
 
-Currently awarded issue:
+Currently issue:
+
 1.Skew heap implementation has memory leak
+
 2.SonarQube issue has not been fixed yet
+
 3.Report is pending..... 
 
