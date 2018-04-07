@@ -11,9 +11,20 @@ How to Compile:
 Run make in the repository root path
 
 How to run simulation:
-Run ./plot.sh and wait for simulation complete. The result will be output into the /plot/ folder and named as heap.jpg.
+Run ./plot.sh <number of item> <difference between data point> and wait for simulation complete. The result will be output into the /plot/ folder and named as heap.jpg.
 or
-If only need the create the graph under previous  simulation results under plot folder, run ./just_plot.sh. 
+If only need the create the graph under previous  simulation results under plot folder, run ./just_plot.sh. NOT WORKING FOR THE NEWEST VERSION
+
+Run implementation individually:
+Skew Heap:
+./run_heap <number of item> >difference between data point> <debug switch>
+Linked List:
+./run_list <number of item> >difference between data point> <debug switch>
+
+To active debug:
+debug switch in ./run_list.sh or ./run_heap.sh has 2 state
+0 - debug off (in plot.sh is madatory to switch off the debug for data accuracy)
+1 - debug on
 
 Currently issue:
 
@@ -21,5 +32,5 @@ Currently issue:
 
 2.SonarQube issue has not been fixed yet
 
-3.Report is pending..... 
+3.Second draft of report is pending..... 
 
