@@ -16,10 +16,13 @@ or
 If only need the create the graph under previous  simulation results under plot folder, run ./just_plot.sh. NOT WORKING FOR THE NEWEST VERSION
 
 Run implementation individually:
+
 Skew Heap:
 ./run_heap <number of item> >difference between data point> <debug switch>
+  
 Linked List:
 ./run_list <number of item> >difference between data point> <debug switch>
+  
 
 To active debug:
 debug switch in ./run_list.sh or ./run_heap.sh has 2 state
