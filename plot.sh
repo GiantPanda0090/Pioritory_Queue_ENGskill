@@ -33,19 +33,19 @@ echo "2nd run"
 ./run_list.sh $1 0 $2 > plot/3/linkedlist.dat
 echo "3rd run"
 echo "linked list done"	
-./run_heap.sh $1 $2> plot/1/heap.dat	
+./run_heap.sh $1 0 $2> plot/1/heap.dat	
 echo "1st run"
-./run_heap.sh $1 $2> plot/2/heap.dat	
+./run_heap.sh $1 0 $2> plot/2/heap.dat	
 echo "2nd run"
-./run_heap.sh $1 $2> plot/3/heap.dat
+./run_heap.sh $1 0 $2> plot/3/heap.dat
 echo "3rd run"
 echo "skew heap done"	
 echo "1st data pattern done"	
-./run_heap.sh $1 $2 > plot/4/heap.dat	
+./run_heap.sh $1 0 $2 > plot/4/heap.dat	
 echo "1st run"
-./run_heap.sh $1 $2 > plot/5/heap.dat
+./run_heap.sh $1 0 $2 > plot/5/heap.dat
 echo "2nd run"	
-./run_heap.sh $1 $2 > plot/6/heap.dat
+./run_heap.sh $1 0 $2 > plot/6/heap.dat
 echo "3rd run"
 echo "skew heap done"	
 ./run_list.sh $1 0 $2 > plot/4/linkedlist.dat
@@ -63,11 +63,11 @@ echo "2nd run"
 ./run_list.sh $1 0 $2 > plot/9/linkedlist.dat
 echo "3rd run"
 echo "linked list done"
-./run_heap.sh $1 $2 > plot/7/heap.dat
+./run_heap.sh $1 0 $2 > plot/7/heap.dat
 echo "1st run"	
-./run_heap.sh $1 $2 > plot/8/heap.dat
+./run_heap.sh $1 0 $2 > plot/8/heap.dat
 echo "2nd run"	
-./run_heap.sh $1 $2 > plot/9/heap.dat
+./run_heap.sh $1 0 $2 > plot/9/heap.dat
 echo "3rd run"
 echo "skew heap done"			
 echo "3rd data pattern done"

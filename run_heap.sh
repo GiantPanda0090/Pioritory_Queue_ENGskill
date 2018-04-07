@@ -6,8 +6,8 @@ num=$(echo "$1+1" |bc )
 while [ $counter -le $num ]
 do
 
-./build/heap.o $counter
-counter=$(echo "$counter+$2" |bc )
+./build/heap.o $counter $2
+counter=$(echo "$counter+$3" |bc )
 
 
 done

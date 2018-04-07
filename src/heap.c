@@ -18,7 +18,7 @@ int pCount;
 int add_counter=0;
 clock_t save;
 float n_counter=0;
-
+int debug=0;
 
 
 //method declearation
@@ -32,38 +32,22 @@ int merge(Tree *main, Tree *item);
 int decompose(Tree element,clock_t timestemp);
 int increment();
 
+
 //absolute value
 //https://stackoverflow.com/questions/22268815/absolute-value-of-int-min
 unsigned int absu(int value) {
     return (value < 0) ? -((unsigned int)value) : (unsigned int)value;
 }
 
-int debug(Tree *head) {
-    if(head == NULL){
-//        printf(" \t ");
-printf("# dynavg value %d\n",dynAvg);
-      return 0;
-    }
-    //printf(" \t ");
-    debug(head -> left);
-    //printf(" \t ");
-    printf("# |____");
-    printf(" %f\n",head -> value);
-    //printf(" \t ");
-
-    debug(head ->right);
-
-}
-
 //method
 int main(int argc, char *argv[] ){
-if(argc != 2) {
-    printf("usage: list  <nrEvent> \n");
+if(argc != 3) {
+    printf("usage: list  <nrEvent> <debug switch>\n");
     exit(0);
   }
 
   nrEvent =atoi(argv[1]);
-
+debug=atoi(argv[2]);
   int counter=0;
   dynAvg=0;
   chance=0;
@@ -90,8 +74,10 @@ float dataList[3];
       timestemp =clock();
     add(heap,timestemp);
   }
-  //debug
+  //debug 
+if (debug==1){
 print_ascii_tree(heap);
+}
   /*
   printf("\n#After head: \n");
   printf("#head is %f\n",head->value);
@@ -105,16 +91,24 @@ print_ascii_tree(heap);
     printf("head is %f\n",head->value);
 debug(head);
 */
-printf("After pop %f \n\n", element.value);
+
+if (debug==1){
+printf("#After pop %f \n\n", element.value);
 print_ascii_tree(heap);
 printf("\n");
+}
+
 
     //decompose
     if(add_counter<nrEvent){
    decompose(element, timestemp);
-printf("After decompose \n\n");
+
+if (debug==1){
+printf("#After decompose \n\n");
 print_ascii_tree(heap);
 printf("\n");
+}
+
    /*
    printf("\n#After decompose: \n");
    printf("head is %f\n",head->value);
@@ -138,7 +132,7 @@ printf("\n");
 
 
     double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
-     printf("%d\t%.8lf\n", nrEvent, n_counter);
+     printf("%d\t%.8lf\n", nrEvent, effeciency);
 
 
 //printf("# not crashed");

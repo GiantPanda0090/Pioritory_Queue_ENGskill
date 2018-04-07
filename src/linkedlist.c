@@ -384,6 +384,6 @@ return 0;
 
     double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
     int current= n;
-     printf("%d\t%.8lf\n", n_max, n_counter);
+     printf("%d\t%.8lf\n", n_max, effeciency);
     return 0;
 }
