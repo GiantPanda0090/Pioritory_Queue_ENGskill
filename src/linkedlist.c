@@ -3,6 +3,7 @@
 #include <math.h>
 #include <time.h>
 #include <assert.h>
+
 //https://stackoverflow.com/questions/21788598/c-inserting-into-linked-list-in-ascending-order
 typedef struct node{
     float data;
@@ -12,18 +13,18 @@ typedef struct node{
 } node;
 
 
-int maxTask =1;
 int pCount;
 int debug=0;
 clock_t save;
 int counter=0;
-int n_max=1;
+int n_max=0;
+float n_counter=0;
 
 
 node* insert(node* head, float num) {
 counter++;
 clock_t start,end;
-start=clock();
+
     node *temp ,*tail;
     temp = (node*)malloc(sizeof(node));
     temp->data = num;
@@ -52,10 +53,13 @@ if (num>avg){
 node *container=head->tail;
 
 //search
+start=clock();
 while(temp->data<container->data){
+n_counter++;
 container=container->ptr_p;
 }
-
+end =clock();
+save=save+(end-start);
 //link temp
 temp->ptr_p=container;
 temp->ptr=container->ptr;
@@ -65,9 +69,13 @@ container->ptr=temp;
 }else{
 node *container=head;
 //search
+start=clock();
 while(temp->data>container->data){
+n_counter++;
 container=container->ptr;
 }
+end =clock();
+save=save+(end-start);
 //link temp
 temp->ptr=container;
 temp->ptr_p=container->ptr_p;
@@ -80,8 +88,7 @@ container->ptr_p=temp;
 
 }
     }
-end =clock();
-save=save+(end-start);
+
     return head;
 }
 
@@ -93,8 +100,6 @@ if (head->ptr_p!=NULL){
       printf("#Head is%f:\n",head->data);
 }
 }
-clock_t start,end;
-start=clock();//timer start
 
 trace=head->ptr;
 if(trace!=NULL){
@@ -122,9 +127,6 @@ if(head->tail==NULL){
 node out = *head;
 free(head);
 pCount++;
-
-end=clock();//timer end
-save =save+(end-start);
   return out;
 }
 
@@ -141,11 +143,18 @@ void free_list(node *head) {
 }
 
 
+
 int n=9;
+
+
+
+//absolute value
 //https://stackoverflow.com/questions/22268815/absolute-value-of-int-min
 unsigned int absu(int value) {
     return (value < 0) ? -((unsigned int)value) : (unsigned int)value;
 }
+
+//increment generator
 int increment(node* head){
 int avg =0;
 if(head==NULL){
@@ -153,13 +162,15 @@ avg=3;
 }else{
   avg =(head->tail->data-head->data);//dynamic range
 }
-  int out=(rand()+rand()-rand())%(avg+1);
+  int out=absu(rand()+rand()-rand())%(avg+1);
   out=absu(out);
   //printf("%d , %d\n",out,avg);
   return out ;
 }
+
+//decompose
 node* decompose(node* head,node element){
-  int n =(rand()+rand()-rand())%(n_max-counter);//random N
+  int n =absu(rand()+rand()-rand())%(n_max-counter);//random N
   n=absu(n);
   int t =element.data;// obtain value from main node
 float variable=0;
@@ -171,6 +182,7 @@ float variable=0;
   return head;
 }
 
+//test 
 int test(){
 float insert_list[]={0,1,1.1,1.2,5,4,6,5.4,3.5};
 float answer_list[]={0,1,1.1,1.2,3.5,4,5,5.4,6};
@@ -230,7 +242,11 @@ int num;
     node *head, *p;
     head = NULL;
    srand((unsigned) time(&rand_t));
-  int n =(rand()+rand()-rand())%(n_max-counter);//random N
+  int n =absu(rand()+rand()-rand())%(n_max-counter);//random N
+      n=absu(n);
+    while(n==0){
+      n =(rand()+rand()-rand())%(n_max-counter);
+    }
 
     //add
     for(int i=0;i<n;i++) {
@@ -368,6 +384,6 @@ return 0;
 
     double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
     int current= n;
-     printf("%d\t%.8lf\n", counter, effeciency);
+     printf("%d\t%.8lf\n", n_max, n_counter);
     return 0;
 }

@@ -5,7 +5,7 @@ CFLAGS=-std=c99
 make:
 	rm -rf build	
 	mkdir build	
-	$(CC) $(CFLAGS) -g src/heap.c -o build/heap.o -lm
+	$(CC) $(CFLAGS) -g src/heap.c src/print_ascii.c -o build/heap.o -lm
 	$(CC) $(CFLAGS) -g src/linkedlist.c -o build/linkedlist.o -lm
 makeall:
 	rm -rf build	

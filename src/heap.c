@@ -3,15 +3,9 @@
 #include <math.h>
 #include <assert.h>
 #include <time.h>
+#include "print_ascii.h"
 
 
-typedef struct Trees{
-  struct Trees *parent;
-  struct Trees *left;
-  struct Trees *right;
-  float value;
-  struct Trees *self;
-}Tree;
 
 //public
 struct Trees *empty =NULL;
@@ -23,6 +17,7 @@ int chance;
 int pCount;
 int add_counter=0;
 clock_t save;
+float n_counter=0;
 
 
 
@@ -36,6 +31,12 @@ Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
 int decompose(Tree element,clock_t timestemp);
 int increment();
+
+//absolute value
+//https://stackoverflow.com/questions/22268815/absolute-value-of-int-min
+unsigned int absu(int value) {
+    return (value < 0) ? -((unsigned int)value) : (unsigned int)value;
+}
 
 int debug(Tree *head) {
     if(head == NULL){
@@ -69,42 +70,58 @@ if(argc != 2) {
   pCount=0;
 clock_t rand_t;
    srand((unsigned) time(&rand_t));
-  int current =(rand()+rand()-rand())%(nrEvent-add_counter);//random N
+  int current =absu(rand()+rand()-rand())%(nrEvent-add_counter);//random N
+current =absu(current);
+ while(current==0){
+      current =(rand()+rand()-rand())%(nrEvent-add_counter);
+    }
+
+//DEBUG
+//printf("current generate as %d \n",current);
+
 float dataList[3];
   clock_t t,timestemp;
 
 
   //add
-  Tree *heap=creatHeap(heap,t);
-  for (int i =1;i<current+1;i++){
+      timestemp =clock();
+  Tree *heap=creatHeap(heap,timestemp);
+  for (int i =1;i<current;i++){
       timestemp =clock();
     add(heap,timestemp);
   }
+  //debug
+print_ascii_tree(heap);
   /*
   printf("\n#After head: \n");
   printf("#head is %f\n",head->value);
   debug(head);
   */
 //pop
-  while((heap->left)!=empty||(heap -> right)!=empty){
+  while((heap->left)!=empty&&(heap -> right)!=empty){
     Tree element=pop(heap);
     /*
     printf("\n#After pop: \n");
     printf("head is %f\n",head->value);
 debug(head);
 */
-
+printf("After pop %f \n\n", element.value);
+print_ascii_tree(heap);
+printf("\n");
 
     //decompose
     if(add_counter<nrEvent){
    decompose(element, timestemp);
+printf("After decompose \n\n");
+print_ascii_tree(heap);
+printf("\n");
    /*
    printf("\n#After decompose: \n");
    printf("head is %f\n",head->value);
    debug(head);
    */
 }
-
+   
    }
 
 
@@ -121,7 +138,7 @@ debug(head);
 
 
     double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
-     printf("%d\t%.8lf\n", add_counter, effeciency);
+     printf("%d\t%.8lf\n", nrEvent, n_counter);
 
 
 //printf("# not crashed");
@@ -131,7 +148,8 @@ return 0;
 
 
 int decompose(Tree element,clock_t timestemp){
-    int n =(rand()+rand()-rand())%(nrEvent-add_counter);//random N//random N
+    int n =absu(rand()+rand()-rand())%(nrEvent-add_counter);//random N
+n=absu(n);
   int t =element.value;//random N
 float variable=0;
   for(int i=1;i<n;i++){
@@ -161,8 +179,7 @@ Tree * creatNode(float value){
   return out;
 }
 int add(Tree *main, float item){
-clock_t start,end;
-start=clock();
+
   int replacement=0;
 if(item > head->value){
   replacement=item-head->value;
@@ -175,8 +192,6 @@ if(replacement>dynAvg){
 
 Tree *itemT=creatNode(item);
 merge(main, itemT);
-end=clock();
-save=save+(end-start);
 add_counter++;
  return 0;
 }
@@ -188,13 +203,18 @@ int merge(Tree *main, Tree *item){
 }
 
 int swap(Tree *tail){
+clock_t start,end;
+start=clock();
 while((tail->parent) !=empty){//probelm infinity loop
+n_counter++;
   pCount++;
   tail=(tail ->parent);
   Tree *temp =(tail->left);
   (tail->left) = (tail-> right);
   (tail ->right)=temp;
 }
+end =clock();
+save=save+(end-start);
 //printf("# %d\n",pCount);
 pCount=0;
   return 0;
@@ -220,7 +240,7 @@ Tree * naiveMerge(Tree *main1, Tree *item){
 
   }
   *head=*main;
-  //free(main1);
+  free(main);
   }else{
     if((main->left)!=empty){
       main->left->parent=head;
@@ -231,12 +251,16 @@ Tree * naiveMerge(Tree *main1, Tree *item){
 
   }
   *head=*main;
-  //free(main1);
+  free(main);
   }
 container = head;
   while(1){
   //rest
+//search
+clock_t start,end;
+start=clock();
   while((container->value)<=(item -> value)){
+n_counter++;
 pCount++;
     //check last item
     if((container->right)==empty){//reason of infinity loop
@@ -246,12 +270,13 @@ pCount++;
       //attach new tree
       (item->parent)=parent;
       (parent->right)=item;
-      free(main);
       return parent->right; //return tail
     }else{
     container=(container->right);
   }
   }
+end =clock();
+save=save+(end-start);
   //position found
   //attach
   Tree *parent = (container->parent);
@@ -268,35 +293,34 @@ pCount++;
 }
 
 Tree pop(Tree *main){
-clock_t start,end;
-start=clock();
-  Tree *left=(main->left);
-  Tree *right =(main->right);
+
+  Tree *left=(head->left);
+  Tree *right =(head->right);
   int leftFlag=0;
   int rightFlag=0;
 pCount++;
   //detach head
 
   //detach left
-  if((main->left)!=empty){
+  if((head->left)!=empty){
   (left->parent)=empty;
-  (main->left)=empty;
+  (head->left)=empty;
   leftFlag=1;
 }
 //detach right
-if ((main -> right)!=empty){
+if ((head -> right)!=empty){
   (right->parent)=empty;
-  (main->right)=empty;
+  (head->right)=empty;
   rightFlag=1;
 }
 
 
-  Tree target=*main;
+  Tree target=*head;
 
   if(leftFlag==1&&rightFlag==1){
   merge(left,right);
   if(head->value==left->value){
-    free(left);
+    //free(left);
   }else if(head->value ==right->value){
     //free(right);
   }
@@ -311,7 +335,6 @@ if ((main -> right)!=empty){
 //reset flag
 leftFlag =0;
 rightFlag=0;
-end =clock();
-save=save+(end-start);
+
   return target;
 }
