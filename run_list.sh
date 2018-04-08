@@ -7,7 +7,7 @@ while [ $counter -le $num ]
 do
 
 ./build/linkedlist.o $counter $2
-counter=$(echo "$counter+$3" |bc )
+counter=$(echo "$counter+$2" |bc )
 done
 
 
