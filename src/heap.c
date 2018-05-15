@@ -288,7 +288,7 @@ save=save+(end-start);
 }
 
 Tree pop(Tree *main){
-
+clock_t start,end;
 start = clock();
 
   Tree *left=(head->left);

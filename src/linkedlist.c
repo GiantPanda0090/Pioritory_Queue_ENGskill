@@ -95,6 +95,7 @@ container->ptr_p=temp;
 node *trace=NULL;
 //pop
 node pop(node* head){
+clock_t start,end;
 start=clock();
 if(debug==1){
 if (head->ptr_p!=NULL){
