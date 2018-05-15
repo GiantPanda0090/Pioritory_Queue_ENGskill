@@ -31,6 +31,7 @@ Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
 int decompose(Tree element,clock_t timestemp);
 int increment();
+int findright();
 
 
 //absolute value
@@ -152,16 +153,23 @@ n=absu(n);
   int t =element.value;//random N
 float variable=0;
   for(int i=1;i<n;i++){
-     variable =t+increment();
+     variable =findright()+absu(increment());
     add(head,variable);
   }
 if (n !=0){
 save=save/n;
 }
 }
-
+int findright(){
+Tree* search = head;
+while (search -> right != NULL){
+search = search ->right;
+}
+printf("right element %f\n",(search -> value));
+return search -> value;
+}
 int increment(){
-  int randomNr=(rand()+rand()-rand())%(int)(500);
+  int randomNr=rand()%(int)(500);
   return randomNr;
 }
 

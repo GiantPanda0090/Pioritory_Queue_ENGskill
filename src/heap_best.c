@@ -152,7 +152,7 @@ n=absu(n);
   int t =element.value;//random N
 float variable=0;
   for(int i=1;i<n;i++){
-     variable =t+increment();
+     variable =(head->value)-absu(increment());
     add(head,variable);
   }
 if (n !=0){
@@ -161,7 +161,7 @@ save=save/n;
 }
 
 int increment(){
-  int randomNr=(rand()+rand()-rand())%(int)(500);
+  int randomNr=rand()%(int)(500);
   return randomNr;
 }
 

@@ -168,9 +168,13 @@ int avg =0;
 if(head==NULL){
 avg=3;
 }else{
-  avg =(head->tail->data-head->data);//dynamic range
+if(head->tail->data-head->data!=0){
+  avg =(head->tail->data-head->data)/2;//dynamic range
+}else{
+  avg =(head->data);//dynamic range
 }
-  int out=(rand()+rand()-rand())%(avg+1);
+}
+  int out=absu(rand()+rand()-rand())%(avg);
   //printf("%d , %d\n",out,avg);
   return out ;
 }
