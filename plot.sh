@@ -1,14 +1,18 @@
 #!/bin/bash
 #plot 
 
-prime1=2493234053
+prime1=1213
 prime2=48239
 prime3=3457549
 prime4=120503
 prime5=90019411
-prime6=47829349
+prime6=29
 prime7=1230495757
-prime8=493840573
+prime9=149
+prime10=48751
+prime11=4839581
+prime12=34631
+prime8=78495847
 
 
 echo "This script will run a complexity comparision for two different piority queue implementaion linkedlist vs skewheap"	
@@ -24,6 +28,8 @@ rm -rf plot/7
 rm -rf plot/8
 rm -rf plot/9
 rm -rf plot/10
+rm -rf plot/11
+rm -rf plot/12
 mkdir plot/1
 mkdir plot/2
 mkdir plot/3
@@ -34,6 +40,8 @@ mkdir plot/7
 mkdir plot/8
 mkdir plot/9
 mkdir plot/10
+mkdir plot/11
+mkdir plot/12
 
 
 
@@ -60,22 +68,22 @@ echo "3rd run"
 echo "4rd run"
 echo "skew heap done"	
 echo "1st data pattern done"	
-./run_heap.sh $1 $2 0 $prime1 > plot/5/heap.dat	
+./run_heap.sh $1 $2 0 $prime9 > plot/5/heap.dat	
 echo "1st run"
-./run_heap.sh $1 $2 0 $prime2 > plot/6/heap.dat
+./run_heap.sh $1 $2 0 $prime10 > plot/6/heap.dat
 echo "2nd run"	
-./run_heap.sh $1 $2 0 $prime3 > plot/7/heap.dat
+./run_heap.sh $1 $2 0 $prime11 > plot/7/heap.dat
 echo "3rd run"
-./run_heap.sh $1 $2 0 $prime4 > plot/8/heap.dat
+./run_heap.sh $1 $2 0 $prime12 > plot/8/heap.dat
 echo "4rd run"
 echo "skew heap done"	
-./run_list.sh $1 $2 0 $prime1 > plot/5/linkedlist.dat
+./run_list.sh $1 $2 0 $prime9 > plot/5/linkedlist.dat
 echo "1st run"	
-./run_list.sh $1 $2 0 $prime2 > plot/6/linkedlist.dat
+./run_list.sh $1 $2 0 $prime10 > plot/6/linkedlist.dat
 echo "2nd run"	
-./run_list.sh $1 $2 0 $prime3 > plot/7/linkedlist.dat
+./run_list.sh $1 $2 0 $prime11 > plot/7/linkedlist.dat
 echo "3rd run"
-./run_list.sh $1 $2 0 $prime4 > plot/8/linkedlist.dat
+./run_list.sh $1 $2 0 $prime12 > plot/8/linkedlist.dat
 echo "4rd run"
 echo "linkedlist done"	
 echo "2nd data pattern done"
