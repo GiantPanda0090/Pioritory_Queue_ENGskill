@@ -23,14 +23,14 @@ data2 = "<( paste plot/*/linkedlist.dat )"
 f1(x)=a1*x+b1
 a1=1
 b1=1
-fit f1(x) data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0) via a1,b1
+fit f1(x) data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20)/10.0) via a1,b1
 
 f2(x)=a2*x+b2
 a2=1
 b2=1
-fit f2(x) data2 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0) via a2,b2
+fit f2(x) data2 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20)/10.0) via a2,b2
 
-stat data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0)
-stat data2 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0)
+stat data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20)/10.0)
+stat data2 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20)/10.0)
 
-plot data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0) w lp pt 6 ps 2 title "skew heap",f1(x) lc rgb "red" title "linefit for skew heap",data2 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0) w lp pt 6 ps 2 title "linked list",f2(x) lc rgb "red" title "linefit for linkedlist"
+plot data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20)/10.0) w lp pt 6 ps 2 title "skew heap",f1(x) lc rgb "red" title "linefit for skew heap",data2 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20)/10.0) w lp pt 6 ps 2 title "linked list",f2(x) lc rgb "red" title "linefit for linkedlist"
