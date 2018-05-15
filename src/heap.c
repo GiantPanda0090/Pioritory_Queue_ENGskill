@@ -75,6 +75,10 @@ float dataList[3];
       timestemp =clock();
     add(heap,timestemp);
   }
+if (current !=0){
+save=save/current;
+}
+
   //debug 
 if (debug==1){
 print_ascii_tree(heap);
@@ -151,6 +155,9 @@ float variable=0;
      variable =t+increment();
     add(head,variable);
   }
+if (n !=0){
+save=save/n;
+}
 }
 
 int increment(){

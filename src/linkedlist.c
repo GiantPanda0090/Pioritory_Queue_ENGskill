@@ -58,6 +58,8 @@ while(temp->data<container->data){
 n_counter++;
 container=container->ptr_p;
 }
+
+
 end =clock();
 save=save+(end-start);
 //link temp
@@ -70,10 +72,13 @@ container->ptr=temp;
 node *container=head;
 //search
 start=clock();
+
 while(temp->data>container->data){
 n_counter++;
 container=container->ptr;
 }
+
+
 end =clock();
 save=save+(end-start);
 //link temp
@@ -182,6 +187,9 @@ float variable=0;
      variable =t+increment(head);
     head = insert(head, variable);
   }
+if (n !=0){
+save=save/n;
+}
   return head;
 }
 
@@ -265,9 +273,10 @@ if(head->tail==NULL){
 return 0;
 }
     }
-
-
     }
+if (n !=0){
+save=save/n;
+}
     p = head;
 
     //DEBUG
