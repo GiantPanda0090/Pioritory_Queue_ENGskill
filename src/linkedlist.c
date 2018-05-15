@@ -95,6 +95,7 @@ container->ptr_p=temp;
 node *trace=NULL;
 //pop
 node pop(node* head){
+start=clock();
 if(debug==1){
 if (head->ptr_p!=NULL){
       printf("#Head is%f:\n",head->data);
@@ -123,7 +124,8 @@ if(head->tail==NULL){
 }
     }
 
-
+end =clock();
+save=save+(end-start);
 node out = *head;
 free(head);
 pCount++;
@@ -228,7 +230,7 @@ return 1;
 
 //main
 int main(int argc, char *argv[]){
-  if(argc != 3) {
+  if(argc != 4) {
       printf("usage: list  <nrEvent>  <debug>\n");
       exit(0);
     }
@@ -236,12 +238,13 @@ int num;
 
     n_max =atoi(argv[1]);//nrEvent
     debug=atoi(argv[2]); //debug
+int seed=atoi(argv[3]);
     int r =0;
     clock_t timestemp;
     time_t rand_t;
     node *head, *p;
     head = NULL;
-   srand((unsigned) time(&rand_t));
+   srand(seed);
   int n =absu(rand()+rand()-rand())%(n_max-counter);//random N
       n=absu(n);
     while(n==0){

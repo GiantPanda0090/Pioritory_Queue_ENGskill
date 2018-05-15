@@ -26,48 +26,48 @@ echo "compliling all component"
 make
 echo "SUCESSFUL COMPILED"
 echo "simulation start"	
-./run_list.sh $1 $2 0 > plot/1/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/1/linkedlist.dat
 echo "1st run"	
-./run_list.sh $1 $2 0 > plot/2/linkedlist.dat	
+./run_list.sh $1 $2 0 $3 > plot/2/linkedlist.dat	
 echo "2nd run"
-./run_list.sh $1 $2 0 > plot/3/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/3/linkedlist.dat
 echo "3rd run"
 echo "linked list done"	
-./run_heap.sh $1 $2 0 > plot/1/heap.dat	
+./run_heap.sh $1 $2 0 $3 > plot/1/heap.dat	
 echo "1st run"
-./run_heap.sh $1 $2 0 > plot/2/heap.dat	
+./run_heap.sh $1 $2 0 $3 > plot/2/heap.dat	
 echo "2nd run"
-./run_heap.sh $1 $2 0 > plot/3/heap.dat
+./run_heap.sh $1 $2 0 $3 > plot/3/heap.dat
 echo "3rd run"
 echo "skew heap done"	
 echo "1st data pattern done"	
-./run_heap.sh $1 $2 0 > plot/4/heap.dat	
+./run_heap.sh $1 $2 0 $3 > plot/4/heap.dat	
 echo "1st run"
-./run_heap.sh $1 $2 0 > plot/5/heap.dat
+./run_heap.sh $1 $2 0 $3 > plot/5/heap.dat
 echo "2nd run"	
-./run_heap.sh $1 $2 0 > plot/6/heap.dat
+./run_heap.sh $1 $2 0 $3 > plot/6/heap.dat
 echo "3rd run"
 echo "skew heap done"	
-./run_list.sh $1 $2 0 > plot/4/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/4/linkedlist.dat
 echo "1st run"	
-./run_list.sh $1 $2 0 > plot/5/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/5/linkedlist.dat
 echo "2nd run"	
-./run_list.sh $1 $2 0 > plot/6/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/6/linkedlist.dat
 echo "3rd run"
 echo "linkedlist done"	
 echo "2nd data pattern done"
-./run_list.sh $1 $2 0 > plot/7/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/7/linkedlist.dat
 echo "1st run"	
-./run_list.sh $1 $2 0 > plot/8/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/8/linkedlist.dat
 echo "2nd run"	
-./run_list.sh $1 $2 0 > plot/9/linkedlist.dat
+./run_list.sh $1 $2 0 $3 > plot/9/linkedlist.dat
 echo "3rd run"
 echo "linked list done"
-./run_heap.sh $1 $2 0 > plot/7/heap.dat
+./run_heap.sh $1 $2 0 $3 > plot/7/heap.dat
 echo "1st run"	
-./run_heap.sh $1 $2 0 > plot/8/heap.dat
+./run_heap.sh $1 $2 0 $3 > plot/8/heap.dat
 echo "2nd run"	
-./run_heap.sh $1 $2 0 > plot/9/heap.dat
+./run_heap.sh $1 $2 0 $3 > plot/9/heap.dat
 echo "3rd run"
 echo "skew heap done"			
 echo "3rd data pattern done"

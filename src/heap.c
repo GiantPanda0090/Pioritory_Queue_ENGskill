@@ -41,19 +41,20 @@ unsigned int absu(int value) {
 
 //method
 int main(int argc, char *argv[] ){
-if(argc != 3) {
+if(argc != 4) {
     printf("usage: list  <nrEvent> <debug switch>\n");
     exit(0);
   }
 
   nrEvent =atoi(argv[1]);
 debug=atoi(argv[2]);
+int seed=atoi(argv[3]);
   int counter=0;
   dynAvg=0;
   chance=0;
   pCount=0;
 clock_t rand_t;
-   srand((unsigned) time(&rand_t));
+   srand(seed);
   int current =absu(rand()+rand()-rand())%(nrEvent-add_counter);//random N
 current =absu(current);
  while(current==0){
@@ -288,6 +289,8 @@ save=save+(end-start);
 
 Tree pop(Tree *main){
 
+start = clock();
+
   Tree *left=(head->left);
   Tree *right =(head->right);
   int leftFlag=0;
@@ -326,6 +329,8 @@ if ((head -> right)!=empty){
   *head=*right;
   free(right);
 }
+end =clock();
+save=save+(end-start);
 //reset flag
 leftFlag =0;
 rightFlag=0;
