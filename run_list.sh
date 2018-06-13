@@ -1,7 +1,7 @@
 #!/bin/bash
 #plot 
 
-counter=2
+counter=1000
 num=$(echo "$1+1" |bc )
 while [ $counter -le $num ]
 do

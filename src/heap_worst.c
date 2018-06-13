@@ -165,7 +165,6 @@ Tree* search = head;
 while (search -> right != NULL){
 search = search ->right;
 }
-printf("right element %f\n",(search -> value));
 return search -> value;
 }
 int increment(){

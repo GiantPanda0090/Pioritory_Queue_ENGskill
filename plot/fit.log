@@ -4816,3 +4816,12 @@ correlation matrix of the fit parameters:
                 a2     b2     
 a2              1.000 
 b2             -0.846  1.000 
+
+
+*******************************************************************************
+Wed May 23 12:24:13 2018
+
+
+FIT:    data read from data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18+$20+$22+$24)/12.0)
+        format = x:z
+BREAK: No data to fit

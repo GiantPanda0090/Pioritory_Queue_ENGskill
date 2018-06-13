@@ -20,7 +20,7 @@ int counter=0;
 int n_max=0;
 float n_counter=0;
 
-
+clock_t insert_timer=0;
 node* insert(node* head, float num) {
 counter++;
 clock_t start,end;
@@ -47,6 +47,10 @@ head->tail->ptr=temp;
 temp->ptr=NULL;
 head->tail=temp;//update tail
 }else{
+printf("data in temp %f\n",temp->data);
+printf("data in head %f\n",head->data);
+printf("data in tail %f\n",head->tail->data);
+printf("why am i here!");
 int avg =head->data+head->tail->data;
       avg=avg/2;//average
 if (num>avg){
@@ -61,7 +65,7 @@ container=container->ptr_p;
 
 
 end =clock();
-save=save+(end-start);
+insert_timer=insert_timer+(end-start);
 //link temp
 temp->ptr_p=container;
 temp->ptr=container->ptr;
@@ -80,7 +84,8 @@ container=container->ptr;
 
 
 end =clock();
-save=save+(end-start);
+insert_timer=insert_timer+(end-start);
+
 //link temp
 temp->ptr=container;
 temp->ptr_p=container->ptr_p;
@@ -91,12 +96,41 @@ container->ptr_p=temp;
 
 }
 
+
 }
     }
+
+
+if (debug==2){
+    node *p;
+double temp =0;
+int check =0;
+  p = head;
+printf("#INSERT:\n");
+printf("#Current list:\n");
+
+
+    if(head!=NULL){
+ temp=p->data;
+
+      while(p) {
+         printf("#%f ", temp);
+         temp=p->data;
+          p = p->ptr;
+
+      }
+}
+
+
+    }
+
+
+
 
     return head;
 }
 
+clock_t pop_timer=0;
 node *trace=NULL;
 //pop
 node pop(node* head){
@@ -131,7 +165,7 @@ if(head->tail==NULL){
     }
 
 end =clock();
-save=save+(end-start);
+pop_timer=pop_timer+(end-start);
 node out = *head;
 free(head);
 pCount++;
@@ -170,10 +204,11 @@ avg=3;
 }else{
   avg =(head->tail->data-head->data);//dynamic range
 }
-  int out=absu(rand()+rand()-rand())%(avg+1);
+  int out=absu(rand()+rand()-rand())%(avg+1)+head->tail->data;
+
   int choose=absu(rand()+rand()-rand())%(2);
 if (choose==1){
-  out=absu(out) + head->tail->data;
+  out= head->tail->data+absu(out);
 }else{
   out=head->data-absu(out);
 }
@@ -185,16 +220,20 @@ if (choose==1){
 node* decompose(node* head,node element){
   int n =absu(rand()+rand()-rand())%(n_max-counter);//random N
   n=absu(n);
-  int t =element.data;// obtain value from main node
+  float t =element.data;// obtain value from main node
 float variable=0;
 //printf("#value of n is %d\n", n);
+insert_timer=0;
   for(int i=1;i<n;i++){
      variable =t+increment(head);
     head = insert(head, variable);
   }
 if (n !=0){
-save=save/n;
+insert_timer=insert_timer/n;
 }
+
+save =save+insert_timer;
+
   return head;
 }
 
@@ -210,6 +249,9 @@ for(int i=0;i<9;i++) {
       printf("#inserting %f \n", insert_list[i]);
     }
     p = head;
+
+save=save/9;
+
 
 int i_check=0;
  while(head->ptr!=NULL){
@@ -266,6 +308,7 @@ int seed=atoi(argv[3]);
     }
 
     //add
+insert_timer=0;
     for(int i=0;i<n;i++) {
         timestemp =clock();
         head = insert(head, timestemp);
@@ -280,8 +323,10 @@ return 0;
     }
     }
 if (n !=0){
-save=save/n;
+insert_timer=insert_timer/n;
 }
+save=save+insert_timer;
+
     p = head;
 
     //DEBUG
@@ -315,9 +360,13 @@ return 0;
 }
 }
 
+
+int div_counter=0;
+pop_timer=0;
     //pop
     while(head!=NULL){
       node poped_node=pop(head);
+div_counter++;
       head=trace;
 
 
@@ -331,7 +380,9 @@ if (debug==1){
     if(head!=NULL){
      temp=p->data;
 
+
       while(p) {
+
          printf("#%f ", p->data);
 if (temp> p->data){
       printf("\n\n#Error Report!\n");
@@ -346,11 +397,14 @@ if(check==0){
           p = p->ptr;
 
       }
+     
 if (check==0){
       printf("#WARNING TEST FAILED!!!!!!!!!!\n");
 return 0;
 }
 }
+
+
 }
 
       //decompose
@@ -392,6 +446,13 @@ return 0;
 
      }
 
+
+if (div_counter !=0){
+pop_timer=pop_timer/div_counter;
+
+}
+save =save+pop_timer;
+
 //debyg
     // printf("#LAST ONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
@@ -401,7 +462,8 @@ return 0;
 
 
     double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
+
     int current= n;
-     printf("%d\t%.8lf\n", n_max, effeciency);
+     printf("%d\t%lf\n", n_max, effeciency);
     return 0;
 }
