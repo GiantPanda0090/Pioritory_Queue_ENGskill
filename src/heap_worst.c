@@ -1,9 +1,17 @@
+#define _POSIX_C_SOURCE 199309L
+#define BILLION 1000000000L
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
-#include <time.h>
+#include <sys/time.h>
 #include "print_ascii.h"
+#include <stdint.h>
+#include <unistd.h>
+#include <time.h>
+
 
 
 
@@ -16,9 +24,15 @@ int dynAvg;
 int chance;
 int pCount;
 int add_counter=0;
-clock_t save;
+uint64_t pop_t,swap_t,nav_t;
+int insert_counter=0;
+int pop_counter=0;
+int swap_counter=0;
+int nav_counter=0;
 float n_counter=0;
 int debug=0;
+float tail_record=0;
+
 
 
 //method declearation
@@ -30,7 +44,7 @@ int swap(Tree *tail);
 Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
 int decompose(Tree element,clock_t timestemp);
-int increment();
+int increment(int t);
 int findright();
 
 
@@ -72,13 +86,12 @@ float dataList[3];
   //add
       timestemp =clock();
   Tree *heap=creatHeap(heap,timestemp);
+
   for (int i =1;i<current;i++){
       timestemp =clock();
     add(heap,timestemp);
   }
-if (current !=0){
-save=save/current;
-}
+
 
   //debug 
 if (debug==1){
@@ -134,11 +147,14 @@ printf("\n");
    printf("head is %f\n",head->value);
    debug(head);
    */
+  pop_t=(long long unsigned int)pop_t/(long long unsigned int)pop_counter;
+  nav_t=(long long unsigned int)nav_t/(long long unsigned int)nav_counter;
+  swap_t=(long long unsigned int)swap_t/(long long unsigned int)swap_counter;
+  uint64_t   save=pop_t+nav_t+swap_t;
 
 
+  printf("%d\t%llu\n", nrEvent, (long long unsigned int)(save));
 
-    double effeciency=(save)/(double)CLOCKS_PER_SEC*1000;
-     printf("%d\t%.8lf\n", nrEvent, effeciency);
 
 
 //printf("# not crashed");
@@ -153,12 +169,10 @@ n=absu(n);
   int t =element.value;//random N
 float variable=0;
   for(int i=1;i<n;i++){
-     variable =findright()+absu(increment());
+     variable =findright()+absu(increment(t));
     add(head,variable);
   }
-if (n !=0){
-save=save/n;
-}
+
 }
 int findright(){
 Tree* search = head;
@@ -167,9 +181,14 @@ search = search ->right;
 }
 return search -> value;
 }
-int increment(){
-  int randomNr=rand()%(int)(500);
-  return randomNr;
+
+
+int increment(int t){
+
+    float avg=tail_record - (head->value);
+
+    int x =((head->value)-t)+(avg)*((double)rand() / (double)RAND_MAX );
+  return absu(x);
 }
 
 Tree * creatHeap(Tree *heap,float value){
@@ -189,7 +208,14 @@ Tree * creatNode(float value){
 }
 int add(Tree *main, float item){
 
-  int replacement=0;
+    if (item > tail_record){
+        tail_record=item;
+    }else if(head==NULL){
+        tail_record=0;
+    }
+
+
+    int replacement=0;
 if(item > head->value){
   replacement=item-head->value;
 }else{
@@ -212,8 +238,8 @@ int merge(Tree *main, Tree *item){
 }
 
 int swap(Tree *tail){
-clock_t start,end;
-start=clock();
+  struct timespec start,end;
+  clock_gettime(CLOCK_REALTIME,&start);
 while((tail->parent) !=empty){//probelm infinity loop
 n_counter++;
   pCount++;
@@ -222,8 +248,9 @@ n_counter++;
   (tail->left) = (tail-> right);
   (tail ->right)=temp;
 }
-end =clock();
-save=save+(end-start);
+  clock_gettime(CLOCK_REALTIME,&end);
+  swap_t = swap_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
+  swap_counter++;
 //printf("# %d\n",pCount);
 pCount=0;
   return 0;
@@ -263,11 +290,12 @@ Tree * naiveMerge(Tree *main1, Tree *item){
   free(main);
   }
 container = head;
+    struct timespec  start,end;
+    clock_gettime(CLOCK_REALTIME,&start);
   while(1){
   //rest
 //search
-clock_t start,end;
-start=clock();
+
   while((container->value)<=(item -> value)){
 n_counter++;
 pCount++;
@@ -279,13 +307,15 @@ pCount++;
       //attach new tree
       (item->parent)=parent;
       (parent->right)=item;
+        clock_gettime(CLOCK_REALTIME,&end);
+        nav_t=nav_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
+        nav_counter++;
       return parent->right; //return tail
     }else{
     container=(container->right);
   }
   }
-end =clock();
-save=save+(end-start);
+
   //position found
   //attach
   Tree *parent = (container->parent);
@@ -302,8 +332,8 @@ save=save+(end-start);
 }
 
 Tree pop(Tree *main){
-clock_t start,end;
-start = clock();
+  struct timespec start,end;
+  clock_gettime(CLOCK_REALTIME,&start);
 
   Tree *left=(head->left);
   Tree *right =(head->right);
@@ -328,9 +358,16 @@ if ((head -> right)!=empty){
 
   Tree target=*head;
 
-  if(leftFlag==1&&rightFlag==1){
-  merge(left,right);
-  if(head->value==left->value){
+  struct timespec exclude_start,exclude_end;
+  uint64_t exclude=0;
+    if(leftFlag==1&&rightFlag==1){
+      clock_gettime(CLOCK_REALTIME,&exclude_start);
+
+        merge(left,right);
+      clock_gettime(CLOCK_REALTIME,&exclude_end);
+      exclude = (BILLION * (exclude_end.tv_sec - exclude_start.tv_sec) + exclude_end.tv_nsec - exclude_start.tv_nsec);
+
+      if(head->value==left->value){
     //free(left);
   }else if(head->value ==right->value){
     //free(right);
@@ -343,8 +380,11 @@ if ((head -> right)!=empty){
   *head=*right;
   free(right);
 }
-end =clock();
-save=save+(end-start);
+  clock_gettime(CLOCK_REALTIME,&end);
+  pop_t=pop_t+((BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec));
+  pop_t=pop_t-exclude;
+
+  pop_counter++;
 //reset flag
 leftFlag =0;
 rightFlag=0;

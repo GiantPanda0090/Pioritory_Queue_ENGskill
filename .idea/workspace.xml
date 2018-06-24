@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="false">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="197b4354-29f7-4ff3-b900-5a7cbcd8284c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/avg/findmaxmin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimental method – planning.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report for Pirority queue comparision" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/The Asymptotic Complexity Comparison Between Double Linked List and Skew Heap Implementation of Priority Queue.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/avg/heap.png" beforeDir="false" afterPath="$PROJECT_DIR$/avg/heap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/avg/heap_derivative.png" beforeDir="false" afterPath="$PROJECT_DIR$/avg/heap_derivative.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/avg/heap_logscale.png" beforeDir="false" afterPath="$PROJECT_DIR$/avg/heap_logscale.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/best/heap.png" beforeDir="false" afterPath="$PROJECT_DIR$/best/heap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/best/heap_derivative.png" beforeDir="false" afterPath="$PROJECT_DIR$/best/heap_derivative.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/best/heap_logscale.png" beforeDir="false" afterPath="$PROJECT_DIR$/best/heap_logscale.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/heap.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/heap.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/heap_best.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/heap_best.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/heap_worst.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/heap_worst.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linkedlist.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/linkedlist.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linkedlist_best.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/linkedlist_best.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/linkedlist_worst.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/linkedlist_worst.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tree.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fit.log" beforeDir="false" afterPath="$PROJECT_DIR$/fit.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/heap_derivative.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/heap_logscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot.sh" beforeDir="false" afterPath="$PROJECT_DIR$/plot.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/1/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/1/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/1/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/1/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/10/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/10/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/10/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/10/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/11/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/11/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/11/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/11/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/12/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/12/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/12/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/12/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/2/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/2/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/2/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/2/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/3/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/3/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/3/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/3/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/4/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/4/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/4/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/4/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/5/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/5/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/5/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/5/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/6/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/6/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/6/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/6/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/7/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/7/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/7/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/7/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/8/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/8/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/8/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/8/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/9/heap.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/9/heap.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/9/linkedlist.dat" beforeDir="false" afterPath="$PROJECT_DIR$/plot/9/linkedlist.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/fit.log" beforeDir="false" afterPath="$PROJECT_DIR$/plot/fit.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/heap.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot/heap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/heap_avg.p" beforeDir="false" afterPath="$PROJECT_DIR$/plot/heap_avg.p" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/heap_derivative.p" beforeDir="false" afterPath="$PROJECT_DIR$/plot/heap_derivative.p" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/heap_logscale.p" beforeDir="false" afterPath="$PROJECT_DIR$/plot/heap_logscale.p" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_best.sh" beforeDir="false" afterPath="$PROJECT_DIR$/plot_best.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_worst.sh" beforeDir="false" afterPath="$PROJECT_DIR$/plot_worst.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/heap.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/heap_best.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap_best.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/heap_worst.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/heap_worst.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linkedlist.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/linkedlist.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linkedlist_best.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/linkedlist_best.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linkedlist_worst.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/linkedlist_worst.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.dat" beforeDir="false" afterPath="$PROJECT_DIR$/test.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worst/heap.png" beforeDir="false" afterPath="$PROJECT_DIR$/worst/heap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worst/heap_derivative.png" beforeDir="false" afterPath="$PROJECT_DIR$/worst/heap_derivative.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worst/heap_logscale.png" beforeDir="false" afterPath="$PROJECT_DIR$/worst/heap_logscale.png" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="plot_worst.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plot_worst.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2223">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heap_avg.p" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/worst/plot/heap_avg.p">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heap_derivative.p" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/worst/plot/heap_derivative.p">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="linkedlist.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/linkedlist.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-360">
+              <caret line="154" selection-start-line="154" selection-end-line="154" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heap_logscale_ll_all.p" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plot/heap_logscale_ll_all.p">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="linkedlist_worst.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/linkedlist_worst.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="253" column="71" selection-start-line="253" selection-start-column="71" selection-end-line="253" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plot.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plot.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2487">
+              <caret line="184" column="17" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>pop</find>
+      <find>pop(</find>
+      <find>3</find>
+      <find>counter</find>
+      <find>check_flag</find>
+      <find>printf</find>
+      <find>pop_t</find>
+      <find>clock_gettime</find>
+      <find>(MAXCOL)</find>
+      <find>timestemp</find>
+      <find>timestep</find>
+      <find>insert(</find>
+      <find>absu</find>
+      <find>decompose</find>
+      <find>printf(</find>
+      <find>insert_counter</find>
+      <find>incre</find>
+      <find>temp is</find>
+      <find>variable</find>
+      <find>plot/</find>
+      <find>var</find>
+      <find>float</find>
+      <find>insert_t</find>
+      <find>search_counter</find>
+      <find>diff</find>
+      <find>middle_range</find>
+      <find>main</find>
+      <find>save</find>
+      <find>increment</find>
+      <find>insert</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>clock_gettime(CLOCK_MONOTONIC,&amp;tp)</replace>
+      <replace>(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec)</replace>
+      <replace>((end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec)/BILLION)</replace>
+      <replace>(sum [col=1:MAXCOL] column(col*2))/(MAXCOL)</replace>
+      <replace>CLOCK_REALTIME</replace>
+      <replace>avg/plot/</replace>
+      <replace>(MAXCOL-1)</replace>
+      <replace>worst/plot/</replace>
+      <replace>best/plot/</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/src/heap.c" />
+        <option value="$PROJECT_DIR$/src/heap_best.c" />
+        <option value="$PROJECT_DIR$/src/heap_worst.c" />
+        <option value="$PROJECT_DIR$/src/linkedlist_best.c" />
+        <option value="$PROJECT_DIR$/plot/heap_derivative.p" />
+        <option value="$PROJECT_DIR$/plot/heap_avg.p" />
+        <option value="$PROJECT_DIR$/plot/heap_logscale.p" />
+        <option value="$PROJECT_DIR$/plot_best.sh" />
+        <option value="$PROJECT_DIR$/plot/heap_logscale_skew_all.p" />
+        <option value="$PROJECT_DIR$/worst/findmaxmin.py" />
+        <option value="$PROJECT_DIR$/plot_worst.sh" />
+        <option value="$PROJECT_DIR$/worst/plot/heap_logscale.p" />
+        <option value="$PROJECT_DIR$/worst/plot/heap_derivative.p" />
+        <option value="$PROJECT_DIR$/avg/plot/heap_avg.p" />
+        <option value="$PROJECT_DIR$/avg/plot/heap_derivative.p" />
+        <option value="$PROJECT_DIR$/avg/plot/heap_logscale.p" />
+        <option value="$PROJECT_DIR$/plot.sh" />
+        <option value="$PROJECT_DIR$/avg/findmaxmin.py" />
+        <option value="$PROJECT_DIR$/worst/plot/heap_avg.p" />
+        <option value="$PROJECT_DIR$/src/print_ascii.h" />
+        <option value="$PROJECT_DIR$/plot/heap_logscale_ll_all.p" />
+        <option value="$PROJECT_DIR$/src/linkedlist.c" />
+        <option value="$PROJECT_DIR$/src/linkedlist_worst.c" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="292" />
+    <option name="y" value="24" />
+    <option name="width" value="1400" />
+    <option name="height" value="1028" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="pior_Q" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pior_Q" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pior_Q" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pior_Q" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pior_Q" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pior_Q" type="462c0819:PsiDirectoryNode" />
+              <item name="worst" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;command&#9;ACTION&#9;CreateLauncherScript&#10;make&#9;ACTION&#9;CPP.NewCMakeListsFile" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/avg" />
+      <recent name="$PROJECT_DIR$/worst" />
+      <recent name="$PROJECT_DIR$/plot" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="197b4354-29f7-4ff3-b900-5a7cbcd8284c" name="Default" comment="" />
+      <created>1529521331457</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1529521331457</updated>
+      <workItem from="1529521334737" duration="2545000" />
+      <workItem from="1529523904927" duration="80302000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="82847000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18867925" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32991803" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Run" order="5" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.43954918" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/heap_best.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/heap_worst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="81" column="17" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linkedlist.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2865">
+          <caret line="191" column="17" selection-start-line="191" selection-start-column="11" selection-end-line="191" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linkedlist_best.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linkedlist_worst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2895">
+          <caret line="193" column="7" selection-start-line="193" selection-start-column="7" selection-end-line="193" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_derivative.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_avg.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/heap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4965">
+          <caret line="331" column="23" selection-start-line="331" selection-start-column="23" selection-end-line="331" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1890">
+          <caret line="126" column="49" lean-forward="true" selection-start-line="126" selection-start-column="49" selection-end-line="126" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heap_derivative.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/plot.p">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/findmaxmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/just_plot.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="84" selection-start-line="12" selection-start-column="84" selection-end-line="12" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot.p">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heap_logscale.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/heap_best.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="181" column="73" selection-start-line="180" selection-start-column="4" selection-end-line="181" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_derivative.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_best.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="189" selection-start-line="189" selection-end-line="191" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_avg.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heap.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_logscale.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="35" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_logscale_skew_all.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worst/plot/linkedlist_slop.p">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linkedlist_best.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avg/plot/heap_avg.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avg/plot/heap_logscale.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avg/plot/heap_derivative.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/heap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="245" column="16" selection-start-line="245" selection-start-column="4" selection-end-line="245" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/heap_worst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="46" column="3" selection-start-line="46" selection-end-line="46" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worst/plot/heap_derivative.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_worst.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2223">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/print_ascii.c">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/print_ascii.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worst/findmaxmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worst/plot/heap_avg.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/avg/findmaxmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worst/plot/heap_logscale.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2487">
+          <caret line="184" column="17" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot/heap_logscale_ll_all.p">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linkedlist.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linkedlist_worst.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="253" column="71" selection-start-line="253" selection-start-column="71" selection-end-line="253" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
