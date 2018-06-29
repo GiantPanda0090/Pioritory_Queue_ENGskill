@@ -11,9 +11,10 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+
 //https://stackoverflow.com/questions/21788598/c-inserting-into-linked-list-in-ascending-order
 typedef struct node{
-    float data;
+    double data;
     struct node *ptr;
     struct node *ptr_p;
     struct node *tail;
@@ -22,18 +23,36 @@ typedef struct node{
 
 int pCount;
 int debug=0;
-uint64_t insert_t,pop_t;
+int limit;
+double insert_t,pop_t,search_t=0.0;
+double enqueue_t,dequeue_t = 0.0;
 int insert_counter=0;
+int enqueue_counter=0;
+int dequeue_counter=0;
+
+
 int pop_counter=0;
+int search_counter=0;
+double rest_t=0.0;
+
+
+
+
+
 int counter=0;
 int n_max=0;
 float n_counter=0;
 
-clock_t insert_timer;
-node* insert(node* head, float num) {
+//insertion
+node* insert(node* head, double num) {
+    insert_t=0.0;
+    search_t=0.0;
+counter++;
+    struct timespec start,end;
+    clock_gettime(CLOCK_MONOTONIC,&start);
 
-    counter++;
-clock_t start,end;
+
+
 
     node *temp ,*tail;
     temp = (node*)malloc(sizeof(node));
@@ -41,78 +60,83 @@ clock_t start,end;
     temp->ptr = NULL;
     //first
     if(!head){
+        //add
+
         head=temp;
         head->tail=temp;
+
+
+
     } else{
 if(temp->data<=head->data){//insert head
-    struct timespec start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
-head->ptr_p=temp;
+
+    //add
+
+
+    head->ptr_p=temp;
 temp->ptr=head;
 temp->ptr_p=NULL;
 temp->tail=head->tail;
 head->tail=NULL;
 head=temp;//update head
-    clock_gettime(CLOCK_REALTIME,&end);
-    insert_t=insert_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-    insert_counter++;
+
+
+
 }else if(temp->data>=head->tail->data){//insert tail
-    struct timespec start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
-    head->ptr_p=temp;
-temp->ptr_p=head->tail;
+
+    //add
+
+    temp->ptr_p=head->tail;
 head->tail->ptr=temp;
 temp->ptr=NULL;
 head->tail=temp;//update tail
-    clock_gettime(CLOCK_REALTIME,&end);
-    insert_t=insert_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-    insert_counter++;
+
+
+
 }else{
-printf("data in temp %f\n",temp->data);
-printf("data in head %f\n",head->data);
-printf("data in tail %f\n",head->tail->data);
-printf("why am i here!");
-int avg =head->data+head->tail->data;
+double avg =head->data+head->tail->data;
       avg=avg/2;//average
-if (num>avg){
+
+
+    if (num>avg){
 node *container=head->tail;
 
-//search
-    struct timespec start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
 
-    while(temp->data<container->data){
+//search
+
+while(temp->data<container->data){
 n_counter++;
 container=container->ptr_p;
 }
-    clock_gettime(CLOCK_REALTIME,&end);
-    insert_t=insert_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-    insert_counter++;
 
 
 
-//link temp
+
+//add
+
 temp->ptr_p=container;
 temp->ptr=container->ptr;
 //update container
 container->ptr->ptr_p=temp;
 container->ptr=temp;
+
+
+
+
 }else{
 node *container=head;
+
 //search
-    struct timespec start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
 
 while(temp->data>container->data){
 n_counter++;
 container=container->ptr;
 }
 
-    clock_gettime(CLOCK_REALTIME,&end);
-    insert_t=insert_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-    insert_counter++;
 
 
+
+    //add
 
 //link temp
 temp->ptr=container;
@@ -122,64 +146,43 @@ container->ptr_p->ptr=temp;
 container->ptr_p=temp;
 
 
+
+
 }
+
 
 
 }
     }
-
-
-
-
-if (debug==2){
-    node *p;
-double temp =0;
-int check =0;
-  p = head;
-printf("#INSERT:\n");
-printf("#Current list:\n");
-
-
-    if(head!=NULL){
- temp=p->data;
-
-      while(p) {
-         printf("#%f ", temp);
-         temp=p->data;
-          p = p->ptr;
-
-      }
-}
-
-
-    }
-
-
-
-
-
+    clock_gettime(CLOCK_MONOTONIC,&end);
+    insert_t=(double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
+    //printf("%lf\n",insert_t);
+    insert_counter++;
     return head;
 }
 
-clock_t pop_timer=0;
 node *trace=NULL;
 //pop
 node pop(node* head){
+
+    struct timespec start,end;
+    pop_t=0;
+
+    clock_gettime(CLOCK_MONOTONIC,&start);
 
 if(debug==1){
 if (head->ptr_p!=NULL){
       printf("#Head is%f:\n",head->data);
 }
 }
-    struct timespec start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
+
 trace=head->ptr;
 if(trace!=NULL){
 head->ptr->tail=head->tail;
 }
-    clock_gettime(CLOCK_REALTIME,&end);
-    pop_t=pop_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-    pop_counter++;
+
+
+
 
 if(debug==1){
 if(head->tail==NULL){
@@ -197,10 +200,18 @@ if(head->tail==NULL){
 }
     }
 
+node out = *head;
 
-    node out = *head;
-free(head);
-pCount++;
+    clock_gettime(CLOCK_MONOTONIC,&end);
+    pop_t=(double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
+    pop_counter++;
+
+    dequeue_t=dequeue_t+pop_t;
+    dequeue_counter++;
+    free(head);
+
+
+    pCount++;
   return out;
 }
 
@@ -223,51 +234,64 @@ int n=9;
 
 
 //absolute value
-//https://stackoverflow.com/questions/22268815/absolute-value-of-int-min
-unsigned int absu(int value) {
-    return (value < 0) ? -((unsigned int)value) : (unsigned int)value;
+
+ double absu(double value) {
+     double out =0;
+     if (value<0){
+         out=value*(-1);
+     }else{
+         out =value;
+     }
+    return out;
 }
 
 //increment generator
-int increment(node* head,int t){
-    int avg =0;
-    int x=0;
-    int x_tail=0;
-    if(head==NULL){
-        avg=3;
-        x =avg*((double)rand() / (double)RAND_MAX );
-        x_tail =avg*((double)rand() / (double)RAND_MAX );
-
-    }else{
-        avg =(head->tail->data-head->data);//dynamic range
-        x =(0)+((head->data)-t)*((double)rand() / (double)RAND_MAX );
-        x_tail =((head->tail->data)-t)+((head->data)-t)*((double)rand() / (double)RAND_MAX );
-
-
-    }
-
-  int choose=absu(rand()+rand()-rand())%(2);
-    int out=0;
-if (choose==1){
-  out=absu(x_tail);
+double increment(node* head,double t){
+double avg =0.0;
+    double x=0.0;
+    double prob= (absu(rand()) / (double)RAND_MAX);
+if(head==NULL){
+    struct timespec time;
+    clock_gettime(CLOCK_MONOTONIC,&time);
+    double timestemp=(double)(BILLION * (time.tv_sec)+ time.tv_nsec);
+    timestemp =timestemp+((timestemp-t)*prob);
+    avg=(timestemp)*prob;
 }else{
-  out=absu(x);
+  avg =(head->tail->data-head->data);//dynamic range
+
+    x =((head->data) - t)+((avg)*prob);
+
+    //x =(0.0)+((avg+(((head->data) - t)*2))*prob);
 }
-  //printf("%d , %d\n",out,avg);
+
+  double out=(x);
+    //printf("out is is : %f\n",absu(out));
+
+  //printf("%d,%d , %d\n",(int)head->data,out,avg);
   return absu(out) ;
 }
 
 //decompose
 node* decompose(node* head,node element){
-  int n =absu(rand()+rand()-rand())%(n_max-counter);//random N
-  n=absu(n);
-  float t =element.data;// obtain value from main node
-float variable=0;
+  int n =1+ ((limit-counter-1) * (absu(rand()) / (double)RAND_MAX));//random N
+    //printf("%d\n",counter);
+
+    double t =element.data;// obtain value from main node
+double variable=0;
 //printf("#value of n is %d\n", n);
-  for(int i=1;i<n;i++){
+        double decom_t=0.0;
+  for(int i=0;i<n;i++){
      variable =t+increment(head,t);
     head = insert(head, variable);
+      decom_t=decom_t+insert_t;
   }
+
+
+    decom_t=decom_t/n;
+      rest_t=rest_t+decom_t;
+      enqueue_counter++;
+
+
 
 
   return head;
@@ -280,13 +304,11 @@ float answer_list[]={0,1,1.1,1.2,3.5,4,5,5.4,6};
  node *head, *p;
     head = NULL;
       printf("#size of insert_list is %d ", (int)sizeof(insert_list));
-for(int i=0;i<9;i++) {
+for(int i=0;i<9;i++) {        
        head = insert(head, insert_list[i]);
       printf("#inserting %f \n", insert_list[i]);
     }
     p = head;
-
-
 
 int i_check=0;
  while(head->ptr!=NULL){
@@ -331,22 +353,29 @@ int num;
     debug=atoi(argv[2]); //debug
 int seed=atoi(argv[3]);
     int r =0;
-    clock_t timestemp;
+    struct timespec time;
+    double timestemp;
     time_t rand_t;
     node *head, *p;
     head = NULL;
    srand(seed);
-  int n =absu(rand()+rand()-rand())%(n_max-counter);//random N
-      n=absu(n);
-    while(n==0){
-      n =(rand()+rand()-rand())%(n_max-counter);
-    }
+  int n =1 + absu((absu(rand())/(double) RAND_MAX)*(n_max));//random N
+          //printf("n: %d\n",counter);
 
+    double previous_timestemp=0.0;
+
+    double init_t=0;
+    limit =n_max +n;
     //add
     for(int i=0;i<n;i++) {
-        timestemp =clock();
+        clock_gettime(CLOCK_MONOTONIC,&time);
+        timestemp=(double)(BILLION * (time.tv_sec)+ time.tv_nsec);
+        timestemp =timestemp+((timestemp-previous_timestemp)*absu(rand()/(double) RAND_MAX));
         head = insert(head, timestemp);
-    //DEBUG
+        previous_timestemp=timestemp;
+        init_t=init_t+(insert_t);
+
+        //DEBUG
 if(debug==1){
 if(head->tail==NULL){
  printf("\n\n#Error Report!\n");
@@ -357,12 +386,18 @@ return 0;
     }
     }
 
+    //printf("%d\t%d\n",n_max,limit-counter);
+
+enqueue_t=enqueue_t+(init_t/n);
 
     p = head;
 
     //DEBUG
 int check=1;
-float temp=0;
+double temp=0;
+
+
+
 if (debug==1){
   p = head;
 printf("#Current list:\n");
@@ -391,13 +426,13 @@ return 0;
 }
 }
 
+pop_counter=0;
+pop_t=0;
 
-int div_counter=0;
-pop_timer=0;
     //pop
     while(head!=NULL){
-      node poped_node=pop(head);
-div_counter++;
+
+        node poped_node=pop(head);
       head=trace;
 
 
@@ -411,9 +446,7 @@ if (debug==1){
     if(head!=NULL){
      temp=p->data;
 
-
       while(p) {
-
          printf("#%f ", p->data);
 if (temp> p->data){
       printf("\n\n#Error Report!\n");
@@ -428,19 +461,16 @@ if(check==0){
           p = p->ptr;
 
       }
-     
 if (check==0){
       printf("#WARNING TEST FAILED!!!!!!!!!!\n");
 return 0;
 }
 }
-
-
 }
 
       //decompose
-      if(counter<n_max){
-     head=decompose(head,poped_node);
+      if(counter<limit){
+      head=decompose(head,poped_node);
   }
 
 if (debug==1){
@@ -477,8 +507,7 @@ return 0;
 
      }
 
-
-
+     enqueue_t=(rest_t/enqueue_counter);
 
 //debyg
     // printf("#LAST ONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -486,13 +515,15 @@ return 0;
      //node poped_node=pop(head);//last
 //debug
     //printf("\n#POPED %f\n",poped_node.data );
+    /*
+    printf("%d\t%d\n",search_t,(search_t)/search_counter);
+    printf("%d\t%d\n",insert_t,(insert_t)/insert_counter);
+    printf("%d\t%d\n",pop_t,(pop_t)/pop_counter);
+     */
 
-    insert_t=(long long unsigned int)insert_t/(long long unsigned int)insert_counter;
-    pop_t=(long long unsigned int)pop_t/(long long unsigned int)pop_counter;
-    uint64_t save=insert_t+pop_t;
 
-
+    //printf("%d\t%d\t%d\n",insert_counter,search_counter,pop_counter);
     int current= n;
-    printf("%d\t%llu\n", n_max, (long long unsigned int) save);
+     printf("%d\t%lf\t%lf\n", n_max, (enqueue_t),(dequeue_t/dequeue_counter));
     return 0;
 }

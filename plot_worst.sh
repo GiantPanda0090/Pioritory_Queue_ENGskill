@@ -31,6 +31,8 @@ prime20=456887134415786774688194324658676743984612834326352451
 echo "This script will run a complexity comparision for two different piority queue implementaion linkedlist vs skewheap"
 echo "preperation......"
 
+free && sync && echo 3 > /proc/sys/vm/drop_caches && free
+
 rm -rf worst/plot/1
 rm -rf worst/plot/2
 rm -rf worst/plot/3
@@ -98,7 +100,11 @@ echo "3rd run"
 ./run_heap_worst.sh $1 $2 0 $prime4 > worst/plot/4/heap.dat
 echo "4rd run"
 echo "skew heap done"	
-echo "1st data pattern done"	
+echo "1st data pattern done"
+
+
+
+
 ./run_heap_worst.sh $1 $2 0 $prime9 > worst/plot/5/heap.dat	
 echo "1st run"
 ./run_heap_worst.sh $1 $2 0 $prime10 > worst/plot/6/heap.dat
@@ -118,6 +124,9 @@ echo "3rd run"
 echo "4rd run"
 echo "linkedlist done"	
 echo "2nd data pattern done"
+
+
+
 ./run_list_worst.sh $1 $2 0 $prime5 > worst/plot/9/linkedlist.dat
 echo "1st run"	
 ./run_list_worst.sh $1 $2 0 $prime6 > worst/plot/10/linkedlist.dat
@@ -137,7 +146,9 @@ echo "3rd run"
 echo "4rd run"
 echo "skew heap done"			
 echo "3rd data pattern done"
-echo "SIMULATION SUECCESSED,PLOTING GRAPH......"
+
+
+
 echo "5rd run"
 echo "linkedlist done"
 echo "2nd data pattern done"
@@ -157,9 +168,12 @@ echo "2nd run"
 ./run_heap_worst.sh $1 $2 0 $prime15 > worst/plot/15/heap.dat
 echo "3rd run"
 ./run_heap_worst.sh $1 $2 0 $prime16 > worst/plot/16/heap.dat
-echo "6rd run"
+echo "4rd run"
 echo "linkedlist done"
-echo "2nd data pattern done"
+echo "4th data pattern done"
+
+
+
 ./run_list_worst.sh $1 $2 0 $prime17 > worst/plot/17/linkedlist.dat
 echo "1st run"
 ./run_list_worst.sh $1 $2 0 $prime18 > worst/plot/18/linkedlist.dat
@@ -176,21 +190,42 @@ echo "2nd run"
 ./run_heap_worst.sh $1 $2 0 $prime19 > worst/plot/19/heap.dat
 echo "3rd run"
 ./run_heap_worst.sh $1 $2 0 $prime20 > worst/plot/20/heap.dat
+echo "4rd run"
+echo "skew heap done"
+echo "last data pattern done"
+echo "SIMULATION SUECCESSED,PLOTING GRAPH......"
 
 
 
-rm heap.png
+
+rm enqueue_avg.png
+rm dequeue_avg.png
+
+rm enqueue_logscale.png
+rm dequeue_logscale.png
+
 python3 worst/findmaxmin.py
-gnuplot worst/plot/heap_avg.p
-gnuplot worst/plot/heap_logscale.p
-gnuplot worst/plot/heap_derivative.p
-echo "plot done!"
-mv heap.png  worst/heap.png
-mv heap_logscale.png worst/heap_logscale.png
-mv heap_derivative.png worst/heap_derivative.png
-echo "open graph"
-display  worst/heap.png
-display  worst/heap_logscale.png
-display  worst/heap_derivative.png
-echo "not crashed!"
 
+gnuplot worst/plot/enqueue_avg.p
+gnuplot worst/plot/dequeue_avg.p
+
+gnuplot worst/plot/enqueue_logscale.p
+gnuplot worst/plot/dequeue_logscale.p
+
+rm worst/enqueue_avg.png
+rm worst/dequeue_avg.png
+
+rm worst/enqueue_logscale.png
+rm worst/dequeue_logscale.png
+
+echo "plot done!"
+mv enqueue_avg.png worst/enqueue_avg.png
+mv dequeue_avg.png worst/dequeue_avg.png
+mv enqueue_logscale.png worst/enqueue_logscale.png
+mv dequeue_logscale.png worst/dequeue_logscale.png
+echo "open graph"
+display worst/enqueue_avg.png
+display worst/dequeue_avg.png
+display worst/enqueue_logscale.png
+display worst/dequeue_logscale.png
+echo "not crashed!"

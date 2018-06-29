@@ -25,9 +25,9 @@ set xrange[500:20000]
 
 
 
-data1 = "<( paste best/plot/*/linkedlist.dat )"
-data2 = "<( paste avg/plot/*/linkedlist.dat )"
-data3 = "<( paste worst/plot/*/linkedlist.dat)"
+data1 = "<( paste best/plot/enqueue/linkedlist_prob.dat best/plot/enqueue/linkedlist_mean.dat )"
+data2 = "<( paste avg/plot/enqueue/linkedlist_prob.dat avg/plot/enqueue/linkedlist_mean.dat )"
+data3 = "<( paste worst/plot/enqueue/linkedlist_prob.dat worst/plot/enqueue/linkedlist_mean.dat)"
 
 
-plot data2 u 1:(sum [col=1:MAXCOL] column(col*2))/(MAXCOL) w lp pt 6 ps 2 title "Average Case",data3 u 1:(sum [col=1:MAXCOL] column(col*2))/(MAXCOL) w lp pt 6 ps 2 title "Worst Case"
+plot data2 u 1:2 w lp pt 6 ps 2 title "Average Case",data3 u 1:2 w lp pt 6 ps 2 title "Worst Case"

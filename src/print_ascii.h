@@ -5,7 +5,7 @@ typedef struct Trees{
   struct Trees *parent;
   struct Trees *left;
   struct Trees *right;
-  float value;
+  double value;
   struct Trees *self;
 }Tree;
 

@@ -19,11 +19,12 @@ set key center left
 set xlabel "Number of Applications"
 set ylabel "Time cost (nanosecond)"
 
-MAXCOL = 20
 
-data1 = "<( paste worst/plot/*/heap.dat )"
-data2 = "<( paste worst/plot/*/linkedlist.dat )"
-set xrange [2500:50000]
+data1 = "<( paste worst/plot/heap_prob.dat worst/plot/heap_mean.dat worst/plot/heap_min.dat worst/plot/heap_max.dat)"
+data2 = "<( paste worst/plot/linkedlist_prob.dat worst/plot/linkedlist_mean.dat worst/plot/list_min.dat worst/plot/list_max.dat)"
+
+
+set xrange [2000:20000]
 delta_v(x) = ( vD = x - old_v, old_v = x, vD)
 old_v = NaN
 
@@ -35,16 +36,16 @@ y0=NaN
 f1(x)=a1*x+b1
 a1=1
 b1=1
-fit f1(x) data1 u 1:(delta_v(sum [col=1:MAXCOL] column(col*2)/(MAXCOL-1))/(delta_v(column(1)))) via a1,b1
+fit f1(x) data1 u 1:(delta_v(column(2))/(delta_v(column(1)))) via a1,b1
 
 f2(x)=a2*x+b2
 a2=1
 b2=1
-fit f2(x) data2 u 1:(delta_v(sum [col=1:MAXCOL] column(col*2)/(MAXCOL-1))/(delta_v(column(1))))  via a2,b2
+fit f2(x) data2 u 1:(delta_v(column(2))/(delta_v(column(1))))  via a2,b2
 
-stat data1 u 1:(delta_v(sum [col=1:MAXCOL] column(col*2)/(MAXCOL-1))/(delta_v(column(1))))
-stat data2 u 1:(delta_v(sum [col=1:MAXCOL] column(col*2)/(MAXCOL-1))/(delta_v(column(1))))
+stat data1 u 1:(delta_v(column(2))/(delta_v(column(1))))
+stat data2 u 1:(delta_v(column(2))/(delta_v(column(1))))
 
 
 
-plot data1 using 1:(delta_v(sum [col=1:MAXCOL] column(col*2)/(MAXCOL-1))/(delta_v(column(1))))  w lp pt 6 ps 2 title "skew heap", data2 using 1:(delta_v(sum [col=1:MAXCOL] column(col*2)/(MAXCOL-1))/(delta_v(column(1)))) w lp pt 6 ps 2 title "linked list",f1(x) lc rgb "red" title "linefit for skew heap slop",f2(x) lc rgb "blue" title "linefit for linkedlist slop"
+plot data1 using 1:(delta_v(column(2))/(delta_v(column(1))))  w lp pt 6 ps 2 title "skew heap", data2 using 1:(delta_v(column(2))/(delta_v(column(1)))) w lp pt 6 ps 2 title "linked list"

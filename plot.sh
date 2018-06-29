@@ -29,7 +29,9 @@ prime20=456887134415786774688194324658676743984612834326352451
 
 
 echo "This script will run a complexity comparision for two different piority queue implementaion linkedlist vs skewheap"	
-echo "preperation......"	
+echo "preperation......"
+
+
 
 rm -rf avg/plot/1
 rm -rf avg/plot/2
@@ -97,7 +99,10 @@ echo "3rd run"
 ./run_heap.sh $1 $2 0 $prime4 > avg/plot/4/heap.dat
 echo "4rd run"
 echo "skew heap done"	
-echo "1st data pattern done"	
+echo "1st data pattern done"
+
+
+
 ./run_heap.sh $1 $2 0 $prime9 > avg/plot/5/heap.dat	
 echo "1st run"
 ./run_heap.sh $1 $2 0 $prime10 > avg/plot/6/heap.dat
@@ -117,6 +122,9 @@ echo "3rd run"
 echo "4rd run"
 echo "linkedlist done"	
 echo "2nd data pattern done"
+
+
+
 ./run_list.sh $1 $2 0 $prime5 > avg/plot/9/linkedlist.dat
 echo "1st run"	
 ./run_list.sh $1 $2 0 $prime6 > avg/plot/10/linkedlist.dat
@@ -133,9 +141,12 @@ echo "2nd run"
 ./run_heap.sh $1 $2 0 $prime7 > avg/plot/11/heap.dat
 echo "3rd run"
 ./run_heap.sh $1 $2 0 $prime8 > avg/plot/12/heap.dat
-echo "5rd run"
+echo "4rd run"
 echo "linkedlist done"
-echo "2nd data pattern done"
+echo "3rd data pattern done"
+
+
+
 ./run_list.sh $1 $2 0 $prime13 > avg/plot/13/linkedlist.dat
 echo "1st run"
 ./run_list.sh $1 $2 0 $prime14 > avg/plot/14/linkedlist.dat
@@ -152,9 +163,12 @@ echo "2nd run"
 ./run_heap.sh $1 $2 0 $prime15 > avg/plot/15/heap.dat
 echo "3rd run"
 ./run_heap.sh $1 $2 0 $prime16 > avg/plot/16/heap.dat
-echo "6rd run"
+echo "4rd run"
 echo "linkedlist done"
-echo "2nd data pattern done"
+echo "4th data pattern done"
+
+
+
 ./run_list.sh $1 $2 0 $prime17 > avg/plot/17/linkedlist.dat
 echo "1st run"
 ./run_list.sh $1 $2 0 $prime18 > avg/plot/18/linkedlist.dat
@@ -171,24 +185,41 @@ echo "2nd run"
 ./run_heap.sh $1 $2 0 $prime19 > avg/plot/19/heap.dat
 echo "3rd run"
 ./run_heap.sh $1 $2 0 $prime20 > avg/plot/20/heap.dat
-
-
 echo "4rd run"
 echo "skew heap done"			
-echo "3rd data pattern done"
+echo "last data pattern done"
 echo "SIMULATION SUECCESSED,PLOTING GRAPH......"
-rm heap.png
+
+
+rm enqueue_avg.png
+rm dequeue_avg.png
+
+rm enqueue_logscale.png
+rm dequeue_logscale.png
+
 python3 avg/findmaxmin.py
-gnuplot avg/plot/heap_avg.p
-gnuplot avg/plot/heap_logscale.p
-gnuplot avg/plot/heap_derivative.p
+
+gnuplot avg/plot/enqueue_avg.p
+gnuplot avg/plot/dequeue_avg.p
+
+gnuplot avg/plot/enqueue_logscale.p
+gnuplot avg/plot/dequeue_logscale.p
+
+rm avg/enqueue_avg.png
+rm avg/dequeue_avg.png
+
+rm avg/enqueue_logscale.png
+rm avg/dequeue_logscale.png
+
 echo "plot done!"
-mv heap.png avg/heap.png
-mv heap_logscale.png avg/heap_logscale.png
-mv heap_derivative.png avg/heap_derivative.png
+mv enqueue_avg.png avg/enqueue_avg.png
+mv dequeue_avg.png avg/dequeue_avg.png
+mv enqueue_logscale.png avg/enqueue_logscale.png
+mv dequeue_logscale.png avg/dequeue_logscale.png
 echo "open graph"
-display avg/heap.png
-display avg/heap_logscale.png
-display avg/heap_derivative.png
+display avg/enqueue_avg.png
+display avg/dequeue_avg.png
+display avg/enqueue_logscale.png
+display avg/dequeue_logscale.png
 echo "not crashed!"
 

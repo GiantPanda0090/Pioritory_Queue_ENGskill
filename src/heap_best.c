@@ -14,42 +14,54 @@
 
 
 
+
+
+
+
 //public
 struct Trees *empty =NULL;
 struct Trees *head;
+
 
 int nrEvent;
 int dynAvg;
 int chance;
 int pCount;
+int limit;
 int add_counter=0;
-uint64_t pop_t,swap_t,nav_t;
-int insert_counter=0;
-int pop_counter=0;
-int swap_counter=0;
-int nav_counter=0;
+double dequeue_t,enqueue_t=0.0;
+double insert_t,pop_t,init_t=0.0;
+double rest_t=0.0;
+
+int enqueue_counter=0;
+int dequeue_counter=0;
+
 float n_counter=0;
 int debug=0;
-float tail_record=0;
-
+double tail_record=0;
 
 
 //method declearation
-Tree * creatHeap(Tree *heap,float value);
-Tree * creatNode(float value);
-int add(Tree *main, float item);
+Tree * creatHeap(Tree *heap,double value);
+Tree * creatNode(double value);
+int add(Tree *main, double item);
 Tree * naiveMerge(Tree *main1, Tree *item);
 int swap(Tree *tail);
 Tree pop(Tree *main);
 int merge(Tree *main, Tree *item);
-int decompose(Tree element,clock_t timestemp);
-int increment(int t);
+int decompose(Tree element,double timestemp);
+double increment(double t);
 
 
 //absolute value
-//https://stackoverflow.com/questions/22268815/absolute-value-of-int-min
-unsigned int absu(int value) {
-    return (value < 0) ? -((unsigned int)value) : (unsigned int)value;
+double absu(double value) {
+    double out =0;
+    if (value<0){
+        out=value*(-1);
+    }else{
+        out =value;
+    }
+    return out;
 }
 
 //method
@@ -66,28 +78,39 @@ int seed=atoi(argv[3]);
   dynAvg=0;
   chance=0;
   pCount=0;
-clock_t rand_t;
    srand(seed);
-  int current =absu(rand()+rand()-rand())%(nrEvent-add_counter);//random N
-current =absu(current);
- while(current==0){
-      current =(rand()+rand()-rand())%(nrEvent-add_counter);
-    }
+  int current =1+((absu(rand())/(double) RAND_MAX)*(nrEvent));//random N
+
+
 
 //DEBUG
 //printf("current generate as %d \n",current);
 
 float dataList[3];
-  clock_t t,timestemp;
 
 
   //add
-      timestemp =clock();
+    double timestemp;
+
   Tree *heap=creatHeap(heap,timestemp);
-  for (int i =1;i<current;i++){
-      timestemp =clock();
+
+    double previous_timestemp=0.0;
+    struct timespec time;
+    limit=nrEvent+current;
+
+
+
+    init_t=0.0;
+  for (int i =0;i<current;i++){
+      clock_gettime(CLOCK_MONOTONIC,&time);
+      timestemp=(double)(BILLION * (time.tv_sec)+ time.tv_nsec);
+      timestemp =timestemp+((timestemp-previous_timestemp)*(rand()/(double) RAND_MAX));
+
     add(heap,timestemp);
+    init_t=init_t+(insert_t);
+      previous_timestemp=timestemp;
   }
+    enqueue_t=enqueue_t+(init_t/current);
 
 
   //debug 
@@ -116,8 +139,9 @@ printf("\n");
 
 
     //decompose
-    if(add_counter<nrEvent){
-   decompose(element, timestemp);
+    if(add_counter<limit){
+        decompose(element, timestemp);
+
 
 if (debug==1){
 printf("#After decompose \n\n");
@@ -133,25 +157,23 @@ printf("\n");
 }
    
    }
+    enqueue_t=(rest_t/enqueue_counter);
 
 
 
 
 
-   Tree element=pop(heap);
+
+    Tree element=pop(heap);
    /*
    printf("\n#After last pop: \n");
    printf("head is %f\n",head->value);
    debug(head);
    */
-    pop_t=(long long unsigned int)pop_t/(long long unsigned int)pop_counter;
-    nav_t=(long long unsigned int)nav_t/(long long unsigned int)nav_counter;
-    swap_t=(long long unsigned int)swap_t/(long long unsigned int)swap_counter;
-    uint64_t   save=pop_t+nav_t+swap_t;
 
 
-    printf("%d\t%llu\n", nrEvent, (long long unsigned int)(save));
 
+     printf("%d\t%lf\t%lf\n", nrEvent, (enqueue_t),(dequeue_t/dequeue_counter));
 
 
 //printf("# not crashed");
@@ -160,38 +182,44 @@ return 0;
 }
 
 
-int decompose(Tree element,clock_t timestemp){
-    int n =absu(rand()+rand()-rand())%(nrEvent-add_counter);//random N
-n=absu(n);
-  int t =element.value;//random N
-float variable=0;
+int decompose(Tree element,double timestemp){
+    int n =1+ ((limit-add_counter-1) * (absu(rand()) / (double)RAND_MAX));
+  double t =element.value;//random N
+double variable=0;
+    double decom_t=0;
 
-
-  for(int i=1;i<n;i++){
-     variable =t+absu(increment(t));
+  for(int i=0;i<n;i++){
+     variable =t+increment(t);
     add(head,variable);
+      decom_t=decom_t+(insert_t);
   }
+//printf("%d\t%d\t%d\t",nrEvent,n,add_counter);
+        decom_t=decom_t/n;
+        rest_t=rest_t+decom_t;
+        enqueue_counter++;
+
 
 }
 
-int increment(int t){
+double increment(double t){
     int output=0;
+    double x=0.0;
+    double prob= (absu(rand()) / (double)RAND_MAX);
 
+    double avg=tail_record - (head->value);
+    x =((head->value) - t)+((avg)*prob);
 
-    float avg=tail_record - (head->value);
-    int x =(0)+(((head ->value)-t))*((double)rand() / (double)RAND_MAX );
-
-    int randomNr=x;
-    return absu(randomNr);
+    double randomNr=x;
+  return absu(randomNr);
 }
 
-Tree * creatHeap(Tree *heap,float value){
+Tree * creatHeap(Tree *heap,double value){
   Tree *out=creatNode(value);
   head=out;
   return out;
 }
 
-Tree * creatNode(float value){
+Tree * creatNode(double value){
   Tree *out=malloc(sizeof *out);
   out->parent=empty;
   out->left =empty;
@@ -200,8 +228,10 @@ Tree * creatNode(float value){
   out->self=&*out;
   return out;
 }
-
-int add(Tree *main, float item){
+int add(Tree *main, double item){
+    struct timespec  start,end;
+    clock_gettime(CLOCK_MONOTONIC,&start);
+    insert_t=0.0;
 
     if (item > tail_record){
         tail_record=item;
@@ -221,7 +251,10 @@ if(replacement>dynAvg){
 
 Tree *itemT=creatNode(item);
 merge(main, itemT);
+
 add_counter++;
+    clock_gettime(CLOCK_MONOTONIC,&end);
+    insert_t = (double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
  return 0;
 }
 
@@ -232,8 +265,7 @@ int merge(Tree *main, Tree *item){
 }
 
 int swap(Tree *tail){
-    struct timespec start,end;
-clock_gettime(CLOCK_REALTIME,&start);
+
 while((tail->parent) !=empty){//probelm infinity loop
 n_counter++;
   pCount++;
@@ -242,9 +274,7 @@ n_counter++;
   (tail->left) = (tail-> right);
   (tail ->right)=temp;
 }
-clock_gettime(CLOCK_REALTIME,&end);
-swap_t = swap_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-swap_counter++;
+
 //printf("# %d\n",pCount);
 pCount=0;
   return 0;
@@ -284,8 +314,7 @@ Tree * naiveMerge(Tree *main1, Tree *item){
   free(main);
   }
 container = head;
-    struct timespec  start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
+
   while(1){
   //rest
 //search
@@ -301,9 +330,7 @@ pCount++;
       //attach new tree
       (item->parent)=parent;
       (parent->right)=item;
-        clock_gettime(CLOCK_REALTIME,&end);
-        nav_t=nav_t+(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
-        nav_counter++;
+
       return parent->right; //return tail
     }else{
     container=(container->right);
@@ -326,8 +353,9 @@ pCount++;
 }
 
 Tree pop(Tree *main){
+    pop_t=0;
     struct timespec start,end;
-    clock_gettime(CLOCK_REALTIME,&start);
+ clock_gettime(CLOCK_MONOTONIC,&start);
 
   Tree *left=(head->left);
   Tree *right =(head->right);
@@ -352,12 +380,15 @@ if ((head -> right)!=empty){
 
   Tree target=*head;
     struct timespec exclude_start,exclude_end;
+
     uint64_t exclude=0;
-  if(leftFlag==1&&rightFlag==1){
-      clock_gettime(CLOCK_REALTIME,&exclude_start);
-  merge(left,right);
-      clock_gettime(CLOCK_REALTIME,&exclude_end);
-      exclude = (BILLION * (exclude_end.tv_sec - exclude_start.tv_sec) + exclude_end.tv_nsec - exclude_start.tv_nsec);
+    if(leftFlag==1&&rightFlag==1){
+        clock_gettime(CLOCK_MONOTONIC,&exclude_start);
+        merge(left,right);
+        clock_gettime(CLOCK_MONOTONIC,&exclude_end);
+         exclude = (BILLION * (exclude_end.tv_sec - exclude_start.tv_sec) + exclude_end.tv_nsec - exclude_start.tv_nsec);
+
+
   if(head->value==left->value){
     //free(left);
   }else if(head->value ==right->value){
@@ -371,15 +402,14 @@ if ((head -> right)!=empty){
   *head=*right;
   free(right);
 }
-    clock_gettime(CLOCK_REALTIME,&end);
-  pop_t=pop_t+((BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec));
-    pop_t=pop_t-exclude;
 
-    pop_counter++;
+clock_gettime(CLOCK_MONOTONIC,&end);
+    pop_t=((double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec));
 
+    dequeue_t=dequeue_t+pop_t;
+    dequeue_counter++;
 //reset flag
 leftFlag =0;
 rightFlag=0;
-
   return target;
 }

@@ -181,18 +181,37 @@ echo "3rd run"
 
 
 
-rm heap.png
-python3 findmaxmin.py
-gnuplot best/plot/heap_avg.p
-gnuplot best/plot/heap_logscale.p
-gnuplot best/plot/heap_derivative.p
+rm enqueue_avg.png
+rm dequeue_avg.png
+
+rm enqueue_logscale.png
+rm dequeue_logscale.png
+
+python3 best/findmaxmin.py
+
+gnuplot best/plot/enqueue_avg.p
+gnuplot best/plot/dequeue_avg.p
+
+gnuplot best/plot/enqueue_logscale.p
+gnuplot best/plot/dequeue_logscale.p
+
+rm best/enqueue_avg.png
+rm best/dequeue_avg.png
+
+rm best/enqueue_logscale.png
+rm best/dequeue_logscale.png
+
 echo "plot done!"
-mv heap.png  best/heap.png
-mv heap_logscale.png best/heap_logscale.png
-mv heap_derivative.png best/heap_derivative.png
+mv enqueue_avg.png best/enqueue_avg.png
+mv dequeue_avg.png best/dequeue_avg.png
+mv enqueue_logscale.png best/enqueue_logscale.png
+mv dequeue_logscale.png best/dequeue_logscale.png
 echo "open graph"
-display best/heap.png
-display best/heap_logscale.png
-display best/heap_derivative.png
+display best/enqueue_avg.png
+display best/dequeue_avg.png
+display best/enqueue_logscale.png
+display best/dequeue_logscale.png
 echo "not crashed!"
+
+
 
