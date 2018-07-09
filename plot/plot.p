@@ -9,14 +9,15 @@ set terminal png linewidth 1 size 1360,768  font verdana 24
 set style line 1 lc rgb "black" lw 1 pt 1
 set style line 2 lc rgb "red" lw 1 pt 1
 
-set title "The pefromence of using skew heap vs linked list as pirority queue"
+set title "The Theoretical data pattern for O(LOG N) AND O(N)"
 
 set key left top
 
-set xlabel "Element"
-set ylabel "Operation"
+set xlabel "Maximum Queue Size"
+set ylabel "Time cost (nanosecond)"
+set logscale x
 
-set xrange [1000:12000]
+set xrange [1000:10000]
 
 
 data1 = "<( paste plot/*/heap.dat )"

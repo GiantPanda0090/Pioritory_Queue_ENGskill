@@ -9,25 +9,17 @@ set terminal png linewidth 1 size 1360,768  font verdana 24
 set style line 1 lc rgb "black" lw 1 pt 1
 set style line 2 lc rgb "red" lw 1 pt 1
 
+set xrange[1000:10000]
+set yrange[0:20000]
+
 set title "The pefromence of using skew heap vs linked list as pirority queue"
 
-set key left top
+set key off
 
-set xlabel "Number of Application"
-set ylabel "Time cost"
-
-
-data1 = "<( paste plot/*/heap.dat )"
+set xlabel "Maximum Queue Size"
+set ylabel "Time cost (nanosecond)"
 
 
-f1(x)=a1*x+b1
-a1=1
-b1=1
-fit f1(x) data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0) via a1,b1
+plot 0 with lines
 
 
-
-stat data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0)
-
-
-plot data1 u 1:(($2+$4+$6+$8+$10+$12+$14+$16+$18)/9.0) w lp pt 6 ps 2 title "skew heap",f1(x) lc rgb "red" title "linefit for skew heap"

@@ -13,10 +13,10 @@ set title "The pefromence of using skew heap vs linked list as pirority queue"
 
 set key left top
 
-set xlabel "Number of Applications"
+set xlabel "Maximum Queue Size"
 set ylabel "Time cost (nanosecond)"
 
-set xrange[1000:20000]
+set xrange[1000:10000]
 
 
 

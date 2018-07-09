@@ -13,11 +13,11 @@ set title "The pefromence of using skew heap vs linked list as pirority queue"
 
 set key left top
 
-set xlabel "Number of Applications"
+set xlabel "Maximum Queue Size"
 set ylabel "Time cost (nanosecond)"
 
 
-set xrange[1000:20000]
+set xrange[1000:10000]
 
 
 data1 = "<( paste avg/plot/enqueue/heap_prob.dat avg/plot/enqueue/heap_mean.dat avg/plot/enqueue/heap_min.dat avg/plot/enqueue/heap_max.dat)"

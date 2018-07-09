@@ -10,6 +10,9 @@
 #include <assert.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include "print_ascii.h"
+
+
 
 
 //https://stackoverflow.com/questions/21788598/c-inserting-into-linked-list-in-ascending-order
@@ -351,7 +354,9 @@ int num;
 
     n_max =atoi(argv[1]);//nrEvent
     debug=atoi(argv[2]); //debug
-int seed=atoi(argv[3]);
+    int nr=atoi(argv[3]);
+
+    int seed=generate_prime(nr);
     int r =0;
     struct timespec time;
     double timestemp;

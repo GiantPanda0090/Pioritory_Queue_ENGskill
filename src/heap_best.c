@@ -73,7 +73,9 @@ if(argc != 4) {
 
   nrEvent =atoi(argv[1]);
 debug=atoi(argv[2]);
-int seed=atoi(argv[3]);
+    int nr=atoi(argv[3]);
+
+    int seed=generate_prime(nr);
   int counter=0;
   dynAvg=0;
   chance=0;

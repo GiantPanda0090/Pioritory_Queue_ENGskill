@@ -73,13 +73,15 @@ if(argc != 4) {
 
   nrEvent =atoi(argv[1]);
 debug=atoi(argv[2]);
-int seed=atoi(argv[3]);
+    int nr=atoi(argv[3]);
+
+    int seed=generate_prime(nr);
   int counter=0;
   dynAvg=0;
   chance=0;
   pCount=0;
    srand(seed);
-  int current =1+((absu(rand())/(double) RAND_MAX)*(nrEvent));//random N
+  int current =nrEvent;
 
 
 
@@ -90,27 +92,37 @@ float dataList[3];
 
 
   //add
-    double timestemp;
+    clock_t timestemp;
 
-  Tree *heap=creatHeap(heap,timestemp);
+  Tree *heap=creatHeap(heap,current-1);
+    add(heap,nrEvent);
 
-    double previous_timestemp=0.0;
+
+    clock_t previous_timestemp=0.0;
     struct timespec time;
     limit=nrEvent+current;
 
 
 
     init_t=0.0;
-  for (int i =0;i<current;i++){
-      clock_gettime(CLOCK_MONOTONIC,&time);
-      timestemp=(double)(BILLION * (time.tv_sec)+ time.tv_nsec);
-      timestemp =timestemp+((timestemp-previous_timestemp)*(rand()/(double) RAND_MAX));
+  for (int i =current-2;i>0;i--){
+    add(heap,i);
+    //printf("%d\t",i);
+      if (debug==2){
+          print_ascii_tree(heap);
 
-    add(heap,timestemp);
-    init_t=init_t+(insert_t);
+      }
+      add(heap,nrEvent);
+      if (debug==2){
+          print_ascii_tree(heap);
+
+      }
+
+      //printf("%d\n",nrEvent);
+
+      init_t=init_t+(insert_t);
       previous_timestemp=timestemp;
   }
-    enqueue_t=enqueue_t+(init_t/current);
 
 
   //debug 
@@ -122,8 +134,14 @@ print_ascii_tree(heap);
   printf("#head is %f\n",head->value);
   debug(head);
   */
+  double worst_timer=0.0;
+  add(head,nrEvent+1);
+    worst_timer=worst_timer+(insert_t);
+    enqueue_t=worst_timer;
+    add_counter=limit;
+
 //pop
-  while((heap->left)!=empty&&(heap -> right)!=empty){
+  while(0){
     Tree element=pop(heap);
     /*
     printf("\n#After pop: \n");
@@ -157,7 +175,7 @@ printf("\n");
 }
    
    }
-    enqueue_t=(rest_t/enqueue_counter);
+
 
 
 
@@ -191,13 +209,13 @@ double findright(){
 
 
 int decompose(Tree element,double timestemp){
-    int n =1+ ((limit-add_counter-1) * (absu(rand()) / (double)RAND_MAX));
+    int n =1+ ((limit-add_counter) * (absu(rand()) / (double)RAND_MAX));
   double t =element.value;//random N
 double variable=0;
     double decom_t=0;
 
   for(int i=0;i<n;i++){
-      variable =findright()+increment(t);
+      variable =t+increment(t);
     add(head,variable);
       decom_t=decom_t+(insert_t);
   }
@@ -207,18 +225,18 @@ double variable=0;
         enqueue_counter++;
 }
 
+
 double increment(double t){
     int output=0;
     double x=0.0;
     double prob= (absu(rand()) / (double)RAND_MAX);
 
-    double avg=tail_record - (head->value);
-    x =((head->value) - t)+((avg)*prob);
+    double avg=tail_record - t;
+    x =(findright() - t)+((absu(avg)*prob));
 
     double randomNr=x;
-  return absu(randomNr);
+    return absu(randomNr);
 }
-
 
 Tree * creatHeap(Tree *heap,double value){
   Tree *out=creatNode(value);
@@ -410,7 +428,7 @@ if ((head -> right)!=empty){
   free(right);
 }
 
-clock_gettime(CLOCK_MONOTONIC,&end);
+ clock_gettime(CLOCK_MONOTONIC,&end);
     pop_t=((double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec));
 
     dequeue_t=dequeue_t+pop_t;

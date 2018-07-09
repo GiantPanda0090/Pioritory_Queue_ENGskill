@@ -17,7 +17,7 @@ set xlabel "Number of Applications"
 set ylabel "Time cost (nanosecond)"
 
 
-set xrange[1000:20000]
+set xrange[1000:10000]
 
 
 data1 = "<( paste worst/plot/enqueue/heap_prob.dat worst/plot/enqueue/heap_mean.dat worst/plot/enqueue/heap_min.dat worst/plot/enqueue/heap_max.dat)"

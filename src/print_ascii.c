@@ -262,7 +262,7 @@ void compute_rprofile(asciinode *node, int x, int y)
   int i, notleft;
   if (node == NULL) return;
   notleft = (node->parent_dir != -1);
-  rprofile[y] = MAX(rprofile[y], x+((node->lablen-notleft)/2));
+  rprofile[y] = MAX(rprofile[y], (float)x+((node->lablen-notleft)/2));
   if (node->right != NULL) 
   {
 	  for (i=1; i <= node->edge_length && y+i < MAX_HEIGHT; i++) 

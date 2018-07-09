@@ -73,7 +73,9 @@ if(argc != 4) {
 
   nrEvent =atoi(argv[1]);
 debug=atoi(argv[2]);
-int seed=atoi(argv[3]);
+int nr=atoi(argv[3]);
+    int seed=generate_prime(nr);
+
   int counter=0;
   dynAvg=0;
   chance=0;
@@ -104,7 +106,8 @@ float dataList[3];
   for (int i =0;i<current;i++){
       clock_gettime(CLOCK_MONOTONIC,&time);
       timestemp=(double)(BILLION * (time.tv_sec)+ time.tv_nsec);
-      timestemp =timestemp+((timestemp-previous_timestemp)*(rand()/(double) RAND_MAX));
+      timestemp =timestemp+((timestemp-previous_timestemp)*(absu(rand())/(double) RAND_MAX));
+
 
     add(heap,timestemp);
     init_t=init_t+(insert_t);
@@ -183,7 +186,7 @@ return 0;
 
 
 int decompose(Tree element,double timestemp){
-    int n =1+ ((limit-add_counter-1) * (absu(rand()) / (double)RAND_MAX));
+    int n =1+ ((limit-add_counter) * (absu(rand()) / (double)RAND_MAX));
   double t =element.value;//random N
 double variable=0;
     double decom_t=0;
@@ -204,10 +207,10 @@ double variable=0;
 double increment(double t){
     int output=0;
     double x=0.0;
-    double prob= (absu(rand()) / (double)RAND_MAX);
-
-    double avg=tail_record - (head->value);
-    x =((head->value) - t)+((avg)*prob);
+    double prob= (rand() / (double)RAND_MAX);
+    //printf("%lf\n",prob);
+    double avg=tail_record - t;
+    x =(0.0)+(absu(avg)*prob);
 
     double randomNr=x;
   return absu(randomNr);

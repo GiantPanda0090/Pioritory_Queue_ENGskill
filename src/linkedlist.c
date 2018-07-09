@@ -10,6 +10,8 @@
 #include <assert.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include "print_ascii.h"
+
 
 
 //https://stackoverflow.com/questions/21788598/c-inserting-into-linked-list-in-ascending-order
@@ -50,6 +52,8 @@ node* insert(node* head, double num) {
     struct timespec start,end,exclude_start,exclude_end;
     double exclude=0.0;
     double avg=0.0;
+
+
     char head_tail;
     counter++;
     int half_queue_size=0;
@@ -99,17 +103,25 @@ head->tail=temp;//update tail
     node *p2=head;
     node *p1=head;
     half_queue_size=0;
+    max_Q=0;
 
     while(p2 != NULL && p2 ->ptr != NULL){
         p2=p2->ptr->ptr;
         p1=p1->ptr;
         half_queue_size++;
     }
-    max_Q=half_queue_size*2;
+
+    p2=head;
+    while(p2 != NULL && p2 ->ptr != NULL){
+        p2=p2->ptr;
+        max_Q++;
+    }
+
+
      avg=p1->data;
 
     clock_gettime(CLOCK_MONOTONIC,&exclude_end);
-    exclude=(double)(BILLION * (exclude_end.tv_sec - exclude_start.tv_sec) + exclude_end.tv_nsec - exclude_start.tv_nsec);
+    exclude=(double)(BILLION * (exclude_end.tv_sec - exclude_start.tv_sec) + (exclude_end.tv_nsec - exclude_start.tv_nsec));
 
     if (num>=avg){//tail
         head_tail='T';
@@ -118,9 +130,7 @@ node *container=head->tail;
 //search
 
 while(temp->data<container->data){
-n_counter++;
 container=container->ptr_p;
-search_counter++;
     search_perround++;
 }
 
@@ -144,9 +154,7 @@ node *container=head;
 //search
 
 while(temp->data>container->data){
-n_counter++;
 container=container->ptr;
-search_counter++;
     search_perround++;
 }
 
@@ -172,10 +180,11 @@ container->ptr_p=temp;
 }
     }
     clock_gettime(CLOCK_MONOTONIC,&end);
-    insert_t=(double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
+    insert_t=(double)(BILLION * (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec));
     insert_t=insert_t-exclude;
-
-    //printf("%lf\t%d\t%lf\t%lf\t%d\t%c\n",insert_t,search_perround,num,avg,max_Q,head_tail);
+    if(search_perround!=0 && debug ==2) {
+        printf("%lf\t%d\t%lf\t%lf\t%d\t%d\n", insert_t, search_perround, num, avg, max_Q, limit);
+    }
     //printf("%lf\n",insert_t);
     insert_counter++;
     return head;
@@ -223,7 +232,7 @@ if(head->tail==NULL){
 node out = *head;
 
     clock_gettime(CLOCK_MONOTONIC,&end);
-    pop_t=(double)(BILLION * (end.tv_sec - start.tv_sec) + end.tv_nsec - start.tv_nsec);
+    pop_t=(double)(BILLION * (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec));
     pop_counter++;
 
     dequeue_t=dequeue_t+pop_t;
@@ -358,8 +367,6 @@ return 1;
 
 
 
-
-
 //main
 int main(int argc, char *argv[]){
   if(argc != 4) {
@@ -370,7 +377,8 @@ int num;
 
     n_max =atoi(argv[1]);//nrEvent
     debug=atoi(argv[2]); //debug
-int seed=atoi(argv[3]);
+    int nr=atoi(argv[3]);
+    int seed=generate_prime(nr);
     int r =0;
     struct timespec time;
     double timestemp;
@@ -384,7 +392,7 @@ int seed=atoi(argv[3]);
     double previous_timestemp=0.0;
 
     double init_t=0;
-    limit =n_max +n;
+    limit =n_max;
     //add
     for(int i=0;i<n;i++) {
         clock_gettime(CLOCK_MONOTONIC,&time);
@@ -407,7 +415,7 @@ return 0;
 
     //printf("%d\t%d\n",n_max,limit-counter);
 
-enqueue_t=enqueue_t+(init_t/n);
+//enqueue_t=enqueue_t+(init_t/n);
 
     p = head;
 

@@ -5,10 +5,13 @@ typedef struct Trees{
   struct Trees *parent;
   struct Trees *left;
   struct Trees *right;
-  double value;
+  float value;
   struct Trees *self;
 }Tree;
 
 void print_ascii_tree(Tree * t) ;  /* An example function declaration */
+
+int generate_prime(int n);
+
 
 #endif // PRINT_ASCII_H
