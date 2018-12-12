@@ -16,11 +16,11 @@ def minmax():
     os.remove('avg/columns.txt')
 
     command_list=[]
-    command_list.append(('paste avg/plot/*/heap.dat > avg/columns.txt','avg/plot/enqueue/heap_min.dat','avg/plot/enqueue/heap_max.dat','avg/plot/enqueue/heap_mean.dat','avg/plot/enqueue/heap_prob.dat'))
-    command_list.append(('paste avg/plot/*/linkedlist.dat > avg/columns.txt','avg/plot/enqueue/list_min.dat','avg/plot/enqueue/list_max.dat','avg/plot/enqueue/linkedlist_mean.dat','avg/plot/enqueue/linkedlist_prob.dat'))
+    command_list.append(('paste avg/plot/*/heap.dat > avg/columns.txt','avg/plot/enqueue/heap_max.dat','avg/plot/enqueue/heap_min.dat','avg/plot/enqueue/heap_mean.dat','avg/plot/enqueue/heap_prob.dat'))
+    command_list.append(('paste avg/plot/*/linkedlist.dat > avg/columns.txt','avg/plot/enqueue/list_max.dat','avg/plot/enqueue/list_min.dat','avg/plot/enqueue/linkedlist_mean.dat','avg/plot/enqueue/linkedlist_prob.dat'))
 
-    command_list.append(('paste avg/plot/*/heap.dat > avg/columns.txt','avg/plot/dequeue/heap_min.dat','avg/plot/dequeue/heap_max.dat','avg/plot/dequeue/heap_mean.dat','avg/plot/dequeue/heap_prob.dat'))
-    command_list.append(('paste avg/plot/*/linkedlist.dat > avg/columns.txt','avg/plot/dequeue/list_min.dat','avg/plot/dequeue/list_max.dat','avg/plot/dequeue/linkedlist_mean.dat','avg/plot/dequeue/linkedlist_prob.dat'))
+    command_list.append(('paste avg/plot/*/heap.dat > avg/columns.txt','avg/plot/dequeue/heap_max.dat','avg/plot/dequeue/heap_min.dat','avg/plot/dequeue/heap_mean.dat','avg/plot/dequeue/heap_prob.dat'))
+    command_list.append(('paste avg/plot/*/linkedlist.dat > avg/columns.txt','avg/plot/dequeue/list_max.dat','avg/plot/dequeue/list_min.dat','avg/plot/dequeue/linkedlist_mean.dat','avg/plot/dequeue/linkedlist_prob.dat'))
 
     counter =0;
     i=1
@@ -92,7 +92,7 @@ def mean_confidence_interval(data, confidence=0.95):
     a = 1.0*np.array(data)
     n = len(a)
     m, se = np.mean(a), scipy.stats.sem(a)
-    h = se * sp.stats.t._ppf((1+confidence)/2., n-1)
+    h = se * sp.stats.t._ppf((1-confidence)/2., n-1)
     return m, m-h, m+h
 
 

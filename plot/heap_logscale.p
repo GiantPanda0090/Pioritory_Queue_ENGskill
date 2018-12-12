@@ -20,20 +20,17 @@ set logscale xy
 MAXCOL=20
 
 
-set xrange[500:20000]
-
-
 data1 = "<( paste plot/*/heap.dat )"
 data2 = "<( paste plot/*/linkedlist.dat )"
 
 f1(x)=a1*x+b1
 a1=1
 b1=1
-fit f1(x) data1 u 1:(sum [col=1:MAXCOL] column(col*2))/(MAXCOL) via a1,b1
+fit f1(x) data1 u 1:((sum [col=1:MAXCOL] column(col*2))/(MAXCOL)) via a1,b1
 
 f2(x)=a2*x+b2
 a2=1
 b2=1
-fit f2(x) data2 u 1:(sum [col=1:MAXCOL] column(col*2))/(MAXCOL) via a2,b2
+fit f2(x) data2 u 1:((sum [col=1:MAXCOL] column(col*2))/(MAXCOL)) via a2,b2
 
-plot data1 u 1:(sum [col=1:MAXCOL] column(col*2))/(MAXCOL) w lp pt 6 ps 2 title "skew heap",data2 u 1:(sum [col=1:MAXCOL] column(col*2))/(MAXCOL) w lp pt 6 ps 2 title "linked list"
+plot data1 u 1:((sum [col=1:MAXCOL] column(col*2))/(MAXCOL))) w lp pt 6 ps 2 title "skew heap",data2 u 1:((sum [col=1:MAXCOL] column(col*2))/(MAXCOL)) w lp pt 6 ps 2 title "linked list"

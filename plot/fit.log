@@ -4834,3 +4834,12 @@ FIT:    data read from data1 u 1:(sum [col=2:MAXCOL] column(col))/(MAXCOL-1)
         format = x:z
         x range restricted to [1000.00 : 12000.0]
 BREAK: No data to fit
+
+*******************************************************************************
+Sat Sep  8 15:40:53 2018
+
+
+FIT:    data read from data2 u 1:2
+        format = x:z
+        x range restricted to [1000.00 : 10000.0]
+BREAK: No data to fit

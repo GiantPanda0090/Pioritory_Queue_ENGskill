@@ -7,11 +7,11 @@ def minmax():
     # preperation
 
     command_list=[]
-    command_list.append(('paste best/plot/*/heap.dat > best/columns.txt','best/plot/enqueue/heap_min.dat','best/plot/enqueue/heap_max.dat','best/plot/enqueue/heap_mean.dat','best/plot/enqueue/heap_prob.dat'))
-    command_list.append(('paste best/plot/*/linkedlist.dat > best/columns.txt','best/plot/enqueue/list_min.dat','best/plot/enqueue/list_max.dat','best/plot/enqueue/linkedlist_mean.dat','best/plot/enqueue/linkedlist_prob.dat'))
+    command_list.append(('paste best/plot/*/heap.dat > best/columns.txt','best/plot/enqueue/heap_max.dat','best/plot/enqueue/heap_min.dat','best/plot/enqueue/heap_mean.dat','best/plot/enqueue/heap_prob.dat'))
+    command_list.append(('paste best/plot/*/linkedlist.dat > best/columns.txt','best/plot/enqueue/list_max.dat','best/plot/enqueue/list_min.dat','best/plot/enqueue/linkedlist_mean.dat','best/plot/enqueue/linkedlist_prob.dat'))
 
-    command_list.append(('paste best/plot/*/heap.dat > best/columns.txt','best/plot/dequeue/heap_min.dat','best/plot/dequeue/heap_max.dat','best/plot/dequeue/heap_mean.dat','best/plot/dequeue/heap_prob.dat'))
-    command_list.append(('paste best/plot/*/linkedlist.dat > best/columns.txt','best/plot/dequeue/list_min.dat','best/plot/dequeue/list_max.dat','best/plot/dequeue/linkedlist_mean.dat','best/plot/dequeue/linkedlist_prob.dat'))
+    command_list.append(('paste best/plot/*/heap.dat > best/columns.txt','best/plot/dequeue/heap_max.dat','best/plot/dequeue/heap_min.dat','best/plot/dequeue/heap_mean.dat','best/plot/dequeue/heap_prob.dat'))
+    command_list.append(('paste best/plot/*/linkedlist.dat > best/columns.txt','best/plot/dequeue/list_max.dat','best/plot/dequeue/list_min.dat','best/plot/dequeue/linkedlist_mean.dat','best/plot/dequeue/linkedlist_prob.dat'))
 
     counter =0;
     i=1

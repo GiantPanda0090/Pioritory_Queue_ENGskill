@@ -16,7 +16,6 @@ set key left top
 set xlabel "Maximum Queue Size"
 set ylabel "Time cost (nanosecond)"
 
-set xrange[1000:10000]
 
 
 
@@ -28,20 +27,20 @@ data2 = "<( paste avg/plot/dequeue/linkedlist_prob.dat avg/plot/dequeue/linkedli
 f1(x)=a1*x+b1
 a1=1
 b1=1
-fit f1(x) data1 u 1:2 via a1,b1
+fit f1(x) data1 u 1:(column(2)) via a1,b1
 
 
 
 
 
 
-stat data1 u 1:2
-stat data2 u 1:2
+stat data1 u 1:(column(2))
+stat data2 u 1:(column(2))
 
 
 
 
 
-plot data1 u 1:3:4 with filledcurves title '95% confidence for skew heap', \
-     '' using 1:2 with lp  pt 6 ps 2 lw 1 title 'skew heap',data2 u 1:3:4 with filledcurves title '95% confidence for linked list', \
-     '' using 1:2 with lp  pt 6 ps 2 lw 1 title 'linked list',f1(x) lc rgb "red" title "linefit for skew heap"
+plot data1 u 1:(column(3)):(column(4)) with filledcurves title '95% confidence for skew heap', \
+     '' using 1:(column(2)) with lp  pt 6 ps 2 lw 1 title 'skew heap',data2 u 1:(column(3)):(column(4)) with filledcurves title '95% confidence for linked list', \
+     '' using 1:(column(2)) with lp  pt 6 ps 2 lw 1 title 'linked list',f1(x) lc rgb "red" title "linefit for skew heap"

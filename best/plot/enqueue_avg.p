@@ -28,23 +28,23 @@ data2 = "<( paste best/plot/enqueue/linkedlist_prob.dat best/plot/enqueue/linked
 f1(x)=a1*x+b1
 a1=1
 b1=1
-fit f1(x) data1 u 1:2 via a1,b1
+fit f1(x) data1 u 1:(column(2)) via a1,b1
 
 f2(x)=a2*x+b2
 a2=1
 b2=1
-fit f2(x) data2 u 1:2 via a2,b2
+fit f2(x) data2 u 1:(column(2)) via a2,b2
 
 
 
 
-stat data1 u 1:2
-stat data2 u 1:2
+stat data1 u 1:(column(2))
+stat data2 u 1:(column(2))
 
 
 
 
 
-plot data1 u 1:3:4 with filledcurves title '95% confidence for skew heap', \
-     '' using 1:2 with lp  pt 6 ps 2 lw 1 title 'skew heap',data2 u 1:3:4 with filledcurves title '95% confidence for linked list', \
-     '' using 1:2 with lp  pt 6 ps 2 lw 1 title 'linked list',f2(x) lc rgb "red" title "linefit for linkedlist",f1(x) lc rgb "red" title "linefit for skew heap"
+plot data1 u 1:(column(3)):(column(4)) with filledcurves title '95% confidence for skew heap', \
+     '' using 1:(column(2)) with lp  pt 6 ps 2 lw 1 title 'skew heap',data2 u 1:(column(3)):(column(4)) with filledcurves title '95% confidence for linked list', \
+     '' using 1:(column(2)) with lp  pt 6 ps 2 lw 1 title 'linked list',f2(x) lc rgb "red" title "linefit for linkedlist",f1(x) lc rgb "red" title "linefit for skew heap"

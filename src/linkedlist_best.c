@@ -354,9 +354,9 @@ int num;
 
     n_max =atoi(argv[1]);//nrEvent
     debug=atoi(argv[2]); //debug
-    int nr=atoi(argv[3]);
-
-    int seed=generate_prime(nr);
+   // int nr=atoi(argv[3]);
+    //int seed=generate_prime(nr);
+    int seed=atoi(argv[3]);
     int r =0;
     struct timespec time;
     double timestemp;

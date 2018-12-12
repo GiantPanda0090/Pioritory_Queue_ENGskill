@@ -18,20 +18,17 @@ set ylabel "Time cost (nanosecond)"
 set logscale x
 
 
-
-set xrange[500:20000]
-
 data1 = "<( paste best/plot/enqueue/heap_prob.dat best/plot/enqueue/heap_mean.dat best/plot/enqueue/heap_min.dat best/plot/enqueue/heap_max.dat)"
 data2 = "<( paste best/plot/enqueue/linkedlist_prob.dat best/plot/enqueue/linkedlist_mean.dat best/plot/enqueue/list_min.dat best/plot/enqueue/list_max.dat)"
 
 f1(x)=a1*x+b1
 a1=1
 b1=1
-fit f1(x) data1 u 1:2 via a1,b1
+fit f1(x) data1 u 1:(column(2)) via a1,b1
 
 f2(x)=a2*x+b2
 a2=1
 b2=1
-fit f2(x) data2 u 1:2 via a2,b2
+fit f2(x) data2 u 1:(column(2)) via a2,b2
 
-plot data1 u 1:2 w lp pt 6 ps 2 title "skew heap",data2 u 1:2 w lp pt 6 ps 2 title "linked list"
+plot data1 u 1:(column(2)) w lp pt 6 ps 2 title "skew heap",data2 u 1:(column(2)) w lp pt 6 ps 2 title "linked list"
